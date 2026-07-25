@@ -1,114 +1,63 @@
-# DSM SF-PBL Frontiers Manuscript — Package README
-## Status: FINAL | All statistics audited & verified | 2026-07-25
+# A Computationally-Integrated SF-PBL Framework for Engineering Dynamics
+
+**Status:** Supplementary Data and Code Repository for Frontiers in Education Submission
+
+This repository contains the empirical datasets, analysis scripts, pedagogical instruments, and LaTeX source files supporting the research article: 
+*"A Computationally-Integrated Simulation-Focused Problem-Based Learning Framework for Engineering Dynamics: Design, Implementation, and Mixed-Methods Evaluation in an OBE-Aligned Undergraduate Course"*
+
+**Authors:** Sunny Nanade, Debasis Dash, Sudipto Sarkar, Koteswararao Anne
+**Affiliation:** Mukesh Patel School of Technology Management & Engineering, SVKM's NMIMS, Mumbai, India
 
 ---
 
-## Files in This Package
+## 1. Repository Structure
 
-| File | Purpose |
-|------|---------|
-| `DSM_Frontiers_Manuscript_Standalone.tex` | **USE THIS** — compiles immediately with standard LaTeX |
-| `DSM_Frontiers_Manuscript.tex` | Frontiers-class version — needs `frontiersSCNS.cls` from Frontiers |
-| `DSM_references.bib` | Complete bibliography (16 references, all verified) |
-| `compile.ps1` | PowerShell compile script (Windows) |
+The repository is organized to support full transparency and reproducibility of the research findings.
 
----
+### `/data`
+Contains the anonymized survey and evaluation data for the 53 participating students.
+- `DSM_Survey_PreSurvey_Anonymized.csv`: Baseline conceptual knowledge and self-efficacy data.
+- `DSM_Survey_PostSurvey_Anonymized.csv`: Post-intervention knowledge, self-efficacy, and PBL satisfaction data.
+- `DSM_Survey_Raw_PrePost_Anonymized.csv`: The combined, paired dataset used for all statistical analyses.
+- `Evaluation_Rubric_Sheets_Anonymized.xlsx`: The raw evaluation scores provided by six external industry and academic judges across 17 student project teams.
 
-## How to Compile (Option A — Standalone, Recommended)
+### `/scripts`
+Python scripts required to reproduce the statistical findings presented in the manuscript.
+- `deep_audit.py`: Computes paired t-tests, Cohen's d (pooled SD), and Hake's normalized gain.
+- `recompute_rubric.py`: Aggregates the external judge evaluation rubric scores and verifies judge consistency.
+- `final_review.py`: A holistic validation script ensuring alignment between datasets.
 
-### Prerequisites
-Install **MiKTeX** (Windows): https://miktex.org/download
-Or **TeX Live**: https://tug.org/texlive/
+### `/instruments_and_rubrics`
+Original pedagogical documents and assessment tools utilized during the 15-week course implementation.
+- `DSM_PrePost_Survey_Instrument.docx`: The complete 30-item survey instrument.
+- `DSM_Evaluator_Rubric_Kit.docx`: The 5-dimension scoring rubric provided to the expert panel.
+- `DSM_SF_PBL_Framework_Guide.docx`: The student project manual and timeline.
+- `DSM_Presentation_Template.pptx`: The standardized presentation structure used by student teams during the exhibition.
 
-### Steps
-1. Open PowerShell in this folder:
-   ```
-   cd D:\Sunny\Paper\DSM_Exhibition_Framework\DSM_Frontiers_Final
-   ```
-2. Run the compile script:
-   ```powershell
-   .\compile.ps1
-   ```
-   The PDF will open automatically on success.
+### `/latex_manuscript`
+The complete LaTeX source code for the manuscript, formatted according to the Frontiers journal guidelines.
+- `DSM_Frontiers_Manuscript.tex`: The main manuscript file.
+- `DSM_references.bib`: The bibliography database.
+- `fig1_sfpbl_pipeline.jpg` through `fig4_qualitative_themes.jpg`: High-resolution figures.
 
-### Manual compile (if script fails)
-```bash
-pdflatex DSM_Frontiers_Manuscript_Standalone.tex
-bibtex   DSM_Frontiers_Manuscript_Standalone
-pdflatex DSM_Frontiers_Manuscript_Standalone.tex
-pdflatex DSM_Frontiers_Manuscript_Standalone.tex
-```
+### `/media_and_exhibition`
+Documentation of the public Mini Project Exhibition held on 25 April 2026.
+- `MEDIA_AND_VIDEO_LINKS.md`: Provides links to the live social media documentation and selected student project demonstration videos.
 
 ---
 
-## How to Compile (Option B — Official Frontiers Template)
+## 2. Data Privacy and Ethics
 
-1. Download the official Frontiers LaTeX template from:
-   https://www.frontiersin.org/guidelines/author-guidelines
-   (Section: "LaTeX submissions")
-2. Extract `frontiersSCNS.cls` and `frontiersinHLTH.bst` into this folder
-3. Use `DSM_Frontiers_Manuscript.tex` + same `DSM_references.bib`
-4. Same 4-pass compile as above
+In accordance with institutional research ethics and data privacy guidelines, all student-identifying information (such as names and contact details) has been removed from the public datasets. Student records are identified strictly by anonymized Roll Numbers (e.g., H079). The datasets retain 100% of the empirical scores, ratings, and qualitative responses required to replicate the statistical analyses.
 
----
+## 3. Reproducibility
 
-## Key Verified Statistics (do NOT change these)
+To replicate the statistical analyses:
+1. Ensure Python 3.10+ is installed.
+2. Install the required libraries: `pip install pandas scipy numpy openpyxl`
+3. Execute the audit scripts located in the root directory or the `/scripts` directory (depending on your local clone structure).
+   For example: `python deep_audit.py`
 
-| Metric | Value | Source |
-|--------|-------|--------|
-| Self-Efficacy Pre M (SD) | 2.92 (0.21) | ✅ CSV verified |
-| Self-Efficacy Post M (SD) | 3.80 (0.40) | ✅ CSV verified |
-| SE Cohen's d | 2.72 (pooled SD) | ✅ CSV verified |
-| SE t(52) | 13.91, p < .001 | ✅ CSV verified |
-| PK Pre M (SD) | 1.96 (0.94) | ✅ CSV verified |
-| PK Post M (SD) | 3.28 (1.25) | ✅ CSV verified |
-| PK Cohen's d | 1.20 | ✅ CSV verified |
-| Hake's g | 0.50 (medium) | ✅ CSV verified |
-| PBL Total M (SD) | 3.74 (0.30) | ✅ CSV verified |
-| Exhibition M (SD) | 82.62 (9.98) | ✅ Excel verified |
-| Exhibition Range | 53–96 | ✅ Excel verified |
-| Exhibition N | 53 (1 absent excluded) | ✅ Excel verified |
-| AI users | 45/53 = 84.9% | ✅ CSV verified |
-| Course dates | 2 Jan – 25 Apr 2026 | ✅ Confirmed |
-| Exhibition date | 25 April 2026 | ✅ Photos + judge sheets |
-| Keywords | 8 | ✅ Frontiers limit |
-| Abstract words | 247 | ✅ Under 250 limit |
+## 4. License
 
----
-
-## Submission Checklist (Frontiers in Education)
-
-- [x] Abstract ≤ 250 words (current: 247)
-- [x] Keywords: 3–8 (current: 8)
-- [x] All statistics independently verified from raw data
-- [x] Cohen's d formula explicitly stated (pooled SD)
-- [x] Hake's g classification correct (medium, bands defined)
-- [x] Exhibition date confirmed (25 April 2026)
-- [x] N enrolled vs N consenting clarified (55 / 53)
-- [x] Table footnote for absent student
-- [x] Ethics statement present
-- [x] Data availability statement present
-- [x] Author contributions present
-- [x] Conflict of interest statement present
-- [x] ORCID: 0000-0001-7098-1084
-- [ ] Upload to Frontiers submission portal
-- [ ] Select section: STEM Education
-- [ ] Confirm article type: Original Research
-- [ ] Upload supplementary data files if required
-
----
-
-## Source Data Files
-
-| File | Location |
-|------|----------|
-| Pre-survey raw | `D:\Sunny\Paper\DSM_Exhibition_Framework\DSM_Survey_PreSurvey.csv` |
-| Post-survey raw | `D:\Sunny\Paper\DSM_Exhibition_Framework\DSM_Survey_PostSurvey.csv` |
-| Combined dataset | `D:\Sunny\Paper\DSM_Exhibition_Framework\DSM_Survey_Raw_PrePost.csv` |
-| Exhibition rubric | `D:\Sunny\Paper\DSM_Exhibition_Framework\DSM_Exhibition_2026\Evaluation_Rubric_Sheets.xlsx` |
-| Audit scripts | `deep_audit.py`, `recompute_rubric.py`, `final_review.py` |
-
----
-
-*All corrections applied 2026-07-25 by Antigravity audit.*
-*For questions: sunny.nanade@nmims.edu*
+This repository is licensed under the MIT License. Researchers and educators are encouraged to use, adapt, and build upon the Simulation-Focused Problem-Based Learning (SF-PBL) framework, provided appropriate attribution is given to the original authors.
