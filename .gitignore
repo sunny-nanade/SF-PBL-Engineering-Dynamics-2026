@@ -1,0 +1,20 @@
+# TeX/LaTeX auxiliary files
+*.aux
+*.log
+*.bbl
+*.blg
+*.out
+*.toc
+*.lot
+*.lof
+*.fls
+*.fdb_latexmk
+*-eps-converted-to.pdf
+
+# Python temporary files
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.idea/
+.vscode/

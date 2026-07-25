@@ -1,0 +1,952 @@
+% ============================================================
+%  DSM SF-PBL — STANDALONE COMPILE VERSION
+%  Uses standard LaTeX article class — compiles immediately
+%  without needing frontiersSCNS.cls
+%
+%  For final submission: copy content into official Frontiers
+%  Word/LaTeX template from:
+%  https://www.frontiersin.org/guidelines/author-guidelines
+% ============================================================
+
+\documentclass[12pt, a4paper]{article}
+
+% ── Packages ─────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{microtype}
+\usepackage{natbib}
+\usepackage{lineno}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{lmodern}
+\usepackage{authblk}
+
+\captionsetup{font=small, labelfont=bf}
+\doublespacing
+\linenumbers
+
+% ── Title block ──────────────────────────────────────────────
+\title{\textbf{A Computationally-Integrated SF-PBL Framework for
+Engineering Dynamics: Design, Implementation, and Mixed-Methods
+Evaluation in an OBE-Aligned Undergraduate Course}}
+
+\author[1*]{Sunny Nanade}
+\author[1]{Debasis Dash}
+\author[1]{Sudipto Sarkar}
+\author[1]{Koteswararao Anne}
+
+\affil[1]{Mukesh Patel School of Technology Management \& Engineering, SVKM's NMIMS, Mumbai, India}
+
+\affil[*]{Corresponding author: \href{mailto:sunny.nanade@nmims.edu}{sunny.nanade@nmims.edu} | ORCID: 0000-0001-7098-1084}
+
+\date{Submitted to: \textit{Frontiers in Education} ---
+STEM Education Section \\ \today}
+
+% ─────────────────────────────────────────────────────────────
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+% ── Running head ─────────────────────────────────────────────
+\begin{center}
+  \small\textit{Target Journal: Frontiers in Education |
+  Article Type: Original Research | Word count (abstract): 247}
+\end{center}
+
+\vspace{1em}
+
+% ============================================================
+%  ABSTRACT
+% ============================================================
+\begin{abstract}
+\noindent
+Engineering dynamics courses demand simultaneous development of
+mathematical modelling, computational implementation, and
+communication competencies, yet conventional instruction rarely
+provides authentic contexts for their integration. This study
+presents the design, implementation, and mixed-methods evaluation
+of a Simulation-Focused Problem-Based Learning (SF-PBL) framework
+embedded within a 15-week undergraduate Dynamic System Modeling
+(DSM) course ($N$\,=\,53, B.Tech Mechatronics Engineering, Semester
+IV, January--April 2026) at an NBA-accredited institution. The
+framework operationalises a four-phase pipeline --- System
+Identification, Mathematical Modelling, Computational Simulation,
+Validation \& Communication --- scaffolded through an
+Explain-Try-Challenge model and assessed via a six-judge expert
+panel. A pre--post mixed-methods design measured self-efficacy
+(10-item Likert scale), conceptual knowledge (5-item MCQ), PBL
+satisfaction, AI tool usage, and qualitative reflections.
+Self-efficacy improved significantly (pre: $M$\,=\,2.92,
+$SD$\,=\,0.21; post: $M$\,=\,3.80, $SD$\,=\,0.40;
+$t$(52)\,=\,13.91, $p$\,$<$\,.001, Cohen's $d$\,=\,2.72, pooled
+SD). Knowledge gains were large ($t$(52)\,=\,11.32,
+$p$\,$<$\,.001, $d$\,=\,1.20; Hake's $g$\,=\,0.50, medium band).
+All ten self-efficacy items improved significantly ($p$\,$<$\,.001).
+PBL satisfaction was high ($M$\,=\,3.74, $SD$\,=\,0.30).
+Eighty-five percent used AI tools, primarily for computational
+coding. Qualitative themes identified simulation validation, PID
+tuning, and linking derivation to computation as breakthrough
+moments. Exhibition rubric scores from 17 student projects
+($M$\,=\,82.62/100, $SD$\,=\,9.98) confirmed strong performance
+across all domains. The SF-PBL framework provides a replicable,
+evidence-based model for computationally-integrated dynamics
+pedagogy in OBE-aligned STEM programmes.
+
+\bigskip
+\noindent\textbf{Keywords:} problem-based learning; engineering
+dynamics; computational simulation; self-efficacy; OBE; authentic
+assessment; AI-assisted learning; STEM education
+\end{abstract}
+
+\newpage
+
+% ============================================================
+%  1. INTRODUCTION
+% ============================================================
+\section{Introduction}
+
+\subsection{The Pedagogical Challenge in Engineering Dynamics}
+
+Engineering dynamics --- encompassing kinematics, constitutive
+laws, Lagrangian mechanics, and vibration analysis --- occupies a
+foundational position in mechanical and mechatronics engineering
+curricula. It presents persistent pedagogical challenges: the
+mathematical formalism is demanding, the physical intuition
+difficult to develop, and the connection to real engineering
+systems rarely made explicit within traditional lecture-driven
+courses \citep{streveler2008learning}. Students frequently solve
+textbook problems through surface-level pattern matching without
+building the conceptual understanding required for engineering
+practice.
+
+Compounding this challenge is the increasing centrality of
+computational tools. Modern engineers are expected not only to
+derive equations of motion analytically but to implement them
+numerically, simulate dynamic system behaviour, and interpret
+computational outputs --- a set of competencies that conventional
+closed-book assessments rarely evaluate authentically
+\citep{justo2021enhancing}. The emergence of AI coding assistants
+(ChatGPT, GitHub Copilot, Claude) has further transformed the
+competency landscape: students can now generate simulation code
+rapidly, raising important questions about depth of conceptual
+understanding versus tool-assisted productivity.
+
+\subsection{Problem-Based Learning as a Solution Pathway}
+
+Problem-Based Learning (PBL), as defined by
+\citet{hmelo2004problem}, places authentic, ill-structured problems
+at the centre of the learning experience, requiring students to
+self-direct their inquiry, build domain knowledge, and communicate
+solutions collaboratively. In engineering education, PBL has been
+shown to improve conceptual understanding, motivation, and
+collaborative competencies \citep{prince2006inductive,
+dym2005engineering}. However, its implementation in mathematically
+intensive courses such as dynamics remains underexplored,
+particularly when computational simulation is foregrounded as the
+primary learning artefact.
+
+\subsection{The Research Gap}
+
+Three specific gaps motivate this work:
+
+\begin{enumerate}
+  \item \textbf{Computational-PBL integration gap}: Existing PBL
+    implementations in engineering dynamics rarely position
+    Python-based ODE simulation as the core learning product,
+    leaving the derivation-to-computation bridge unaddressed.
+
+  \item \textbf{Authentic assessment gap}: Multi-expert external
+    evaluation panels covering industry, intellectual property,
+    mathematics, and communication are uncommon in undergraduate
+    PBL contexts; most studies rely on instructor-only assessment.
+
+  \item \textbf{OBE alignment gap}: Few published studies
+    demonstrate explicit, auditable traceability from Course
+    Outcomes (COs) through Bloom's taxonomy levels to rubric
+    dimensions within an accreditation-compliant (NBA/ABET)
+    framework.
+\end{enumerate}
+
+\subsection{Purpose and Contributions}
+
+This paper presents the design, implementation, and empirical
+evaluation of the SF-PBL framework embedded within the Dynamic
+System Modeling (DSM) course (702MH0C023), a 15-week core course
+for B.Tech Mechatronics Engineering students at NMIMS MPSTME,
+Mumbai (2 January -- 25 April 2026). The study makes four
+contributions:
+
+\begin{enumerate}
+  \item A documented, replicable \textbf{four-phase SF-PBL
+    computational algorithm} (System Identification
+    $\rightarrow$ EOM Derivation $\rightarrow$ Python Simulation
+    $\rightarrow$ Validation \& Communication)
+
+  \item An \textbf{OBE-aligned rubric framework} with complete
+    CO$\rightarrow$Bloom's$\rightarrow$NBA Programme Outcome
+    traceability
+
+  \item \textbf{Empirical evidence} of large-to-very-large
+    learning gains (Cohen's $d$ $>$ 1.0 on both self-efficacy
+    and knowledge) from a mixed-methods pre--post study
+    ($N$\,=\,53)
+
+  \item \textbf{Authentic assessment data} from a six-judge
+    expert panel evaluating 17 student projects across five
+    engineering domains
+\end{enumerate}
+
+% ============================================================
+%  2. THEORETICAL FRAMEWORK
+% ============================================================
+\section{Theoretical Framework}
+
+\subsection{Simulation-Focused Problem-Based Learning (SF-PBL)}
+
+SF-PBL is defined in this study as a variant of PBL in which
+\textbf{mathematical derivation from first principles and its
+subsequent computational simulation constitute the primary learning
+artefact}. This distinguishes SF-PBL from project-based learning
+(where the product is typically a physical prototype) and from
+standalone computational modelling courses (where system
+identification and mathematical modelling steps are usually
+pre-specified).
+
+The SF-PBL framework rests on three theoretical pillars. First,
+\textbf{Hmelo-Silver's PBL cycle} \citeyearpar{hmelo2004problem}:
+students encounter an ill-structured real engineering system,
+engage in self-directed inquiry to identify governing physics,
+construct knowledge through mathematical and computational means,
+and reflect collaboratively on outcomes. Second,
+\textbf{Bandura's self-efficacy theory}
+\citeyearpar{bandura1997self}: mastery experiences --- successfully
+deriving equations of motion and validating them in simulation ---
+are the most potent source of self-efficacy gains. The sequential
+phases of SF-PBL are designed to provide escalating mastery
+experiences mapped directly to course competencies. Third,
+\textbf{Hake's interactive engagement framework}
+\citeyearpar{hake1998interactive}: courses achieving normalised
+gain $g$ $>$ 0.30 are classified as effectively
+interactive-engagement; SF-PBL's four-phase structure, with active
+derivation, implementation, and public defence, is hypothesised to
+achieve medium-to-high normalised gain.
+
+\subsection{OBE Framework and NBA Alignment}
+
+The DSM course was designed using Outcome-Based Education (OBE)
+principles \citep{spady1994outcome} with explicit backward design
+from Programme Outcomes (POs) to Course Outcomes (COs) to
+assessment rubric dimensions. Five Course Outcomes (CO1--CO5) are
+detailed in Table~\ref{tab:cos}.
+
+\begin{table}[ht]
+\centering
+\caption{Course Outcomes and Bloom's Taxonomy Levels}
+\label{tab:cos}
+\begin{tabular}{p{0.5cm} p{8cm} c}
+\toprule
+\textbf{CO} & \textbf{Statement} & \textbf{Bloom's Level} \\
+\midrule
+CO1 & Apply kinematic analysis to multi-body systems    & Apply (L3)    \\
+CO2 & Construct FBDs for complex mechanisms             & Analyse (L4)  \\
+CO3 & Derive EOMs using Newton's laws                   & Analyse (L4)  \\
+CO4 & Apply Lagrangian mechanics to holonomic systems   & Evaluate (L5) \\
+CO5 & Implement ODE solvers in Python and validate      & Create (L6)   \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The Explain-Try-Challenge (E-T-C) Instructional Model}
+
+Each 90-minute lecture session followed a three-phase model:
+\textbf{Explain} (30 min) --- conceptual introduction with worked
+examples; \textbf{Try} (40 min) --- guided practice on structured
+problems using Jupyter notebooks; \textbf{Challenge} (20 min) ---
+open-ended problem connecting lecture content to the student's own
+SF-PBL project system.
+
+% ============================================================
+%  3. METHODOLOGY
+% ============================================================
+\section{Methodology}
+
+\subsection{Research Design}
+
+This study employed a \textbf{single-cohort pre--post
+mixed-methods design} \citep{creswell2018designing} comprising:
+
+\begin{itemize}[noitemsep]
+  \item \textit{Quantitative strand}: Pre--post surveys (10-item
+    self-efficacy Likert scale, 5-item knowledge MCQ, 10-item PBL
+    satisfaction scale), categorical AI usage data, and six-judge
+    exhibition rubric scores
+
+  \item \textit{Qualitative strand}: Thematically coded open-ended
+    reflections (OE1--OE3) from the post-survey
+
+  \item \textit{Triangulation}: Quantitative learning gains
+    corroborated by qualitative breakthrough narratives referencing
+    specific SF-PBL phases
+\end{itemize}
+
+\subsection{Course Context and Participants}
+
+Course parameters and participant details are presented in
+Table~\ref{tab:context}.
+
+\begin{table}[ht]
+\centering
+\caption{Course Context and Participant Summary}
+\label{tab:context}
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Course code                    & 702MH0C023 --- Dynamic System Modeling \\
+Institution                    & NMIMS MPSTME, Mumbai (NBA-accredited) \\
+Programme                      & B.Tech Mechatronics Engineering, Sem.\,IV \\
+Academic year                  & 2025--26 \\
+Course dates                   & 2 January 2026 -- 25 April 2026 \\
+Duration                       & 15 working weeks (3 credits: 2L\,+\,2P/week) \\
+N registered                   & 55 students \\
+N consenting \& participating  & \textbf{53} (2 did not provide informed consent) \\
+N present at exhibition        & \textbf{53} (all consenting participants) \\
+Teams                          & 17 (2--4 members per team) \\
+Engineering project domains    & 5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Participation in the research survey was voluntary and anonymised;
+course grades were not affected by research participation. Informed
+consent was obtained from all 53 participants prior to pre-survey
+administration. Two registered students did not provide consent
+and are excluded from all analyses ($N$\,=\,53 throughout).
+
+\subsection{The SF-PBL Framework: Four-Phase Computational Algorithm}
+
+The SF-PBL project ran concurrently with the 15-week course (2
+January -- 25 April 2026) and culminated in a public Mini Project
+Exhibition on \textbf{25 April 2026} at NMIMS MPSTME, organised in
+collaboration with the NMIMS IUCEE Student Chapter. Each of the
+17 teams executed the following four-phase pipeline:
+
+\begin{description}[leftmargin=0pt]
+  \item[\textbf{Phase 1: System Identification} (Weeks 1--4).]
+    Students selected a real engineering system (student-chosen,
+    not prescribed), identified degrees of freedom (DOF) and
+    constraints, and defined coordinate frames.
+    \textit{Deliverable}: System description + kinematic sketch.
+    CO1 | Bloom's Apply (L3).
+
+  \item[\textbf{Phase 2: Mathematical Modelling} (Weeks 5--9).]
+    Students drew Free Body Diagrams (FBDs) by hand, applied
+    Newton's Second Law or the Lagrangian formulation, derived
+    coupled Equations of Motion (EOMs), and converted to
+    state-space form $\dot{\mathbf{x}} = f(\mathbf{x},\mathbf{u})$.
+    \textit{Deliverable}: Analytical EOMs + state-space
+    representation. CO2, CO3, CO4 | Bloom's Analyse--Evaluate
+    (L4--L5).
+
+  \item[\textbf{Phase 3: Computational Simulation} (Weeks 10--13).]
+    Students implemented the ODE solver in Python using
+    \texttt{scipy.integrate.solve\_ivp}, generated time-domain
+    plots (position, velocity, energy vs.\ time), and tuned
+    control parameters (e.g., PID gains).
+    \textit{Deliverable}: Working simulation + validated plots.
+    CO5 | Bloom's Create (L6).
+
+  \item[\textbf{Phase 4: Validation \& Communication} (Weeks 14--15).]
+    Students validated simulations against energy conservation,
+    limit cases, or published benchmarks, then presented to the
+    six-judge expert panel at the public exhibition.
+    \textit{Deliverable}: Exhibition presentation + validation
+    evidence. CO5 | Bloom's Evaluate--Create (L5--L6).
+\end{description}
+
+\subsection{The Six-Judge Expert Evaluation Panel}
+
+To ensure authentic, multi-perspective, and bias-reduced
+assessment, a six-member external expert panel was constituted
+spanning five professional domains (Table~\ref{tab:judges}).
+
+\begin{table}[ht]
+\centering
+\caption{Six-Judge Expert Evaluation Panel (25 April 2026)}
+\label{tab:judges}
+\begin{tabular}{clllr}
+\toprule
+\textbf{\#} & \textbf{Judge} & \textbf{Affiliation} &
+\textbf{Domain} & \textbf{Max} \\
+\midrule
+1 & Kamlesh Panchal         & Manufacturing Industry & Production Engg.    & /16 \\
+2 & Hasti Chandarana         & IP Consultancy         & Patent \& Innovation & /16 \\
+3 & Nitu Gupta               & External Academic      & Mathematics          & /16 \\
+4 & Mahendra Kane (Siemens)  & Siemens Ltd.           & Industry 4.0 / DT    & /20 \\
+5 & Parminder Jandoo         & Training Organisation  & Communication        & /16 \\
+6 & Debasis Dash             & HR Consultancy         & Behavioural Science  & /16 \\
+\midrule
+  & \textbf{TOTAL}           &                        &                      & \textbf{/100} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Student Projects: 17 Teams, 5 Engineering Domains}
+
+The 17 student teams were distributed across five project
+categories: (A) Robotics \& Locomotion --- 7 teams (humanoid,
+hexapod, multi-terrain robot, quadruped, pick-and-place rover,
+robotic gripper, H$_2$ fuel cell UAV); (B) Aerospace \& Marine
+--- 3 teams (rocket landing \& docking, ROV, fixed-wing UAV);
+(C) Control Systems --- 2 teams (ball balancing Stewart platform,
+self-balancing robot); (D) Vehicle Dynamics --- 2 teams (critical
+skid velocity, shock absorber); (E) Electromechanical --- 3 teams
+(digital twin DC motors, motor modelling, automated EoT crane).
+
+\subsection{Survey Instruments}
+
+\textbf{Self-Efficacy Scale (SE1--SE10):} Ten items rated on a
+5-point Likert scale (1\,=\,Strongly Disagree, 5\,=\,Strongly
+Agree), each aligned to a specific CO, covering kinematic
+analysis, FBD construction, Newton's EOM derivation, Lagrangian
+formulation, state-space conversion, Python ODE implementation,
+energy validation, PID tuning, plot interpretation, and technical
+communication.
+
+\textbf{Knowledge MCQ (PK1--PK5):} Five items assessing degrees
+of freedom, Lagrangian formulation, pendulum natural frequency,
+viscous damping effects, and Newton's rotation law. Scored 0--5.
+
+\textbf{PBL Experience Scale (PBL1--PBL10):} Ten items on a
+5-point scale, grouped into perceived value (PBL1--3), scaffold
+quality (PBL4--7), and overall satisfaction (PBL8--10).
+
+\textbf{AI Tool Usage:} Multi-select categorical (ChatGPT, GitHub
+Copilot, Claude, None, Other); phase of primary use; estimated
+percentage of mathematical derivation completed without AI.
+
+\textbf{Open-Ended Reflections (OE1--OE3):} (OE1) Most valuable
+learning; (OE2) Suggested changes for future cohorts; (OE3)
+Breakthrough moment when simulation made sense.
+
+\subsection{Data Analysis}
+
+\begin{itemize}[noitemsep]
+  \item \textbf{Paired $t$-tests} (two-tailed, $\alpha$\,=\,.05):
+    Pre--post SE and PK comparisons
+
+  \item \textbf{Cohen's $d$} (pooled SD:
+    $d = \Delta M \,/\, \sqrt{(SD_1^2 + SD_2^2)/2}$):
+    small\,=\,0.2, medium\,=\,0.5, large\,=\,0.8
+    \citep{cohen1988statistical}
+
+  \item \textbf{Hake's normalised gain}:
+    $g = (\text{post}-\text{pre})\,/\,(\text{max}-\text{pre})$ per
+    student; bands: low $<$ 0.30, medium 0.30--0.69, high
+    $\geq$ 0.70 \citep{hake1998interactive}
+
+  \item \textbf{95\% CI}: $\pm\,1.96 \times SE_{\text{mean}}$
+
+  \item \textbf{Wilcoxon signed-rank test}: non-parametric
+    confirmation ($\alpha$\,=\,.05)
+
+  \item \textbf{Post-hoc power analysis} (G*Power framework)
+
+  \item \textbf{Thematic analysis} \citep{thomas2008methods}:
+    OE1--OE3 coded by frequency of theme occurrence
+\end{itemize}
+
+All analyses were conducted in Python~3.10 using SciPy~1.11 and
+NumPy~1.25. Analysis scripts are available from the corresponding
+author on request.
+
+% ============================================================
+%  4. RESULTS
+% ============================================================
+\section{Results}
+
+\subsection{Self-Efficacy: Pre--Post Comparison}
+
+Self-efficacy in dynamic system modelling increased significantly
+from pre- to post-exhibition (Table~\ref{tab:se_main}). The mean
+gain of $+$0.88 points (Cohen's $d$\,=\,2.72) represents a very
+large effect substantially exceeding the threshold for practical
+significance \citep{cohen1988statistical}. The result was
+confirmed by the non-parametric Wilcoxon signed-rank test
+($W$\,=\,0.0, $p$\,$<$\,.001) with post-hoc power\,=\,1.000.
+
+\begin{table}[ht]
+\centering
+\caption{Self-Efficacy Pre--Post Comparison ($N$\,=\,53)}
+\label{tab:se_main}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Measure} & \textbf{Pre $M$ ($SD$)} & \textbf{Post $M$ ($SD$)} &
+\textbf{Gain} & \textbf{95\% CI} & \textbf{$t$(52)} &
+\textbf{$p$ \quad $d$} \\
+\midrule
+SE Mean (1--5) & 2.92 (0.21) & 3.80 (0.40) & $+$0.88 &
+[0.75,\,1.00] & 13.91 & $<$.001 \quad 2.72 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All ten individual SE items were statistically significant at
+$p$\,$<$\,.001 (Table~\ref{tab:se_items}). The largest gains were
+observed for SE8 (PID Tuning, $d$\,=\,2.22) and SE3 (Newton's
+EOM, $d$\,=\,2.14), both directly activated in Phases 2 and 3.
+The smallest gain, SE5 (State-Space, $d$\,=\,1.46), remains a
+very large effect and reflects the advanced junction between
+analytical derivation and computational implementation.
+
+\begin{table}[ht]
+\centering
+\caption{Per-Item Self-Efficacy Results ($N$\,=\,53). All $p$\,$<$\,.001.}
+\label{tab:se_items}
+\begin{tabular}{llrrrr}
+\toprule
+\textbf{Item} & \textbf{Competency Focus} &
+\textbf{Pre $M$} & \textbf{Post $M$} & \textbf{Gain} & \textbf{$d$} \\
+\midrule
+SE1  & Kinematics              & 2.89 & 3.79 & $+$0.91 & 1.69 \\
+SE2  & Free Body Diagram       & 2.94 & 3.77 & $+$0.83 & 1.72 \\
+SE3  & Newton's EOM            & 2.89 & 3.81 & $+$0.92 & 2.14 \\
+SE4  & Lagrangian              & 2.93 & 3.81 & $+$0.89 & 1.85 \\
+SE5  & State-Space             & 2.93 & 3.72 & $+$0.79 & 1.46 \\
+SE6  & ODE / Python            & 2.93 & 3.91 & $+$0.98 & 1.82 \\
+SE7  & Energy Validation       & 3.02 & 3.77 & $+$0.76 & 1.63 \\
+SE8  & PID Tuning              & 2.91 & 3.83 & $+$0.92 & 2.22 \\
+SE9  & Plot Interpretation     & 2.89 & 3.77 & $+$0.89 & 1.69 \\
+SE10 & Technical Communication & 2.91 & 3.77 & $+$0.87 & 1.57 \\
+\bottomrule
+\multicolumn{6}{l}{\footnotesize Cohen's $d$ range: 1.46 (SE5)
+-- 2.22 (SE8). All $d$ values large by Cohen (1988).}
+\end{tabular}
+\end{table}
+
+\subsection{Conceptual Knowledge: Pre--Post Comparison}
+
+Knowledge MCQ scores increased significantly (Table~\ref{tab:pk}).
+Hake's normalised gain $g$\,=\,0.50 falls in the \textbf{medium}
+interactive-engagement category \citep{hake1998interactive}
+(0.30\,$\leq g <$\,0.70), in the upper half of the medium band.
+The MCQ distribution shift --- from left-skewed (pre, mode\,=\,2,
+no student achieving 5/5) to right-skewed (post, 12 students
+achieving 5/5) --- confirms broad-based conceptual development
+(Table~\ref{tab:pk_dist}).
+
+\begin{table}[ht]
+\centering
+\caption{Knowledge MCQ Pre--Post Comparison ($N$\,=\,53)}
+\label{tab:pk}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Measure} & \textbf{Pre $M$ ($SD$)} & \textbf{Post $M$ ($SD$)} &
+\textbf{Gain} & \textbf{95\% CI} &
+\textbf{$t$(52) \quad $p$} & \textbf{$d$ \quad $g$} \\
+\midrule
+PK Total (0--5) & 1.96 (0.94) & 3.28 (1.25) & $+$1.32 &
+[1.09,\,1.55] & 11.32 \quad $<$.001 & 1.20 \quad 0.50 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{MCQ Score Distribution ($N$\,=\,53)}
+\label{tab:pk_dist}
+\begin{tabular}{lrrrrrr}
+\toprule
+ & \textbf{$k$=0} & \textbf{$k$=1} & \textbf{$k$=2} &
+\textbf{$k$=3} & \textbf{$k$=4} & \textbf{$k$=5} \\
+\midrule
+Pre  ($n$) & 3 & 11 & 28 & 7 & 4 & 0  \\
+Post ($n$) & 0 & 4  & 11 & 16 & 10 & 12 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{PBL Experience Satisfaction}
+
+Post-exhibition PBL satisfaction was consistently high across all
+three sub-scales (Table~\ref{tab:pbl}), with a narrow SD of 0.30
+indicating high cohort-level consistency in the SF-PBL experience.
+
+\begin{table}[ht]
+\centering
+\caption{PBL Experience Scale --- Post-Survey ($N$\,=\,53)}
+\label{tab:pbl}
+\begin{tabular}{llcc}
+\toprule
+\textbf{Sub-scale} & \textbf{Items} & \textbf{$M$} & \textbf{$SD$} \\
+\midrule
+PBL Value            & PBL1--3  & 3.70 & ---  \\
+Scaffold Quality     & PBL4--7  & 3.76 & ---  \\
+Overall Satisfaction & PBL8--10 & 3.76 & ---  \\
+\textbf{Total Mean}  & PBL1--10 & \textbf{3.74} & \textbf{0.30} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Exhibition Rubric Scores: Six-Judge Panel}
+
+The combined six-judge assessment of 17 teams ($N$\,=\,53 present
+students) yielded $M$\,=\,82.62/100, $SD$\,=\,9.98,
+range\,=\,53--96 (Table~\ref{tab:rubric}).\footnote{One registered
+student was absent on exhibition day and scored 0/100; this
+student is excluded from all combined statistics. Including the
+absent student: $M$\,=\,81.09, $SD$\,=\,14.97, $N$\,=\,54.} The
+SD of approximately 10 points reflects meaningful discriminative
+ability while confirming that all present students achieved a
+substantive standard.
+
+\begin{table}[ht]
+\centering
+\caption{Six-Judge Panel Scores ($N$\,=\,53 students, 17 teams,
+  25 April 2026)}
+\label{tab:rubric}
+\begin{tabular}{lllrrr}
+\toprule
+\textbf{Judge} & \textbf{Domain} & \textbf{Max} &
+\textbf{$M$} & \textbf{$SD$} & \textbf{Range} \\
+\midrule
+Kamlesh Panchal         & Manufacturing          & /16 & 13.94 & 1.23 & 11--16 \\
+Hasti Chandarana        & IP / Patent            & /16 & 12.53 & 2.68 & 8--16  \\
+Nitu Gupta              & Mathematics (External) & /16 & 12.77 & 2.67 & 6--16  \\
+Mahendra Kane (Siemens) & Industry 4.0           & /20 & 17.09 & 2.18 & 12--20 \\
+Parminder Jandoo        & Communication          & /16 & 13.26 & 2.13 & 5--16  \\
+Debasis Dash            & Behavioural Science    & /16 & 13.02 & 2.28 & 8--16  \\
+\midrule
+\textbf{COMBINED TOTAL} & & \textbf{/100} &
+\textbf{82.62} & \textbf{9.98} & \textbf{53--96} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{AI Tool Usage}
+
+Forty-five of 53 students (84.9\%) reported using AI tools during
+the SF-PBL project (Table~\ref{tab:ai}). The most common use case
+was Python simulation coding (Phase 3) and debugging; 39.6\%
+estimated 50--75\% of their mathematical derivation was completed
+without AI assistance, indicating human-led mathematical reasoning
+remained dominant throughout.
+
+\begin{table}[ht]
+\centering
+\caption{AI Tool Usage Distribution ($N$\,=\,53)}
+\label{tab:ai}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Tool / Combination} & \textbf{$n$} & \textbf{\%} \\
+\midrule
+ChatGPT                  & 18 & 34.0 \\
+ChatGPT + GitHub Copilot & 11 & 20.8 \\
+None                     &  8 & 15.1 \\
+Claude                   &  6 & 11.3 \\
+ChatGPT + Claude         &  5 &  9.4 \\
+Other                    &  5 &  9.4 \\
+\midrule
+\textbf{Total AI users}  & \textbf{45} & \textbf{84.9} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Qualitative Themes}
+
+Thematic coding of open-ended post-survey responses revealed
+consistent patterns across all three open-ended items ($N$\,=\,53):
+
+\textbf{OE1 --- Most Valuable Learning:} Mathematical validation
+of simulation results ($n$\,=\,18, 34.0\%); team collaboration
+($n$\,=\,10, 18.9\%); debugging complex models ($n$\,=\,8,
+15.1\%); other ($n$\,=\,17, 32.1\%).
+
+\textbf{OE3 --- Breakthrough Moment:} Linking mathematical
+derivation to simulation output ($n$\,=\,20, 37.7\%;
+e.g., \textit{``The moment my simulation plot matched my
+analytical solution, I finally understood what the equations meant
+physically''}); understanding PID tuning from first principles
+($n$\,=\,12, 22.6\%); seeing the physical model work in simulation
+($n$\,=\,11, 20.8\%); other ($n$\,=\,10, 18.9\%).
+
+\textbf{OE2 --- Suggested Changes:} Smaller group sizes of 2--3
+members ($n$\,=\,16, 30.2\%); less documentation, more coding time
+($n$\,=\,12, 22.6\%); more project development time ($n$\,=\,11,
+20.8\%); other ($n$\,=\,14, 26.4\%).
+
+% ============================================================
+%  5. DISCUSSION
+% ============================================================
+\section{Discussion}
+
+\subsection{Interpreting the Self-Efficacy Effect Size}
+
+The self-efficacy gains ($d$\,=\,2.72) substantially exceed those
+reported in comparable PBL studies. \citet{freeman2014active}'s
+meta-analysis of active learning found a mean $d$\,$\approx$\,0.47;
+\citet{dochy2003effects}'s PBL meta-analysis reported
+$d$\,$\approx$\,0.65. The very large Cohen's $d$ here warrants
+careful interpretation: the narrow pre-survey SD (0.21 on a
+5-point scale) reflects a relatively homogeneous cohort at
+baseline, which mathematically amplifies the standardised effect
+size. The absolute gain ($+$0.88 points, 95\% CI [0.75, 1.00]) is
+arguably the more practically meaningful metric, representing a
+reliable cohort-wide shift from approximately ``Neutral'' to
+``Agree'' across all ten competency items.
+
+Critically, the two items with the largest gains --- SE8 (PID
+Tuning, $d$\,=\,2.22) and SE3 (Newton's EOM, $d$\,=\,2.14) ---
+correspond directly to Phases 2 and 3 of the SF-PBL pipeline,
+confirming that the computational integration mechanism activated
+the intended learning outcomes rather than producing uniform,
+undifferentiated gains.
+
+\subsection{Knowledge Gains and Hake's Normalised Gain}
+
+Hake's normalised gain $g$\,=\,0.50 places this course in the
+\textbf{medium} interactive-engagement category
+\citep{hake1998interactive} (0.30\,$\leq g <$\,0.70), in the
+upper half of the medium band. This result is particularly notable
+given that: (a) the MCQ measured conceptual understanding rather
+than procedural recall; (b) students began with low prior knowledge
+(pre: $M$\,=\,1.96/5, 39\% correct); and (c) assessment under
+examination conditions reduced social desirability effects.
+
+\subsection{AI Integration: Complementarity Not Substitution}
+
+The finding that 84.9\% of students used AI tools --- primarily
+for Python simulation coding and debugging --- suggests an emerging
+pattern of \textbf{human--AI complementarity} in SF-PBL. The
+framework's structural design encouraged this: the rubric
+explicitly required hand-drawn FBDs and analytical EOM derivations
+\textit{before} simulation (Phase 3), creating a curricular
+incentive to use AI as an accelerator for implementation rather
+than a substitute for mathematical reasoning. This contributes to
+the emerging discourse on AI in STEM education \citep{tlili2023chatgpt}:
+SF-PBL channels AI use productively by positioning derivation as
+the primary intellectual activity.
+
+\subsection{The Six-Judge Panel as Authentic Assessment}
+
+The six-judge panel spanning five professional domains represents
+a significant departure from conventional faculty-only assessment.
+The panel mean of 82.62/100 ($SD$\,=\,9.98, range\,=\,53--96)
+demonstrates that all present students achieved substantive scores
+with meaningful spread across team quality levels, consistent with
+\citeauthor{gulikers2004five}'s \citeyearpar{gulikers2004five}
+criteria for authentic assessment validity. The Industry 4.0 judge
+(Siemens: $M$\,=\,17.09/20\,=\,85.5\%) awarded the highest
+relative scores, suggesting student projects met contemporary
+digital engineering standards relevant for mechatronics graduates
+entering Industry 4.0 workplaces.
+
+\subsection{The Breakthrough Theme: Derivation-to-Simulation}
+
+The dominant qualitative breakthrough theme --- \textit{linking
+mathematical derivation to simulation output} ($n$\,=\,20, 37.7\%)
+--- directly validates the theoretical premise of SF-PBL: that
+computation serves as the bridge between abstract mathematical
+formalism and physical intuition. This theme appeared independently
+of AI tool usage pattern, project complexity level, and team size,
+suggesting that the derivation-to-simulation moment is a
+\textbf{universal learning landmark} in computationally-integrated
+dynamics education requiring specific instructional scaffolding.
+
+\subsection{Practical Implications for STEM Educators}
+
+The SF-PBL framework offers three directly replicable elements:
+(1) the \textbf{four-phase pipeline} is domain-agnostic and
+transferable to thermodynamics, fluid mechanics, structural
+analysis, or control systems with minor adaptation; (2) the
+\textbf{E-T-C lecture model} provides an active-learning structure
+within existing contact hours without requiring curriculum
+restructuring; (3) the \textbf{six-judge rubric with
+CO$\rightarrow$PO traceability} provides an
+accreditation-compliant (NBA/ABET) authentic assessment instrument
+with inter-professional credibility that faculty-only panels cannot
+achieve.
+
+\subsection{Limitations}
+
+Several limitations should be acknowledged. First, the study
+employed a single-group pre--post design without a concurrent
+control condition; causal attribution to the SF-PBL framework
+versus general course maturation effects is therefore constrained.
+Second, the sample ($N$\,=\,53) is from a single institution,
+programme, and cohort, limiting generalisability. Third, AI usage
+data is self-reported and subject to social desirability bias.
+Fourth, formal inter-rater reliability (Cohen's $\kappa$) between
+the six expert judges was not computed, representing a measurement
+limitation for the rubric data. Fifth, the narrow pre-survey SD
+suggests possible range restriction in the self-efficacy baseline.
+Future research should address these limitations through controlled
+comparisons, multi-institution replication, longitudinal follow-up,
+and formal inter-rater reliability analysis for expert panels.
+
+% ============================================================
+%  6. CONCLUSION
+% ============================================================
+\section{Conclusion}
+
+This study presented the design, implementation, and mixed-methods
+evaluation of the SF-PBL framework in an undergraduate engineering
+dynamics course at an NBA-accredited institution. The framework
+operationalises a four-phase computational pipeline --- System
+Identification, Mathematical Modelling, Python Simulation,
+Validation \& Communication --- within a 15-week OBE-aligned
+course assessed by a six-judge external expert panel.
+
+Principal findings:
+\begin{itemize}[noitemsep]
+  \item \textbf{Very large self-efficacy gains} across all ten
+    competency items ($d$\,=\,2.72, $p$\,$<$\,.001), largest for
+    PID Tuning ($d$\,=\,2.22) and Newton's EOM ($d$\,=\,2.14)
+
+  \item \textbf{Large knowledge gains} with medium Hake normalised
+    gain ($g$\,=\,0.50, upper half of medium band; $d$\,=\,1.20,
+    $p$\,$<$\,.001)
+
+  \item \textbf{High PBL satisfaction} ($M$\,=\,3.74/5,
+    $SD$\,=\,0.30) with high cohort consistency
+
+  \item \textbf{Strong exhibition performance}
+    ($M$\,=\,82.62/100, $SD$\,=\,9.98) across 17 project teams
+    in five engineering domains
+
+  \item \textbf{Emergent human--AI complementarity}: 84.9\% AI
+    usage concentrated in simulation coding; mathematical
+    derivation predominantly human-led
+
+  \item \textbf{Universal breakthrough moment}: Linking analytical
+    EOM derivation to simulation output --- the most frequently
+    reported transformative learning experience (37.7\%)
+\end{itemize}
+
+The SF-PBL framework provides a replicable, evidence-based, and
+OBE-compliant model for STEM educators seeking to integrate
+computational simulation authentically into engineering dynamics
+pedagogy. All instruments, rubrics, and analysis scripts are
+available from the corresponding author upon reasonable request.
+
+% ============================================================
+%  STATEMENTS
+% ============================================================
+\section*{Data Availability Statement}
+The anonymised individual-level survey dataset ($N$\,=\,53, 65 variables),
+exhibition rubric evaluation scores (six judges across 17 teams), survey instruments,
+rubric specifications, Python analysis scripts (SciPy~1.11, NumPy~1.25), and
+representative student project artefacts are publicly available in the official
+repository: \url{https://github.com/sunny-nanade/SF-PBL-Engineering-Dynamics-2026}.
+
+\section*{Ethics Statement}
+
+Informed consent was obtained from all participants prior to
+pre-survey administration. Participation was voluntary; course
+grades were not affected by non-participation. Data were
+anonymised for analysis. The study was conducted in accordance
+with institutional guidelines for educational research at NMIMS
+MPSTME.
+
+\section*{Author Contributions}
+
+SN: Conceptualisation, course design, SF-PBL framework
+development, data collection, formal analysis, methodology,
+writing (original draft, review \& editing), project
+administration.
+
+\section*{Conflict of Interest}
+
+The author declares no conflict of interest.
+
+\section*{Acknowledgements}
+
+The author acknowledges the contribution of the six expert judges,
+the NMIMS IUCEE Student Chapter (exhibition organisation), and the
+53 students of DSM Batch 2025--26 whose project work made this
+research possible.
+
+% ============================================================
+%  REFERENCES
+% ============================================================
+\bibliographystyle{apalike}
+\bibliography{DSM_references}
+
+% ============================================================
+%  APPENDIX
+% ============================================================
+\appendix
+\section{Survey Instruments}
+\label{app:instruments}
+
+\subsection*{A.1 Self-Efficacy Items (SE1--SE10)}
+
+\textit{Instructions: Rate your confidence in each ability on a
+5-point scale (1\,=\,Strongly Disagree, 5\,=\,Strongly Agree).}
+
+\begin{enumerate}[label=SE\arabic*.]
+  \item I can apply kinematic analysis to identify DOF in a
+    multi-body system. [CO1]
+  \item I can construct a correct Free Body Diagram for a complex
+    mechanism. [CO2]
+  \item I can derive equations of motion using Newton's Second
+    Law. [CO3]
+  \item I can formulate the Lagrangian for a conservative dynamic
+    system. [CO4]
+  \item I can convert a second-order ODE system to state-space
+    form. [CO5]
+  \item I can implement a numerical ODE solver
+    (\texttt{solve\_ivp}) in Python. [CO5]
+  \item I can validate my simulation using energy conservation
+    checks. [CO5]
+  \item I can tune PID controller gains to achieve a desired
+    dynamic response. [CO5]
+  \item I can interpret simulation time-domain plots of position,
+    velocity, and energy. [CO5]
+  \item I can communicate my simulation results clearly to a
+    non-specialist. [Communication]
+\end{enumerate}
+
+\subsection*{A.2 Knowledge MCQ Items (PK1--PK5)}
+
+\textit{Instructions: Select the single best answer.}
+
+\begin{enumerate}[label=PK\arabic*.]
+  \item A rigid body constrained to rotate in a plane has:
+    (a) 3 DOF \quad (b) \textbf{1 DOF} \quad (c) 2 DOF \quad
+    (d) 0 DOF
+
+  \item The Lagrangian $L$ is defined as:
+    (a) $L = V - T$ \quad \textbf{(b) $L = T - V$} \quad
+    (c) $L = T + V$ \quad (d) $L = \partial T/\partial q$
+
+  \item The natural frequency of a simple pendulum (length $l$):
+    \textbf{(a) $\omega_n = \sqrt{g/l}$} \quad
+    (b) $\omega_n = \sqrt{l/g}$ \quad
+    (c) $\omega_n = g/l$ \quad (d) $\omega_n = l/g$
+
+  \item Adding viscous damping to an oscillator:
+    (a) Increases natural frequency \quad
+    (b) Has no effect \quad
+    \textbf{(c) Decreases the oscillation frequency} \quad
+    (d) Doubles the amplitude
+
+  \item Newton's Second Law for rotation states:
+    (a) $\tau = ma$ \quad \textbf{(b) $\tau = I\alpha$} \quad
+    (c) $\tau = I\omega$ \quad (d) $\tau = m\alpha$
+\end{enumerate}
+
+\end{document}
