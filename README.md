@@ -42,7 +42,8 @@ The complete LaTeX source code for the manuscript, formatted according to the Fr
 
 ### `/media_and_exhibition`
 Documentation of the public Mini Project Exhibition held on 25 April 2026.
-- `MEDIA_AND_VIDEO_LINKS.md`: Provides links to the live social media documentation and selected student project demonstration videos.
+- [LinkedIn Exhibition Video](https://www.linkedin.com/posts/nmims-iucee-student-chapter_miniprojectexhibition2026-sfpbl-simulationfocusedpbl-activity-7455575150122471424-nQ9-) - Official video coverage by NMIMS IUCEE Student Chapter.
+- `MEDIA_AND_VIDEO_LINKS.md`: Provides additional links to the live social media documentation and selected student project demonstration videos.
 
 ---
 

@@ -8,7 +8,9 @@ This folder documents the Mini Project Exhibition conducted for the Dynamic Syst
 
 Real-time social media documentation was recorded during the two-day exhibition event:
 
-1. **Event Announcement (23 April 2026):**  
+1. **Official Exhibition Video:** [NMIMS IUCEE Student Chapter SF-PBL Exhibition](https://www.linkedin.com/posts/nmims-iucee-student-chapter_miniprojectexhibition2026-sfpbl-simulationfocusedpbl-activity-7455575150122471424-nQ9-)
+
+2. **Event Announcement (23 April 2026):**  
    Announcement of the 17 student project teams, SF-PBL framework implementation, and external judge panel logistics.
 
 2. **Day 1 Live Evaluation Update (26 April 2026):**  
