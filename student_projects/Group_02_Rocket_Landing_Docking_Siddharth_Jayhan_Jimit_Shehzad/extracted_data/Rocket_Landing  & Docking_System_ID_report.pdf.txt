@@ -1,0 +1,70 @@
+SYSTEM ID REPORT
+(ROCKET LANDING SYSTEM)
+1. SYSTEM DESCRIPTION
+The system is a rocket landing model designed to simulate vertical take-off, hover, and
+controlled landing using thrust vector control.
+The rocket is modeled as a rigid body system and is controlled using PID-based feedback
+control implemented in a Python–PyBullet environment.
+The system accounts for gravity, drag, and wind disturbances, enabling realistic simulation
+of aerospace landing dynamics.
+The primary objective is to achieve stable hover and precise landing through control of
+thrust and orientation.
+2. INPUT VARIABLES (I)
+Control Inputs:
+• Thrust 𝑇→ controls vertical motion
+• Gimbal angle 𝛿→ controls tilt and direction
+Disturbances:
+• Wind force (external disturbance)
+• Aerodynamic drag
+Control Parameters:
+• 𝐾 → proportional gain
+𝑝
+• 𝐾 → damping gain
+𝑑
+3. OUTPUT VARIABLES (O)
+Motion Outputs:
+• Position → 𝑥(𝑡), 𝑧(𝑡)
+• Velocity → 𝑥̇, 𝑧̇
+• Orientation → 𝜃(𝑡)
+Performance Outputs:
+• Hover stability
+• Landing accuracy
+• Final velocity at touchdown
+4. ASSUMPTIONS
+• Rocket behaves as a rigid body
+• Motion is planar (no yaw)
+• Small angle approximation is valid
+• Thrust acts along rocket body axis
+• Drag is proportional to velocity
+• Mass remains constant
+• External disturbances modeled as wind forces
+5. FUNCTIONAL BLOCK DIAGRAM (FBD)
+INPUTS (Controller + Environment)
+→ Thrust 𝑇, Gimbal 𝛿, Wind
+⬇
+CONTROLLER (PID CONTROL)
+→ Uses 𝐾 ,𝐾 to stabilize tilt
+𝑝 𝑑
+→ Controls altitude and descent
+⬇
+ROCKET DYNAMICS (PLANT)
+→ Translational motion (x, z)
+→ Rotational motion (θ)
+→ Includes gravity and drag
+⬇
+OUTPUTS (SYSTEM RESPONSE)
+→ Position 𝑥,𝑧
+→ Orientation 𝜃
+→ Stable landing
+6. WORKING PRINCIPLE
+The system operates using closed-loop feedback control.
+• During lift-off, thrust overcomes gravity
+• During hover, thrust balances forces
+• During descent, thrust is reduced to control velocity
+The controller continuously adjusts thrust and gimbal angle based on system state to ensure
+stable and accurate landing despite disturbances.
+MADE BY:
+Siddharth Bathija (H004)
+Jayhan Bhagvati (H005)
+Jimit Kacha (H028)
+Shehzad Khan (H033)

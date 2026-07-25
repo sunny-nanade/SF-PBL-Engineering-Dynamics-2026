@@ -1,0 +1,136 @@
+dynamic modelling and
+simulation of a conveyer belt
+under variable load conditions
+Team: [Sushant Shetty , Ishaan Sheth]
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: [A/B/C/D/E] | Complexity: [Medium/High/Very High]
+COs Exercised: [CO1, CO2, CO3, CO4, CO5] | Date: [DD/MM/YYYY
+01
+System Introduction & Motivation
+What is the system? A motorized conveyor belt
+transporting a block load governed by Coulomb
+friction — belt moves at constant 1.5 m/s, block
+placed on it from rest
+Why does it matter? Variable loads cause speed
+mismatches, friction-driven acceleration, and
+positional drift — critical in manufacturing, mining,
+and baggage handling systems
+PBL Problem Statement: How does a block's
+velocity and position respond when placed on a
+moving conveyor belt with dry Coulomb friction
+under variable load conditions?
+02
+Problem Formulation &
+Assumptions
+Inputs: Belt velocity V_belt = 1.5 m/s (constant), block mass m = 1.0
+kg
+Outputs: Block velocity v(t) [m/s], Block position x(t) [m]
+State Variables: v(t), x(t)
+Parameters: m = 1.0 kg, μ = 0.35, g = 9.81 m/s², V_belt = 1.5 m/s
+DOF: 1 — translational motion along belt only; horizontal plane, no
+vertical dynamics
+Assumptions:Point mass model — no rotation
+Constant belt velocity — motor dynamics excluded
+Coulomb friction only — μ constant, dry, no air resistance, rigid
+surface
+03
+FBD
+04
+Mathematical Derivation (Part 1)
+05
+Final Equations & State-Space
+Final EOM:
+dv/dt = μ·g·sign(V_belt − v) dx/dt = v
+State-Space Form:
+State vector: X = [v, x]ᵀ
+ẋ₁ = μ·g·sign(1.5 − x₁)
+ẋ₂ = x₁
+(Non-linear due to sign function — no standard A,B,C,D matrices)
+Physical meaning of each term (CO3):
+μ·g = maximum friction acceleration = 0.35 × 9.81 = 3.434 m/s²
+sign(V_belt − v) = direction of friction: +1 when block slower than belt, 0 when
+equal
+Energy expression (CO5):
+KE(t) = ½·m·v(t)²
+Work done by friction = μ·m·g·Δx (until v = V_belt)
+06
+SIMULATION AND ENERGY
+ANALYSIS
+Tools: Python 3.x + NumPy + SciPy + Matplotlib
+ODE Solver: scipy.integrate.solve_ivp (RK45)
+Parameters: dt = variable (adaptive), T_total = 6.5 s, IC: v(0) = 0, x(0) = 0
+Key ODE function:
+Energy Check (CO5): KE rises from 0 to ½·(1.0)·(1.5)² = 1.125 J as block
+accelerates; power input = F_f · v = μ·m·g·v
+Result: Block reaches belt speed (1.5 m/s) at t ≈ 0.43 s — confirmed by
+velocity plot (Image 1)
+Our Slide 8 — 7. Simulation
+07
+Visualization
+Our Slide 8 — 7. Simulation
+07
+Visualization
+Our Slide 8 — 7. Simulation
+07
+Visualization
+Our Slide 8 — 7. Simulation
+07
+Visualization
+(Phase Portrait): Shows constant acceleration trajectory (flat line at 3.43 m/s²) from v=0 to
+v=1.5 m/s; current state shown at (1.5, 3.43) — confirms correct Coulomb friction model
+Image 3 (Belt Animation): Real-time visualization showing block sliding right on belt; Time:
+5.30s, Position: 7.57m, Velocity: 1.50 m/s; belt velocity indicator = 1.5 m/s
+Our Slide 8 — 7. Simulation
+07
+Visualization
+08
+Validation & Analysis
+Validation 1 – Energy (CO5): KE at steady state = ½(1.0)(1.5²) = 1.125 J —
+✓
+matches analytical calculation
+Validation 2 – Analytical (CO4): Time to reach belt speed: t = V_belt/(μg) =
+✓
+1.5/(0.35×9.81) = 0.437 s. Simulation shows t ≈ 0.43 s
+Validation 3 – Dimensional check: dv/dt = μ·g → [m/s²] =
+✓
+[dimensionless]·[m/s²]
+Sensitivity Analysis: Varying μ from 0.2→0.5 → acceleration time changes
+from 0.76 s to 0.31 s. Higher μ = faster lock-in to belt speed
+Limitations:Belt elasticity and longitudinal vibration not modelled
+Motor torque dynamics excluded — belt velocity assumed perfectly constant
+No experimental data — simulation validation only
+09
+. Conclusions & Reflections
+Key Finding: A block placed on a moving conveyor belt accelerates linearly
+under Coulomb friction (dv/dt = μg = 3.43 m/s²) and locks to belt speed (1.5
+m/s) in 0.43 s — matching analytical prediction exactly
+What simulation taught beyond textbooks: Observing the phase portrait as a
+flat horizontal line made it visually clear that Coulomb friction produces
+constant acceleration unlike viscous damping — this cannot be appreciated
+from equations alone
+What we'd do differently: Include belt elasticity (spring model) and add
+variable load events to observe transient recovery
+Most critical course units: Newton's 2nd Law (CO4), Force identification
+(CO3), Energy methods (CO5)
+✓ ✓ ✓ ✓ ✓
+CO Self-Assessment: CO1 CO2 CO3 CO4 CO5
+10
+References & AI Disclosure
+Textbook References:
+Ginsberg, J. (2008). Engineering Dynamics. Cambridge University Press.
+Beer & Johnston. Vector Mechanics for Engineers: Dynamics. McGraw-Hill.
+Online Resources: 3. SciPy documentation — scipy.integrate.solve_ivp 4.
+Matplotlib animation documentation
+AI Tools (disclosed):
+Tool: Claude (Anthropic)
+Purpose: Python code structuring, slide content generation, graph
+interpretation
+NOT used for: Mathematical derivation (done by hand), simulation logic design
+Thank You — Questions?
+Project: Dynamic Modelling and Simulation of a Conveyor Belt
+Under Variable Load Conditions
+Team[Sushant Shetty , Ishaan Sheth] |
+Category: B | COs: CO1–CO5
+All members prepared for Q&A — evaluators may direct to
+specific members

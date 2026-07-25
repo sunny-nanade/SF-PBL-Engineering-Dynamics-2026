@@ -1,0 +1,106 @@
+System ID Report
+H093,H095
+
+System Description
+The selected system is a two-wheeled self-balancing robot model as an Inverted Pendulum mounted on a moving base. The objective of the system is to maintain an upright position by dynamically adjusting wheel motion in response to tilt.
+
+Real-World Applications
+Personal Transport Systems
+Self-balancing robots are used in devices like the Segway PT, where dynamic balancing allows smooth and stable human transportation.
+Warehouse & Industrial Robotics
+Used in autonomous robots for material handling, where balance control enables efficient navigation in tight spaces and uneven loads.
+Assistive Mobility Devices
+Applied in smart wheelchairs and mobility aids to maintain stability and improve user safety on inclined or uneven surfaces.
+
+Inputs, Outputs, and State Variables
+Input
+: Total motor torque applied to wheels 
+
+
+Disturbance Input
+: External disturbance force acting at the top of the body 
+
+Outputs
+: Tilt angle 
+: Horizontal position 
+State Variables
+: Position 
+: Velocity 
+: Tilt angle 
+: Angular velocity
+System Parameters (From FBD)
+: Mass of robot body 
+: Mass of each wheel 
+: Distance from wheel axis to center of mass 
+: Wheel radius 
+: Moment of inertia of body 
+: Moment of inertia of each wheel 
+: Gravitational acceleration 
+
+
+
+
+
+Degrees of Freedom (DOF)
+DOF = 2
+Justification:
+Horizontal translation of system - 
+Rotation of body - 
+Wheel rotation is not independent due to rolling constraint:
+
+
+
+Assumptions with Physical Justification
+
+No Slip Condition
+Wheels roll without slipping ensures 
+Rigid Body Approximation
+Body and wheels do not deform 
+Planar Motion
+Motion restricted to 2D plane justified by symmetric wheels 
+Negligible Air Resistance
+Effect is very small compared to gravity and motor forces 
+Uniform Mass Distribution
+Allows use of as constant
+
+
+
+
+
+
+
+
+FBD
+
+
+
+
+
+Forces and Torques Included:
+ On Robot Body:
+: downward at COM 
+: external disturbance 
+: reaction forces at joint 
+Torque due to motion 
+
+ On Wheels:
+: input motor torque 
+: friction force at ground 
+: normal reaction 
+: rotational inertia 
+
+Coordinate System and Sign Convention
+: positive to the right 
+: positive when tilting forward (clockwise) 
+: positive in forward direction 
+: positive in same direction 
+: positive torque drives robot forward
+
+ Generalized Coordinates
+: Horizontal displacement of the robot (along x-axis) 
+: Tilt angle of the robot body measured from the vertical 
+
+Friction force is internal which is eliminated in final equations 
+Motor torque is only control input 
+Gravity causes instability must be counteracted 
+

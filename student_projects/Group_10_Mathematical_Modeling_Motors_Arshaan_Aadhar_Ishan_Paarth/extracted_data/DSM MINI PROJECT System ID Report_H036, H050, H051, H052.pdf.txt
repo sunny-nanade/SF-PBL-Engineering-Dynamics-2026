@@ -1,0 +1,64 @@
+Arshaan Lakhani (H036)
+Aadhar Patel (H050)
+Ishan Patel (H051)
+Parth Patel (H052)
+System Identification Report: Motor Modelling
+1. System Selection and Approval
+The system we chose is a motor modelling system. It has three types of motors: DC motor,
+stepper motor and servo motor.
+This system is in Category E(Digital Twins / Electromechanical Systems). We picked it to study
+how electrical and mechanical parts work together. The system is approved for modelling,
+simulation and validation by our faculty.
+2. Real-World Application
+These motors are used in things like robotics, automation and control systems:
+• DC motors are used for things that need to keep rotating, like fans and conveyors.
+• Stepper motors are used for movements like in 3D printers and CNC machines.
+• Servo motors are used in systems that need feedback like robot arms and drones.
+This project is about modeling and comparing how these motors behave under conditions.
+3. System Definition
+1. Inputs
+• Voltage applied: V(t)
+• Load torque disturbance: T_L(t)
+• For stepper motor: voltages V_A(t) V_B(t)
+• For servo motor: reference position θ_ref(t)
+2. Outputs
+• Angular position: θ(t)
+• Angular velocity: ω(t)
+• Step position for stepper motor
+• Tracking response for servo motor
+3. State Variables
+• DC Motor:
+X = ω(t), x = i(t)
+1 2
+• Stepper Motor:
+𝑥1 = 𝜃(𝑡), 𝑥2 = 𝜃˙(𝑡), 𝑥3 = 𝑖𝐴(𝑡), 𝑥4 = 𝑖𝐵(𝑡)
+• Servo Motor:
+𝑋 = 𝜃(𝑡), 𝑥 = 𝜃˙(𝑡), 𝑥_3 = 𝑖(𝑡)
+1 2
+4. Key Parameters
+• J: Moment of inertia
+• B: Damping or friction coefficient
+• R: Resistance
+• L: Inductance
+• K: Torque constant
+t
+• K : EMF constant
+e
+• K , K : Controller gains for servo motor
+p d
+4. Degrees of Freedom (DOF)
+The DOF is 1 for all three motors.
+Justification:
+Each motor has one kind of motion which is the rotation of its shaft.
+All system dynamics are described using one angular coordinate θ.
+5. Key Assumptions
+• Motors are treated as bodies.
+• Magnetic effects are simple and constant.
+• Friction is like viscous and changes, with velocity.
+• Electrical parts like resistance and inductance are constant.
+• There are no disturbances except load torque.
+• Temperature effects are ignored.
+• Stepper motor is modeled using a torque relation.
+• Servo motor feedback is assumed to be ideal.
+• The system operates within limits.
+6. Free-Body Diagram

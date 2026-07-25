@@ -1,0 +1,132 @@
+MATHEMATICAL MODELING AND DYNAMIC ANALYSIS OF A MULTI-TERRAIN FOUR-WHEELED ROBOT
+Team: Ananya Verma, Sneha Waghode, Anusha Surve
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: A | Complexity:High
+COs Exercised: [CO1, CO2, CO3, CO4, CO5] | Date: 20/04/2026
+
+What is the system? 
+
+The system is a multi-terrain mobile robotic platform that combines wheels and leg-like suspension (quadrupedal mechanism) to move efficiently across uneven, rough, and complex terrains.
+
+More specifically, it is a hybrid quadrupedal-wheeled robot with:
+Active suspension using servomotors 
+Four-bar linkage mechanism for each leg 
+Skid-steering drive system 
+Independent wheel actuation 
+
+Why does it matter? (Engineering application)
+
+This system is important because traditional wheeled robots struggle on uneven or off-road environments, while purely legged robots are complex and expensive.
+This hybrid approach solves that gap.
+Key engineering applications:
+Search and rescue missions (disaster zones, rubble) 
+Military and surveillance robots 
+Planetary exploration (e.g., Mars rovers) 
+Agricultural field robots 
+Remote sensing in rough terrains
+
+
+1. System Introduction & Motivation
+This design allows the robot to:
+Adjust its ground clearance dynamically 
+Maintain stability on slopes and obstacles 
+Move using wheels while adapting like a legged system 
+
+What question are we answering? (PBL problem statement)
+
+Problem Statement:
+How can a multi-terrain robotic system be developed using a hybrid quadrupedal-wheeled mechanism with active suspension to ensure dynamic stability, adaptive ground clearance, and efficient locomotion across rough and unstructured environments?
+
+Answer:
+First, the robot uses a quadrupedal structure combined with wheels, where each leg is equipped with a wheel. This allows the system to:
+Move efficiently on flat surfaces like a wheeled robot 
+Adapt to uneven terrain like a legged robot 
+
+Second, an active suspension system using servomotors is implemented. These servomotors control the position of each leg through a four-bar linkage mechanism, enabling:
+Adjustment of ground clearance based on terrain conditions 
+Maintenance of balance on slopes and irregular surfaces 
+Reduction of mechanical stress using shock absorbers 
+
+Third, dynamic stability is ensured through mathematical modeling, particularly:
+Helps maintain the robot’s center of gravity within safe limits 
+Control of pitch and roll motion to prevent overturning 
+
+Additionally, a skid-steering mechanism is used for locomotion. This allows the robot to:
+Change direction without complex steering linkages 
+Improve maneuverability in confined or rough environments
+
+Real life image 
+2. Problem Formulation & Assumptions
+DOF:
+1. Planar Motion DOF (Body) = 2
+        -Forward/lateral motion 
+        -Yaw (rotation about vertical axis) 
+ 2. Suspension DOF = 4
+        -4 independent servo-controlled joints 
+        -Each leg (wheel assembly) can move vertically via active suspension 
+      Each servo = 1 DOF → 4 DOF
+ Total DOF = 2 (motion) + 4 (suspension) = 6 DOF
+
+Key assumptions:
+Rigid body – deformation negligible
+Planar motion – out-of-plane effects ignored
+Continuous wheel-ground contact
+Small-angle approximation
+Symmetric geometry (at 180° configuration)
+Viscous damping proportional to velocity
+3. Free Body Diagram / System Schematic
+4. Mathematical Derivation 
+
+Newton’s method is chosen because forces and moments acting on the rover are clearly identifiable from the Free Body Diagram. It provides a direct physical interpretation of lateral forces and yaw moment. Suitable for planar rigid body motion with minimal constraints 
+We used Lagrange’s method to derive coupled lateral and yaw equations using energy and generalized forces.
+5. Final Equations & State-Space
+6. Simulation & Energy Analysis
+Simulation Setup
+ODE solved using: solve_ivp (RK45) 
+States: slip angle (α), yaw rate (γ) 
+Initial condition: α₀ = 0.1, γ₀ = 0
+Key Results
+Stable time response of α and γ 
+Rover trajectory shows realistic motion 
+Newton & Lagrange results match (model validated)
+7. Simulation Visualization
+8. Validation & Analysis
+Model Validation (CO4)
+α and γ converge → stable response 
+Matches expected vehicle dynamics behavior
+Stability Check
+Eigenvalues have negative real parts 
+System is dynamically stable 
+Limitations
+Linear tire model (small slip only) 
+Constant velocity assumed 
+No terrain / suspension effects 
+9. Conclusions & Reflections
+Key Finding
+The developed rover model successfully captures coupled lateral and yaw dynamics. 
+Simulation results show stable and physically consistent behavior under applied inputs.
+What We Learned
+Converting theoretical equations into working simulations (CO4) requires careful handling of assumptions and parameters. 
+Real system behavior (stability, response) becomes clearer only after simulation and validation.
+What We’d Do Differently
+Begin simulation and validation earlier in the process 
+Verify each step of derivation alongside implementation 
+Explore more realistic factors (e.g., suspension, terrain) 
+Most Critical Concepts
+Free Body Diagram & force identification (CO2, CO3) 
+Equation of motion derivation (CO4) 
+Energy analysis and validation (CO5)
+10. References & AI Disclosure
+Research paper References:
+      Multi-terrain Quadrupedal-wheeled Robot Mechanism: Design, Modeling, and Analysis
+AI Tools :
+  Tool: chat gpt (codex ), claude.ai 
+ Purpose: Python syntax debugging.
+  NOT used for: Derivation done by hand. Lengarangian method solved by hand 
+Thank You — Questions?
+Team: Ananya Verma, Anusha Surve, Sneha Waghode
+Project: Multi-terrain Quadrupedal-wheeled Robot Mechanism
+Category: A
+COs: [CO1-CO5]
+

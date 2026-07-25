@@ -1,0 +1,66 @@
+
+
+This document provides a complete, step-by-step Lagrangian derivation of the Equations of Motion (EOM) for a single 2-DOF leg of a quadruped robot. All intermediate mathematical steps are shown explicitly — from coordinate definitions through kinetic/potential energy formulation to the final coupled EOM and state-space model. The derivation satisfies CO1 through CO5 assessment criteria.
+
+
+The quadruped robot has 4 identical legs (FL, FR, RL, RR), each modelled as a 2-DOF planar linkage in the sagittal plane. The complete robot has 8 generalised coordinates (4 hip + 4 knee angles). This derivation covers one generic leg i; all four legs share the same model.
+
+
+
+
+
+
+Express centroid positions in the global frame (origin at hip joint, y downward):
+
+
+Differentiate position vectors with respect to time:
+
+
+
+Sum translational and rotational kinetic energies for both links:
+
+
+Collect terms to define the symmetric inertia matrix M(q):
+
+
+Set reference level at hip joint (y = 0 at hip, positive downward):
+
+
+
+
+
+The Euler–Lagrange equation for generalised coordinate θ₁ with damping and actuation:
+
+
+Combining Step 8 terms, the full coupled hip EOM is:
+
+Coriolis/centrifugal term: −m₂ L₁(L₂/2) sin(θ₂) θ̇₂(2θ̇₁+θ̇₂) — this is the inter-joint coupling. It is zero only when θ₂ = 0 or the knee is stationary.
+
+
+
+
+
+
+
+Rewrite EOM-1 and EOM-2 in compact matrix form:
+
+
+Define state and input vectors, then express as first-order ODEs:
+
+
+For small angles (|θ| < 15°) and slow motions, cross-coupling terms are negligible. Each joint reduces to a second-order damped nonlinear oscillator:
+
+
+
+
+The complete robot generalised coordinate vector combines all four legs:
+
+
+
+
+
+
+
+
+
+AI Disclosure: Claude AI was used for document typesetting only. All derivations performed by the project team. © NMIMS MPSTME 2025

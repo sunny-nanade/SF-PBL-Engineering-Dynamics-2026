@@ -1,0 +1,56 @@
+Prachi Gopani | H021 Hrishikesh Gudekar | H022 Daksh Hariya | H023
+Team Reflection
+Project #: 7
+Project Title: Hexapod Robot
+Category: A
+Team Members: Prachi Gopani | H021
+Hrishikesh Gudekar | H022
+Daksh Hariya | H023
+Date: 19/04/2026
+Q1: What was the single hardest technical challenge you faced in deriving the mathematical
+model? How did you resolve it?
+The hardest challenge was deriving and integrating the forward and inverse kinematics of the
+hexapod legs. While solving for a single leg was manageable, extending it to all six legs with correct
+orientation and symmetry caused major errors in positioning.
+We resolved this by:
+• Defining consistent coordinate frames using generalized parameters.
+• Solving kinematics for one leg first.
+• Replicating it across all six legs with proper angular offsets.
+Q2: Which Course Outcome (CO1-CO5) was most challenging for your team? Why?
+The most challenging was CO4: Applying constitutive laws to analyze dynamic systems of particles
+and rigid bodies.
+This was difficult because:
+• It required moving beyond ideal kinematics to real-world behavior of joints and links.
+• Needed combining multiple concepts like motion, constraints, and system response.
+• Transforming theoretical workings into working model was complex.
+Q3: What would you do differently if you started the project over?
+If we restarted the project:
+• We would begin simulation earlier instead of completing full derivations first.
+• Not testing it on PyBullet in the earlier stage caused more problem as the leg geometry was
+correct but at the time of simulation the bot could not stand in proper stance.
+• Follow a modular approach (one leg -> gait -> full robot).
+• Integrate force and motion analysis together to reduce rework.
+Q4: What did you learn from this project that a regular textbook problem could NOT teach you?
+This project taught us things that textbook problems don’t:
+• Real-world systems require iteration and debugging constantly.
+• Small mistakes in modeling can cause large errors in results.
+• Importance of simulation tools for validation.
+Prachi Gopani | H021 Hrishikesh Gudekar | H022 Daksh Hariya | H023
+• Understanding how multiple concepts work together in a system, not separately.
+Q5: How did you divide work among team members? Did everyone understand the full derivation?
+Work was divided as:
+• One member handled kinematics derivation.
+• One worked on simulation and coding.
+• One focused on integration, debugging, and documentation.
+Despite this division:
+• We regularly discussed progress so everyone understood the full model.
+• Cross-checking ensured accuracy and shared understanding.
+Q6: What AI tools did you use? For what specific purpose? What did you NOT use AI for?
+We used AI tools like ChatGPT/Claude/GLM(Z.ai) for:
+• Understanding complex concepts like inverse kinematics and modeling.
+• Writing Python/PyBullet code from MATLAB code.
+• Structuring explanations and documentation.
+We did NOT use AI for:
+• Deriving problem, it’s mathematical modeling concept and FBDs.
+• Simulation validation.
+• Core conceptual learning.

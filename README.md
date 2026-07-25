@@ -40,10 +40,9 @@ The complete LaTeX source code for the manuscript, formatted according to the Fr
 - `DSM_references.bib`: The bibliography database.
 - `fig1_sfpbl_pipeline.jpg` through `fig4_qualitative_themes.jpg`: High-resolution figures.
 
-### `/media_and_exhibition`
-Documentation of the public Mini Project Exhibition held on 25 April 2026.
-- [LinkedIn Exhibition Video](https://www.linkedin.com/posts/nmims-iucee-student-chapter_miniprojectexhibition2026-sfpbl-simulationfocusedpbl-activity-7455575150122471424-nQ9-) - Official video coverage by NMIMS IUCEE Student Chapter.
-- `MEDIA_AND_VIDEO_LINKS.md`: Provides additional links to the live social media documentation and selected student project demonstration videos.
+### `/student_projects`
+Raw, representative project submissions from the 17 student teams.
+- Contains mathematical models, Python simulation code, Free Body Diagrams, and final validation reports for the engineering systems analyzed during the course.
 
 ---
 

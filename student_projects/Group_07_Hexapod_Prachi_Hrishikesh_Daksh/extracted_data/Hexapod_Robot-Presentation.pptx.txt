@@ -1,0 +1,339 @@
+
+
+
+
+HEXAPOD ROBOT
+Team: Prachi Gopani | H021 , Hrishikesh Gudekar | H022 , Daksh Hariya | H023
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: [A] | Complexity: [High]
+COs Exercised: [CO1, CO2, CO3, CO4, CO5] | Date: [19/04/2026]
+
+
+
+
+
+
+
+
+
+
+1. SYSTEM INTRODUCTION & MOTIVATION
+What is the system? (Real-world description)
+A hexapod robot is a six-legged walking robot inspired by insects. Each leg has multiple joints (typically 3 DOF), enabling stable and adaptive locomotion over uneven terrain.
+Why does it matter? (Engineering application)
+Used in search & rescue (disaster zones)
+Suitable for rough terrain exploration where wheels fail
+High stability (tripod gait) → always 3 legs on ground
+What question are we answering? (PBL problem statement)
+To develop a dynamic model and simulation of a hexapod robot and analyze its motion, forces, and energy behavior under different gait patterns. 
+
+
+
+
+
+
+
+2. PROBLEM FORMULATION & ASSUMPTIONS
+Inputs:
+Joint torques: τ₁, τ₂, τ₃ (per leg)
+Control signals (gait timing)
+Outputs:
+Foot position (x, y, z)
+Body displacement and orientation
+State Variables:
+Joint angles: θ₁, θ₂, θ₃
+Angular velocities: θ̇₁, θ̇₂, θ̇₃
+Parameters:
+Link lengths: L₁, L₂, L₃
+Mass of links: m
+Gravity: g
+Inertia: I
+DOF:
+Each leg = 3 DOF
+Total = 6 × 3 = 18 DOF
+ (Justified: each joint rotates independently)
+Assumptions:
+Links are rigid bodies
+Motion analyzed in quasi-static gait (slow walking)
+Friction sufficient → no slipping
+Actuators provide ideal torque (no delay)
+
+
+
+
+
+
+
+3. FREE BODY DIAGRAM / SYSTEM SCHEMATIC
+
+
+
+
+
+
+4. MATHEMATICAL DERIVATION 
+Method: Lagrange (better for multi-DOF systems like hexapod)
+Why?
+ Avoids calculating constraint forces → simplifies multi-joint system
+Step 0: Generalized Coordinates
+Let one leg have 3 joints:
+q=[θ1,θ2,θ3]
+Where:
+θ₁ → hip joint
+θ₂ → knee joint
+θ₃ → ankle joint
+ 
+
+
+
+
+
+
+4. MATHEMATICAL DERIVATION 
+Step 1: Position of Each Link COM
+Assume:  Link lengths: L1,L2,L3         |        ​COM at half length
+Link 1 (Hip)
+
+
+
+
+Link 2 (Thigh)
+
+
+
+
+
+Link 3 (Tibia)
+
+
+
+
+
+
+4. MATHEMATICAL DERIVATION 
+Step 2: Velocities (Differentiate)
+Example for Link 1:
+
+
+
+
+Velocity magnitude:
+
+
+
+
+Similarly derived for link 2 and 3 
+
+
+
+
+
+
+
+4. MATHEMATICAL DERIVATION 
+Step 3: Kinetic Energy (T)
+For each link:
+
+
+Total Kinetic Energy:
+
+
+Example (Link 1):
+
+
+
+​Final compact form:
+
+
+
+
+
+
+4. MATHEMATICAL DERIVATION 
+Step 4: Potential Energy (V)
+Due to gravity:
+
+
+Link 1:
+
+
+Link 2:
+
+
+Link 3:
+
+
+Total:
+
+
+
+
+
+
+4. MATHEMATICAL DERIVATION 
+Step 5: Lagrangian
+
+
+
+Step 6: Apply Euler–Lagrange Equation
+For each coordinate θi:
+
+
+
+
+
+
+
+
+4. MATHEMATICAL DERIVATION 
+Step 7:Solve for Each Joint
+After simplification:
+
+
+​Similarly:
+​
+
+
+Step 8: Final Matrix Form
+
+
+Step 9: Extend to Full Hexapod
+Each leg → same derivation
+Total system:
+
+
+
+
+
+
+
+5. FINAL EQUATIONS & STATE-SPACE
+Equations of Motion
+
+Where:
+M(θ) → inertia matrix
+C(θ, θ̇) → Coriolis & centrifugal forces
+G(θ) → gravity terms
+State-Space Form:
+Let:
+
+Then:
+
+Physical Meaning (CO3 important):
+G(θ) → gravitational torque
+C(θ,θ˙) → motion coupling between joints
+M(θ)θ¨ → inertia resistance
+Energy Expression:
+
+
+
+
+
+
+
+6. SIMULATION & ENERGY ANALYSIS
+
+
+
+
+
+
+
+7. SIMULATION VISUALIZATION
+
+
+
+
+
+
+
+7. SIMULATION VISUALIZATION
+
+
+
+
+
+
+
+7. SIMULATION VISUALIZATION
+
+
+
+
+
+
+
+
+8. VALIDATION & ANALYSIS
+
+
+
+
+
+
+
+
+8. VALIDATION & ANALYSIS
+
+
+
+
+
+
+9. CONCLUSIONS & REFLECTIONS
+Key Finding
+The hexapod robot achieves highly stable locomotion using a tripod gait, while the derived dynamic model accurately captures joint interactions, forces, and energy behavior during motion.
+What we learned that a textbook couldn't teach
+Understanding how multi-DOF systems behave in real simulations showed us that joint coupling and numerical instability are significant challenges, which are not evident in simplified textbook problems.
+Most challenging CO: CO4 (Applying Lagrangian dynamics to a complex multi-body system).
+What we would do differently
+We would begin simulation earlier instead of completing full derivations first. Not testing it on PyBullet in the earlier stage caused more problem as the leg geometry was correct but at the time of simulation the bot could not stand in proper stance.
+Follow a modular approach (one leg -> gait -> full robot).
+Course units most critical
+Kinematics of multi-body systems
+Free Body Diagram analysis
+Newtonian and Lagrangian dynamics
+Energy methods in dynamic systems
+Numerical methods for ODE solving
+CO Self-Assessment
+ CO1 (Kinematics): ✓
+ CO2 (FBD): ✓
+ CO3 (Forces): ✓
+ CO4 (Laws): ✓
+ CO5 (Energy): ✓
+
+
+
+
+
+
+
+10. REFERENCES & AI DISCLOSURE
+Textbook References:
+[1] Ginsberg, J. (2008). Engineering Dynamics. Cambridge UP.
+
+Online Resources:
+[1] Youtube Video for hardware files - 
+[2] Hardware Modeling(3D Model File) - 
+
+
+AI Tools :
+We used AI tools like ChatGPT/Claude/GLM(Z.ai) for:
+Understanding complex concepts like inverse kinematics and modeling.
+Writing Python/PyBullet code from MATLAB code (Prompt based coding).
+Structuring explanations and documentation.
+We did NOT use AI for:
+Deriving problem, it’s mathematical modeling concept and FBDs.
+Simulation validation.
+Core conceptual learning.
+https://youtu.be/ciE2Z_92T7s?si=EKsPSDTH10j7Pghe
+https://makerworld.com/en/models/1973965-hexapod-spider-robot-with-servo-arduino#profileId-2122819
+
+
+
+
+THANK
+YOU
+
+

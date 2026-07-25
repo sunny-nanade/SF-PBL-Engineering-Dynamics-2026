@@ -1,0 +1,47 @@
+Validation Evidence
+1. Textbook Comparison
+To validate the derived mathematical model of the multi-motor system, the governing
+equations were compared with standard DC motor models from control systems textbooks.
+The standard armature-controlled DC motor equation is:
+●
+Our derived equations for each motor matched this structure, with additional coupling
+terms to account for interaction between the three motors.
+The transfer function obtained from our model was consistent with the standard form:
+This confirms that our derivation aligns with established theoretical models, ensuring
+correctness of the base formulation.
+2. Energy Check Calculation
+An energy balance check was performed to verify physical correctness of the system.
+● Electrical Input Power:
+● Mechanical Output Power:
+● Losses considered:
+●
+The validation condition used:
+Substituting simulation values (example):
+●
+Since input power approximately equals output power plus losses, the system satisfies
+energy conservation, validating the physical accuracy of the model.
+3. Sensitivity Analysis Results
+Sensitivity analysis was conducted to understand how variations in system parameters affect
+performance.
+Parameters Varied:
+● Resistance (R)
+● Inertia (J)
+● Friction coefficient (B)
+● Load torque (T_L)
+Observations:
+● Increasing R reduced current and slowed motor response.
+● Increasing J increased rise time and made the system sluggish.
+● Increasing B reduced steady-state speed due to higher damping.
+● अचानक increase in load torque caused speed drop, which was corrected using
+feedback (self-healing mechanism).
+Conclusion:
+The system showed high sensitivity to inertia and load disturbances, justifying the need for a
+self-healing control system (e.g., PID controller).
+Final Validation Conclusion
+The model was validated through:
+● Agreement with standard textbook equations
+● Satisfaction of energy conservation laws
+● Logical and expected sensitivity behavior
+These validations confirm that the developed digital twin model is both mathematically
+correct and physically realistic.
+Matlab system mod

@@ -1,0 +1,96 @@
+Phase 2: Mathematical Model
+Method Chosen: Newton's Second Law of Motion (Newton-Euler
+Formulation)
+Justification: While Lagrange's equations are excellent for energy-based
+systems, Newton's Laws are chosen here because they explicitly expose the
+internal reaction forces (specifically, the cable tension). In industrial crane design,
+knowing the real-time tension is critical for cable sizing and safety factors.
+Furthermore, breaking the system down into individual free-body diagrams
+makes the physical coupling between the motors and the payload swing highly
+intuitive.
+1. Coordinate System & Small Angle Assumption
+ We define the Z-axis as positive downwards (direction of gravity).
+ To make the step-by-step derivation manageable and realistic for control
+design, we apply the Small Angle Approximation for the payload swing.
+In industrial cranes, swing angles rarely exceed 10-15 degrees.
+ Therefore: sin(θ) is approximately equal to θ, and cos(θ) is approximately
+equal to 1.
+2. Kinematic Equations (Position, Velocity, Acceleration)
+First, we define the absolute position of the payload mass (mp) in 3D space. It
+depends on the bridge position (x), trolley position (y), cable length (L), and the
+small swing angles (θx and θy).
+ Payload Position (Xp, Yp, Zp):
+i. Xp = x + L * θx
+ii. Yp = y + L * θy
+iii. Zp = L
+Next, we take the first derivative with respect to time to get the velocities. We
+must use the product rule since the cable length (L) can change while hoisting.
+ Payload Velocity (Vpx, Vpy, Vpz):
+i. Vpx = ẋ + (L̇ * θx) + (L * θ̇x)
+ii. Vpy = ẏ + (L̇ * θy) + (L * θ̇y)
+iii. Vpz = L̇
+Taking the second derivative gives the absolute accelerations.
+ Payload Acceleration (Apx, Apy, Apz):
+i. Apx = ẍ + (L̈ * θx) + (2 * L̇ * θẋ ) + (L * θ̈x)
+ii. Apy = ÿ + (L̈ * θy) + (2 * L̇ * θẏ ) + (L * θ̈y)
+iii. Apz = L̈
+3. Applying Newton's Second Law (Sum of Forces = Mass * Acceleration)
+We now analyze the Free Body Diagram for each mass component.
+Step A: The Payload (mp) in the Z-axis (Vertical)
+Forces acting on the payload in the Z direction: Gravity pulling down (+mp * g)
+and Cable Tension pulling up (-T).
+Equation: mp * Apz = mp * g - T
+Substitute Apz: mp * L̈ = mp * g - T
+Rearranging for Tension (T): T = mp * (g - L̈ )
+Step B: The Payload (mp) in the X-axis and Y-axis (Swing)
+Forces acting on the payload in the horizontal directions come entirely from the
+horizontal components of the cable tension. For small angles, the horizontal
+tension is T * θ. Because tension pulls the payload back towards the vertical
+center, it is negative.
+X-Axis Equation: mp * Apx = -T * θx
+Y-Axis Equation: mp * Apy = -T * θy
+Step 3C: Deriving the Swing Equations of Motion
+Let's substitute our Apx and T equations into the X-Axis Payload equation.
+ mp * [ẍ + (L̈ * θx) + (2 * L̇ * θẋ ) + (L * θ̈x)] = - [mp * (g - L̈ )] * θx
+Divide both sides by mass (mp) to simplify:
+ ẍ + (L̈ * θx) + (2 * L̇ * θẋ ) + (L * θẍ ) = -g * θx + (L̈ * θx)
+Notice that the term (L̈ * θx) exists on both sides and cancels out. Rearranging
+the remaining terms gives us our final payload swing equation for the X-axis. The
+Y-axis follows the exact same symmetrical logic.
+4. Final Equations of Motion (EOM)
+EOM 1: Payload Swing in X-Z Plane
+ L * θẍ + 2 * L̇ * θẋ + g * θx = -ẍ
+(Physical Meaning: This reveals that the bridge acceleration, ẍ, acts as a driving
+force that causes the pendulum to swing. The term 2 * L̇ * θ̇x is the Coriolis
+acceleration that occurs when the payload is hoisted while swinging.)
+EOM 2: Payload Swing in Y-Z Plane
+ L * θ̈y + 2 * L̇ * θẏ + g * θy = -ÿ
+(Physical Meaning: Mirrors the X-axis; the trolley acceleration acts as the
+external disturbance causing the payload to oscillate in the Y direction.)
+EOM 3: Bridge Dynamics (Mass = Mb)
+Forces: Motor Force (Fx), Friction opposing motion (-cx * ẋ), and the horizontal
+pull of the cable tension from the swinging payload (+T * θx).
+ Mb * ẍ = Fx - cx * ẋ + mp * (g - L̈ ) * θx
+(Physical Meaning: To move the bridge, the motor must overcome the bridge
+inertia, track friction, and the reactive tugging force of the swinging payload.)
+EOM 4: Trolley Dynamics (Mass = mt)
+Forces: Motor Force (Fy), Friction (-cy * ẏ), and cable tension horizontal pull
+(+T * θy).
+ mt * ÿ = Fy - cy * ẏ + mp * (g - L̈ ) * θy
+(Physical Meaning: The trolley motor must overcome trolley inertia, friction, and
+the Y-axis pendulum reaction force.)
+EOM 5: Hoist Dynamics
+If we assume the hoist motor directly controls the vertical force (Fz) acting on the
+cable:
+ mp * L̈ = mp * g - Fz
+(Physical Meaning: If the hoist motor force equals the weight of the payload,
+acceleration is zero and it hoists at a constant velocity. If it drops below payload
+weight, the load accelerates downward.)
+5. Units Consistency Check
+Let us verify EOM 1: L * θẍ + 2 * L̇ * θ̇x + g * θx = -ẍ
+ L * θẍ : (meters) * (1 / seconds²) = m/s²
+ 2 * L̇ * θẋ : (meters / second) * (1 / second) = m/s²
+ g * θx: (m/s²) * (dimensionless radians) = m/s²
+ -ẍ: m/s²
+All terms share the unit of linear acceleration (m/s²), confirming dimensional
+consistency across the derived dynamic model.

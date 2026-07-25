@@ -1,0 +1,107 @@
+Mathematical simulation of pick and place autonomous bot
+Team: Armaan Kotadiya ,Preyansh Patni ,Khush Mehta
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: [E] | Complexity: [High]
+COs Exercised: [CO1, CO2, CO3, CO4, CO5] | Date: [15/04/2026]
+1. System Introduction & Motivation
+What is the system? (Real-world description)
+This is a mobile manipulator — a ground robot that can both navigate an environment and physically interact with objects. Specifically, it combines:
+A Clearpath Husky — a 38 kg, four-wheel differential-drive unmanned ground vehicle (UGV)
+A KUKA iiwa — a 7-degree-of-freedom robotic arm mounted rigidly on top of the Husky
+
+Why does it matter? (Engineering application)
+Mobile manipulators are one of the central problems in modern robotics. Unlike a fixed arm (limited to a small workspace) or a wheeled robot (can move but can't grab things), a mobile manipulator can traverse an environment and physically act on it. This matters enormously in:
+Planetary exploration — rovers like NASA's Perseverance must navigate terrain and collect rock samples autonomously
+Warehouse logistics — robots that autonomously fetch, carry, and place goods (Amazon, Boston Dynamics Stretch)
+Search and rescue — robots deployed into hazardous areas to retrieve objects or operate valves
+Field agriculture — harvesting robots that navigate rows and pick produce
+Construction and inspection — manipulators on mobile platforms inspecting or repairing structures
+The specific challenge demonstrated here — navigate, pick, transport, place — is the canonical "pick-and-place" task and serves as a foundation for nearly all applied mobile manipulation research.
+
+
+1. System Introduction & Motivation
+What question are we answering? (PBL problem statement)
+Can a robot autonomously navigate an obstacle-filled environment, use its arm to retrieve a target object, and deliver it to a goal — with no human input?
+This is the classic autonomous mobile pick-and-place problem, and the code answers it by implementing: ray-based obstacle avoidance, waypoint navigation, stuck recovery, inverse kinematics arm control, and constraint-based grasping.
+                                                                                                                                                                                                    
+2. Problem Formulation & Assumptions
+2. Problem Formulation & Assumptions
+2. Problem Formulation & Assumptions
+Key Assumptions (JUSTIFIED):
+(1) Rigid body throughout — both the Husky chassis and KUKA arm links are treated as rigid; deformation is negligible at the low speeds and forces involved (max 950 N wheel force, <2 m/s travel speed).
+(2) Planar base motion — the Husky operates on a flat ground plane; z-position is constant, out-of-plane forces are zeroed by the plane contact constraint. Only x, y, and yaw are controlled.
+(3) Viscous damping on all joints — linearDamping and angularDamping are explicitly set on both the base and arm links, modeling drag proportional to velocity. This stabilizes the simulation and approximates real actuator back-EMF and friction behavior.
+(4) Grasp modeled as a fixed constraint — true contact/friction grasping is replaced by a JOINT_FIXED PyBullet constraint between the end-effector and sample block, with maxForce = 50 N. This assumes a successful grasp once the end-effector reaches within threshold distance.
+(5) Perfect ray sensing — the 17-beam ray scanner returns exact hit distances with no noise, modeling an ideal lidar. Real sensors would introduce measurement uncertainty.
+3. Free Body Diagram / System Schematic
+3. Free Body Diagram / System Schematic
+4. Mathematical Derivation (Part 1)
+Method Selection
+Method: Lagrange Mechanics.
+Why this method? The system consists of a mobile base and a 7-DOF arm rigidly coupled. Using the Lagrangian method avoids the need to explicitly calculate the internal constraint forces at the mounting point (z = 0.25) that a Newtonian approach would require.
+
+
+4. Mathematical Derivation (Part 1)
+4. Mathematical Derivation (Part 1)
+4. Mathematical Derivation (Part 1)
+5. Final Equations & State-Space
+5. Final Equations & State-Space
+5. Final Equations & State-Space
+6. Simulation & Energy Analysis
+6. Simulation & Energy Analysis
+6. Simulation & Energy Analysis
+Expected Visualizations
+Time Response Plot: This would show the Husky base's x, y coordinates transitioning from START to SAMPLE and then to GOAL, with smooth velocity ramps due to the MAX_WHEEL_DELTA constraint.
+Energy vs. Time Plot: You would observe sharp increases in energy when the motors apply WHEEL_FORCE (950N) or ARM_FORCE (160N), followed by exponential decay when the robot brakes or settles
+
+Key Code Snippet — ODE Equivalent:
+6. Simulation & Energy Analysis
+Time response plot (states vs time)] :
+6. Simulation & Energy Analysis
+Energy vs time plot :
+7. Simulation Visualization
+Time response: all states vs time (labels, units, legend):
+7. Simulation Visualization
+Phase portrait: velocity vs position:
+7. Simulation Visualization
+Bode/frequency response :
+
+8. Validation & Analysis
+8. Validation & Analysis
+8. Validation & Analysis
+9. Conclusions & Reflections
+9. Conclusions & Reflections
+What we would do differently:
+Implement a closed-loop PID controller for the base heading instead of simple gain-based logic to reduce the slight overshoot observed when approaching the sample location.
+
+Course units most critical: 
+Unit 3 (Work & Energy): Crucial for proving the system isn't "gaining" phantom energy.
+Unit 5 (System Dynamics): Provided the framework for the Bode analysis.
+
+CO Self-Assessment:
+  CO1(Kinematics): ✓  CO2(FBD): ✓  CO3(Forces): ✓
+  CO4(Laws): ✓  CO5(Energy): ✓
+10. References & AI Disclosure
+This project titled “Mathematical Simulation of Pick-and-Place Autonomous Robot” involved the use of Artificial Intelligence (AI) tools to assist in various stages of development, including coding, analysis, and documentation. 
+The following AI tools were used: 
+• ChatGPT (OpenAI) – Used for generating and refining Python simulation code, deriving equations of motion, assisting in debugging, and preparing report content such as validation, analysis, and explanations. 
+• Claude AI (Anthropic) – Used for structuring long-form content, improving documentation clarity, and assisting in formatting technical explanations. 
+• Google Gemini (Google AI) – Used for cross-verification of concepts, additional explanations, and alternative approaches to problem-solving. 
+Scope of AI Assistance AI tools were used strictly as supporting tools for: 
+• Understanding theoretical concepts 
+• Generating and optimizing simulation code 
+• Structuring derivations and explanations 
+• Assisting in report writing and formatting
+ Academic Integrity Statement: 
+All outputs generated using AI tools were: 
+• Carefully reviewed and verified by the project team 
+• Modified and adapted to meet the project requirements 
+• Understood before inclusion in the final submission The final work represents the team’s own understanding and   
+    implementation, with AI used only as an aid for learning and productivity.
+Thank You — Questions?
+Team: Armaan Kotadiya ,Preyansh Patni ,Khush Mehta
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: [E] | Complexity: [High]
+COs Exercised: [CO1, CO2, CO3, CO4, CO5] | Date: [15/04/2026]

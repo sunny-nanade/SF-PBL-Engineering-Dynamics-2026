@@ -1,0 +1,149 @@
+Equations of Motion(EOM) Derivation
+Modelling energy loss in Shock Absorber
+By: H068,H071,H097,H086
+Introduction
+Shock absorbers are critical components in vehicle suspension systems, designed to dissipate
+kinetic energy and reduce the impact of road irregularities. Proper modeling of a shock
+absorber allows engineers to analyze its damping characteristics, stiffness, and response to
+transient loads.
+This work derives the equations of motion (EOM) for a simplified shock absorber model
+using the Lagrangian method. The resulting model is essential for simulation, ride comfort
+analysis, stability assessment, and suspension control system design.
+System Description
+The shock absorber is modelled as a one-degree-of-freedom (1-DOF) spring-damper-mass
+system.
+Components:
+• Mass (m): Represents the unsprung mass (wheel, axle, etc.).
+• Spring (k): Represents the stiffness of the shock absorber.
+• Damper (c): Represents the damping coefficient (viscous friction).
+• Base: Connected to the vehicle chassis (moving or fixed).
+The system is assumed to operate vertically.
+Modelling Assumptions
+1. The mass moves only in the vertical direction (1-DOF).
+2. The spring is linear (force proportional to displacement).
+3. The damper is linear viscous (force proportional to velocity).
+4. The shock absorber housing is rigid.
+5. Air resistance is neglected.
+6. No internal friction other than the damper.
+7. The base excitation (from road) is known or assumed sinusoidal.
+8. These assumptions yield a linear second-order ODE.
+Coordinate System and Generalized Coordinates
+A fixed inertial frame is attached to the chassis or ground.
+Generalized coordinate:
+𝑞 = 𝑧
+Where, 𝑧 = vertical displacement of the mass relative to equilibrium.
+Choice of Dynamic Modeling Method
+The Lagrangian method is used. It is suitable because:
+• It handles potential and kinetic energy systematically.
+• It naturally includes dissipative forces via Rayleigh dissipation function.
+• It provides a clean path to equations of motion without free-body diagrams.
+Kinematic Model of the Shock Absorber
+Only vertical motion is considered. The position of the mass is:
+𝑧(𝑡)
+The relative displacement across the shock absorber (compression) is:
+𝛿 = 𝑧 − 𝑧
+mass base
+Velocity: 𝑧̇(𝑡)
+Acceleration: 𝑧̈(𝑡)
+Velocity Derivation
+Velocity of the mass:
+𝑣 = 𝑧̇
+This is used to compute kinetic energy and damping power
+Acceleration Derivation
+Acceleration:
+𝑎 = 𝑧̈
+Required for Newton’s second law and Lagrangian formulation.
+Forces Acting on the System
+Spring force (restoring):
+𝐹 = −𝑘𝑧
+k
+Damping force (dissipative):
+𝐹 = −𝑐𝑧̇
+c
+External excitation (from road via base motion):
+𝐹 (𝑡)
+input
+Gravitational force:
+𝐹 = 𝑚𝑔 (often balanced at static equilibrium)
+g
+Kinetic Energy
+𝟏
+𝐓 = 𝐦𝐳̇𝟐
+𝟐
+Potential Energy
+Elastic potential energy from spring:
+𝟏
+𝒗 = 𝒌𝒛𝟐
+𝟐
+Gravitational potential can be omitted if 𝑧 is measured from static equilibrium.
+Lagrangian Formulation
+Lagrangian:
+𝟏 𝟏
+𝐋 = 𝐓−𝐕 = 𝐦𝐳̇𝟐 − 𝐤𝐳𝟐
+𝟐 𝟐
+Rayleigh dissipation function (for damper):
+𝟏
+𝐑 = 𝐜𝐳𝟐
+𝟐
+Lagrange’s equation with dissipation:
+Final Dynamic Equation of Motion
+Substituting:
+𝑚𝑧̈ + 𝑐𝑧̇ + 𝑘𝑧 = 𝐹 (𝑡)
+ext
+If base excitation 𝑧𝑏(𝑡) is given, relative motion 𝑧 = 𝑧 − 𝑧 leads to:
+𝑟 𝑏
+𝑚𝑧̈ + 𝑐𝑧̇ + 𝑘𝑧 = −𝑚𝑧̈ (𝑡)
+𝑟 𝑟 𝑟 𝑏
+This is the standard shock absorber equation.
+Energy Dissipation Derivation
+State Space Representation
+Unit Consistency Check
+Quantity Unit
+Displacement z m
+Velocity 𝑧̇ m/s
+Acceleration 𝑧̈ m/s2
+Force F N
+Stiffness k N/m
+Damping c N.s/m
+Mass m Kg
+All equations are dimensionally consistent.
+Physical Meaning of Dynamic Terms
+In the equation:
+𝑚𝑧̈ + 𝑐𝑧̇ + 𝑘𝑧 = 𝐹
+ext
+• 𝑚𝑧̈ – Inertia force (resists acceleration).
+• 𝑐𝑧̇ – Damping force (dissipates energy, resists velocity).
+• 𝑘𝑧 – Spring force (restores position).
+• 𝐹 ext – External excitation (road input).
+Conclusion
+A dynamic model of a shock absorber was developed as a linear 1-DOF spring-mass-
+damper system. The kinematic, velocity, and acceleration relationships were defined. Using
+the Lagrangian method with a dissipation function, the equation of motion was derived:
+𝑚𝑧̈ + 𝑐𝑧̇ + 𝑘𝑧 = 𝐹 (𝑡)
+ext
+Additionally, the energy dissipation rate was derived:
+The state-space representation was provided. This model forms the basis for analyzing shock
+absorber performance, transmissibility, ride comfort, and suspension control strategies.
+VERIFICATION:
+System & Equation of Motion
+For a mass–spring–damper system:
+mx¨+cx˙+kx=F(t)
+Where:
+• m = mass
+• c = damping coefficient
+• k = spring stiffness
+• x = displacement
+Assume Example Values
+Let:
+• m=2 kg
+• c=4 Ns/m
+• k=20 N/m
+• F(t)=10sin(2t)
+Substitute into EOM
+Combine all terms
+Equate with RHS
+Solve Equations
+Final Solution
+x(t)=0.5769sin(2t)−0.3846cos(2t)
+Verification by Back – Substitution
+Energy Dissipation Verification

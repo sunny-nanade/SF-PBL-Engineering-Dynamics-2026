@@ -1,0 +1,128 @@
+Mathematical Modeling of Rocket Landing
+System
+By: Siddharth Bathija[H004], Jayhan Bhagvati [H005], Jimit
+Kacha[H028], Shehzad Khan[H031]
+1. Introduction
+Reusable rockets are advanced aerospace systems designed to perform controlled vertical
+landing after flight. These systems use thrust vector control and feedback-based stabilization
+to achieve precision landing.
+To analyze the motion and stability of the rocket, a mathematical model is required that
+relates forces, torques, and resulting motion.
+In this work, the equations of motion are derived using the Lagrangian method, which is
+widely used in dynamic system modeling and control.
+2. System Description
+The rocket is modeled as a rigid body in planar motion.
+Degrees of Freedom (DOF):
+• Horizontal motion → 𝑥
+• Vertical motion → 𝑧
+• Rotation → 𝜃
+Inputs to the system:
+• Thrust 𝑇
+• Gimbal angle 𝛿
+3. Modeling Assumptions
+To simplify the modeling process:
+1. Rocket is treated as a rigid body
+2. Motion is planar (yaw ignored)
+3. Small angle approximation used
+4. Thrust acts along body axis
+5. Drag is proportional to velocity
+6. Mass is constant
+4. Coordinate System and Generalized Coordinates
+A coordinate system is defined:
+• 𝑥-axis → horizontal
+• 𝑧-axis → vertical
+Generalized coordinates:
+𝑞 = [𝑥, 𝑧, 𝜃]
+These variables completely define the system configuration.
+5. Choice of Dynamic Modeling Method
+The Lagrangian formulation is used because:
+• It simplifies multi-DOF systems
+• Avoids direct calculation of constraint forces
+• Provides a systematic energy-based approach
+6. Kinematic Description
+Position of rocket center of mass:
+𝑥 = 𝑥(𝑡),𝑧 = 𝑧(𝑡)
+Orientation:
+𝜃 = 𝜃(𝑡)
+Velocities:
+𝑥̇,𝑧̇,𝜃̇
+Accelerations:
+𝑥̈,𝑧̈,𝜃̈
+7. Forces Acting on the System
+1. Thrust Force:
+𝑇 = 𝑇sin⁡(𝜃+𝛿)
+𝑥
+𝑇 = 𝑇cos⁡(𝜃+𝛿)
+𝑧
+2. Gravity:
+𝐹 = 𝑚𝑔
+𝑔
+3. Drag Forces:
+𝐹 = −𝑐𝑥̇,𝐹 = −𝑐𝑧̇
+𝑥 𝑧
+4. Torque due to thrust:
+𝜏 = 𝑙𝑇sin⁡(𝛿)
+8. Kinetic Energy
+1 1
+𝑇 = 𝑚(𝑥̇2 +𝑧̇2)+ 𝐼𝜃̇2
+2 2
+9. Potential Energy
+𝑉 = 𝑚𝑔𝑧
+10. Lagrangian Formulation
+𝐿 = 𝑇−𝑉
+1 1
+𝐿 = 𝑚(𝑥̇2 +𝑧̇2)+ 𝐼𝜃̇2 −𝑚𝑔𝑧
+2 2
+11. Equations of Motion
+Using:
+𝑑 ∂𝐿 ∂𝐿
+( )− = 𝑄
+𝑑𝑡 ∂𝑞̇ ∂𝑞 𝑖
+𝑖 𝑖
+We obtain:
+𝑚𝑥̈ = 𝑇sin⁡(𝜃+𝛿)−𝑐𝑥̇
+𝑚𝑧̈ = 𝑇cos⁡(𝜃+𝛿)−𝑚𝑔−𝑐𝑧̇
+𝐼𝜃̈ = 𝑙𝑇sin⁡(𝛿)
+12. Final Dynamic Model
+The system can be written as:
+𝑇sin⁡(𝜃+𝛿)−𝑐𝑥̇
+𝑥̈ =
+𝑚
+𝑇cos⁡(𝜃+𝛿)−𝑚𝑔−𝑐𝑧̇
+𝑧̈ =
+𝑚
+𝑙𝑇sin⁡(𝛿)
+𝜃̈ =
+{ 𝐼
+13. State-Space Representation
+Define state vector:
+𝑥 = [𝑥, 𝑥̇, 𝑧, 𝑧̇, 𝜃, 𝜃̇]
+𝑥̇
+𝑇sin⁡(𝜃+𝛿)−𝑐𝑥̇
+𝑚
+𝑧̇
+𝑥̇ = 𝑇cos⁡(𝜃+𝛿)−𝑚𝑔−𝑐𝑧̇
+𝑚
+𝜃̇
+𝑙𝑇sin⁡(𝛿)
+[ 𝐼 ]
+14. Unit Consistency Check
+Quantity Unit
+Position m
+Velocity m/s
+Acceleration m/s²
+Force N
+Torque N·m
+Mass kg
+All equations are dimensionally consistent.
+15. Physical Meaning of Terms
+• 𝑇sin⁡(𝜃+𝛿)→ horizontal thrust
+• 𝑇cos⁡(𝜃+𝛿)→ vertical thrust
+• 𝑐𝑥̇,𝑐𝑧̇→ drag forces
+• 𝑚𝑔→ gravity
+• 𝑙𝑇sin⁡(𝛿)→ control torque
+16. Conclusion
+A complete dynamic model of the rocket landing system was derived using the Lagrangian
+method.
+These equations describe how thrust and control inputs affect motion, forming the basis for
+simulation, control design, and landing stability analysis.

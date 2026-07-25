@@ -1,0 +1,68 @@
+Project: DSM MINI PROJECT 2026
+Project Title: Self balancing and walking humanoid robot
+simulation , lower body joint analysis , torque analysis
+Category: A
+Team Members: Aryan hiware , daaris ahmed , hushan
+bhimani , jerome jose
+Date: 24/04/2026
+Q1: What was the single hardest technical challenge you faced
+in deriving the mathematical model? How did you resolve it?
+The hardest technical challenge was accurately deriving the
+velocities and for each link in a multi-DOF, coupled system
+without making errors. Even small mistakes in kinematics
+would affect the entire Lagrangian and final equations. This
+was resolved by systematically defining the reference frames
+Q2: Which Course Outcome (CO1-CO5) was most
+challenging for your team? Why?
+The most challenging course outcome for this project is CO4:
+applying constitutive laws to analyze dynamic systems . This
+is because the humanoid robot is a multi-DOF system with
+nonlinear and coupled dynamics, making the Euler–Lagrange
+formulation complex. It requires accurate derivation of
+energies, velocities, and equations of motion, which is
+significantly more difficult than standard problems.
+Q3: What would you do differently if you started the project
+over?
+If I started the project again, I would begin with a simpler
+model, such as a reduced DOF system, and then gradually
+increase complexity. I would define reference frames and
+generalized coordinates more systematically at the start to
+avoid confusion later. would plan the derivation in a more
+structured way, breaking it into smaller steps and validating
+each stage before proceeding.
+Q4: What did you learn from this project that a regular
+textbook problem could NOT teach you?
+I learned how to model a multi-DOF system where all joints
+are coupled, how small mistakes in kinematics or energy
+terms can completely affect the final equations, and how
+important it is to define reference frames and coordinates
+correctly from the start . It included dealing with assumptions,
+simplifications, and validation using simulations
+Q5: How did you divide work among team members? Did
+everyone understand the full derivation?
+Derivation & Modelling: aryan
+•
+Simulation & Coding: daaris
+•
+Validation & Analysis: hushan
+•
+Presentation & Documentation: jerome
+•
+All members discussed the derivation together, but not
+•
+everyone initially understood every step. Through group
+discussions and cross-verification, the full model was
+eventually understood by all members.
+Q6: What AI tools did you use? For what specific purpose?
+What did you NOT use AI for?
+AI tools (ChatGPT and Claude) were used for:
+Structuring derivations
+•
+Debugging Python code
+•
+Extracting physical and mathematical data from the urdf
+•
+file
+AI was not used for core derivation logic and writing and
+formatting of the report everything done on paper which was
+done manually based on course concepts.

@@ -1,0 +1,159 @@
+SYSTEM IDENTIFICATION REPORT
+Team: Jeel Shah, Manasvi Shah, Yashasvi Yadu, Pratistha Agrawal
+Project Title: Modeling Energy Loss in a Shock Absorber
+Subject: Dynamic System Modeling (702MH0C023)
+Course: B.Tech Mechatronics, Sem IV
+Category: D (Mechanical Systems) | Complexity: Medium
+Date: [20/04/2026]
+1. ABSTRACT
+System identification involves developing mathematical models of dynamic systems using
+observed or assumed data. In this project, a shock absorber is modelled as a mass-spring-damper
+system to study energy loss characteristics. The damping effect is analyzed to understand how
+mechanical energy is dissipated over time. Simulation is performed to validate the system
+behavior.
+2. INTRODUCTION
+Shock absorbers are essential components in mechanical and automotive systems. They reduce
+vibrations and improve system stability by dissipating energy.
+System identification helps in representing such real-world systems mathematically and
+predicting their behavior under different conditions.
+3. PROBLEM STATEMENT
+To develop a mathematical model of a shock absorber and analyze how energy is lost due to
+damping.
+4. OBJECTIVES
+• To model the shock absorber as a dynamic system
+• To identify system parameters
+• To analyze energy dissipation
+• To simulate system behavior
+5. LITERATURE REVIEW
+Previous studies show that shock absorbers can be modeled using second-order differential
+equations. Numerical methods like Euler and Runge-Kutta are used for simulation. Damping
+plays a key role in controlling oscillations and energy loss.
+6. REAL WORLD SYSTEM
+In real-world applications, shock absorbers are used in vehicles to reduce vibrations caused by
+road irregularities.
+When a vehicle encounters a bump:
+• The spring stores energy
+• The damper dissipates energy as heat
+• Oscillations gradually decrease
+7. SYSTEM DESCRIPTION
+The shock absorber is modelled as a mass-spring-damper system:
+• Mass (m): Vehicle body
+• Spring (k): Stores energy
+• Damper (c): Dissipates energy
+Input: Road disturbance
+Output: Displacement
+8. MATHEMATICAL MODELLING
+Using Newton’s Second Law:
+ⅆ2𝑥 ⅆ𝑥
+𝑚 +𝑐 +𝑘𝑥 = 0
+ⅆ𝑡2 ⅆ𝑡
+This represents the motion of the system.
+9. DATA / ASSUMPTIONS
+Assumed values:
+• m = 250 kg
+• k = 20000 N/m
+• c = 1500 Ns/m
+10. PARAMETER IDENTIFICATION
+The parameters are selected based on typical vehicle suspension systems. These values determine
+system response and damping behavior.
+11. TRANSFER FUNCTION
+Taking Laplace Transform:
+𝑚𝑠2𝑋(𝑠)+𝑐𝑠𝑋(𝑠)+𝑘𝑋(𝑠) = 0
+Transfer Function:
+𝑥(𝑠) 1
+= ( )
+𝐹(𝑠) 𝑚𝑠2 +𝑐𝑠+𝑘
+12. ENERGY ANALYSIS (DERIVATION)
+Total Energy:
+1 1
+𝐸 = 𝑚𝑣2 + 𝑘𝑥2
+2 2
+Multiplying equation of motion by velocity:
+𝑚𝑥′′𝑥′ +𝑐𝑥′2 +𝑘𝑥𝑥′ = 0
+Converting:
+ⅆ 1 1
+[ 𝑚𝑣2 + 𝑘𝑥2] = −𝑐𝑥2
+ⅆ𝑡 2 2
+Final:
+ⅆ𝐸
+= −𝑐𝑥2
+ⅆ𝑡
+13. METHODOLOGY
+1. Develop mathematical model
+2. Apply numerical method
+3. Simulate using Python
+4. Analyze graphs
+14. SIMULATION
+The system is simulated using Python to observe displacement and energy decay over time.
+15. RESULTS
+The simulation of the mass-spring-damper model of the shock absorber provides important
+insights into the system behavior.
+Initially, when the system is disturbed (given an initial displacement), the mass begins to oscillate
+due to the restoring force of the spring. However, unlike an ideal system, these oscillations do not
+continue indefinitely. The presence of the damper introduces a resistive force proportional to
+velocity, which gradually reduces the amplitude of oscillations.
+The displacement vs time graph shows a decaying oscillatory response, indicating that the
+system is underdamped. The peaks of the oscillations decrease exponentially with time,
+demonstrating the effect of energy dissipation.
+The energy plot clearly shows that the total mechanical energy of the system decreases
+continuously. At the beginning, the system has maximum energy due to initial displacement. As
+time progresses:
+• Kinetic energy increases and decreases periodically
+• Potential energy is exchanged with kinetic energy
+• A portion of energy is continuously lost due to damping
+This energy loss follows the relation:
+• Energy decay is proportional to the square of velocity
+• Higher velocity → higher energy loss
+Eventually, the system reaches equilibrium where:
+• Displacement → 0
+• Velocity → 0
+• Total energy → minimum (almost zero)
+This confirms that the shock absorber effectively removes unwanted vibrations.
+16. DISCUSSION
+The results obtained from the simulation strongly support the theoretical model of the shock
+absorber as a mass-spring-damper system.
+One of the most important observations is the role of the damping coefficient (c). The value of
+damping determines how quickly the system loses energy and stabilizes:
+• If damping is low → oscillations persist for a longer time
+• If damping is high → oscillations decay quickly
+• If damping is too high → system becomes overdamped and responds slowly
+Thus, an optimal value of damping is required in practical systems to balance comfort and
+stability.
+Another key observation is that energy loss is not constant. It depends on velocity:
+• At higher velocities → more energy is dissipated
+• At lower velocities → energy loss decreases
+This matches real-world behavior of hydraulic shock absorbers where fluid resistance increases
+with speed.
+The model used in this project assumes:
+• Linear damping
+• No external disturbances
+• Ideal spring behavior
+However, real systems may exhibit:
+• Nonlinear damping
+• Temperature effects
+• Variable fluid viscosity
+Despite these simplifications, the model provides a very good approximation of real shock
+absorber behavior and is widely used in engineering analysis.
+17. CONCLUSION
+In this project, a shock absorber system was successfully modeled using system identification
+techniques. The system was represented as a mass-spring-damper model, and its behavior was
+analyzed through mathematical derivation and simulation.
+The study clearly demonstrates that damping plays a crucial role in reducing oscillations and
+stabilizing the system. The derived energy equation shows that the rate of energy loss is
+proportional to the square of velocity, confirming that energy is continuously dissipated in the
+form of heat.
+Simulation results validate the theoretical model by showing:
+• Decaying oscillations over time
+• Continuous reduction in system energy
+• Stabilization of the system at equilibrium
+This confirms that shock absorbers are effective in converting unwanted mechanical energy into
+thermal energy, thereby improving system performance and comfort.
+Overall, the system identification approach proves to be a powerful tool for modeling and
+analyzing real-world dynamic systems. The findings of this project can be applied to various
+engineering applications such as vehicle suspension systems, vibration control, and structural
+stability.
+18. REFERENCES
+1. https://www.mdpi.com/1996-1944/14/4/772
+2. https://saemobilus.sae.org/papers/energy-dissipation-recovery-vehicle-shock-
+absorbers-2012-01-2037?utm_source=chatgpt.com
+3. https://www.sciencedirect.com/topics/engineering/shock-absorber

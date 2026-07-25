@@ -1,0 +1,120 @@
+MODELLING ENERGY LOSS IN Shock Absorber
+Team: Jeel  Shah, Manasvi Shah, Yashasvi Yadu,  Pratistha Agrawal 
+Subject: Dynamic System Modelling (702MH0C023)
+Course: .Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: D (Mechanical Systems) | Complexity: Medium
+COs Exercised: [CO1, CO2, CO3, CO4, CO5] | Date: [20/04/2026]
+
+
+              
+1. System Introduction & Motivation
+What is the system?
+A shock absorber is a mechanical device used in vehicle suspension systems to dissipate vibrational energy.
+Why does it matter?
+Improves ride comfort
+Ensures tire-road contact
+Reduces structural damage
+
+How does a shock absorber dissipate energy over time due to damping?
+
+2. Problem Formulation & Assumptions
+Inputs: External force F(t)
+
+Outputs: Displacement x(t)
+
+State Variables: x, x˙
+
+Parameters:
+        Mass m
+        Damping coefficient c
+        Spring stiffness k
+
+DOF: 1 DOF (vertical motion only)
+
+Assumptions:
+       Linear spring → F=kx
+       Viscous damping → Fd=cx
+       No friction except damping
+       Small oscillations (linear system)
+3. Free Body Diagram / System Schematic
+4. Mathematical Derivation (Part 1)
+5. Final Equations & State-Space
+6. Simulation & Energy Analysis
+Tools: Python (NumPy, SciPy, Matplotlib)
+Energy Equations:
+
+Code Snippet:
+
+def model(t, y):
+    x, v = y
+    dx/dt = v
+    dv/dt = (F - c*v - k*x)/m
+    return [dx/dt, dv/dt]
+
+7. Simulation Visualization
+
+
+              
+
+              
+
+4/25/2026
+
+              
+11
+8. Validation & Analysis
+Validation: 
+Energy decreses due to damping
+Matches theory of damped system
+
+Sensitivity:
+Increase c → faster decay
+Increase k → higher frequency
+
+Limitations:
+Linear model only
+No real fluid modeling
+
+9. Conclusions & Reflections
+Key Finding: 
+The shock absorber behaves as a mass–spring–damper system with damped oscillations.
+Energy dissipates over time due to viscous damping (cx’), converting mechanical energy into heat.
+The system shows exponential decay in amplitude, confirming realistic physical behavior.
+Simulation results match theoretical expectations, validating the mathematical model.
+
+What we learned that a textbook couldn't teach:
+The importance of correct sign convention in FBD and equations—small mistakes change results completely.
+How to connect mathematical equations with physical meaning (especially damping and energy loss).
+Practical understanding of energy decay and power dissipation, not just formulas.
+Difficulty in translating real-world systems into simplified models with justified assumptions.
+CO4 & CO5 were most challenging due to derivation and energy interpretation.
+
+What we would do differently (Point-wise)
+Start with a clear and verified Free Body Diagram earlier.
+Fix sign conventions before derivation to avoid rework.
+Perform parameter sensitivity analysis earlier in the process.
+10. References & AI Disclosure
+Textbook References:
+Ginsberg, J. H.Engineering Dynamics, Cambridge University Press, 2007. 
+Friedmann, P. P., Lesieutre, G. A., Huang, D.Structural Dynamics: Theory and Applications, Cambridge University Press, 2023. 
+
+Online Resources:
+“Damping – Theory and Applications,”Wikipedia (Engineering reference overview) 
+https://en.wikipedia.org/wiki/Damping?utm_source=chatgpt.com
+
+AI Tools :
+ChatGPT (OpenAI)
+Used for:
+Python code guidance
+Concept explanation
+NOT used for: Mathematical derivation (done manually)
+
+Thank You — Questions?
+Team: Jeel Shah, Manasvi Shah, Yashasvi Yadu, Pratistha Agrawal 
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: D (Mechanical Systems) | Complexity: Medium
+
+
+
+              

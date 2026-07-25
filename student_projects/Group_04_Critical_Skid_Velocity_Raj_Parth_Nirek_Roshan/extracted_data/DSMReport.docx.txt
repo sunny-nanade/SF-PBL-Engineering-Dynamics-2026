@@ -1,0 +1,211 @@
+INTRODUCTION 
+Road safety is a critical aspect of modern transportation, and understanding the factors that lead to vehicle skidding is essential in preventing accidents. Skidding occurs when the frictional force between a vehicle’s tires and the road surface is insufficient to provide the necessary centripetal force for safe motion, especially while turning at higher speeds. This project focuses on determining the speed at which a model car begins to skid while moving along a curved path. By analysing the relationship between speed, radius of the curve, and frictional force, the experiment demonstrates important principles of physics such as circular motion and friction. The study aims to simulate real-life driving conditions using a controlled setup, allowing us to observe how increasing speed affects stability. The results of this project can help in understanding safe speed limits on curved roads and highlight the importance of tire grip and road conditions in preventing accidents.
+
+
+
+
+
+
+
+Aim
+
+To determine the maximum speed at which a car can move along a curved path without skidding.
+
+Objectives
+To understand the concept of centripetal force in circular motion
+To study the role of friction between tires and road surface
+To determine how speed affects stability of a moving vehicle
+To calculate the safe speed for a given curve radius
+To compare theoretical and experimental values
+
+
+
+
+
+
+
+
+
+When an object moves in a circular path, it experiences a force directed towards the centre of the circle. This force is called Centripetal force and is given by:
+
+
+Where:
+(m) = mass of the object
+(v) = velocity
+(r) = radius of the circular path
+
+In the case of a car moving on a curved road, this centripetal force is provided by the *frictional force* between the tires and the road.
+
+Frictional force is given by:
+
+
+Where:
+(μm) = coefficient of friction
+(g) = acceleration due to gravity
+
+At the point just before skidding occurs, the maximum frictional force equals the required centripetal force:
+
+
+Cancelling mass (m) from both sides:
+
+
+
+This formula shows that:
+Speed increases with radius
+Speed increases with friction
+Lower friction (like wet roads) causes skidding at lower speeds
+
+
+
+
+
+
+MATERIALS REQUIRED
+
+The following materials were used in this experiment:
+
+A toy/model car
+A circular or curved track
+Measuring tape or scale
+Stopwatch (or mobile timer)
+Chalk/marker for marking track
+Different surfaces (optional: sandpaper, smooth board)
+Protractor (optional, for accuracy)
+L298 motor driver
+Motors
+Arduino UNO
+Battery packs
+2x Infrared sensor
+
+Each material was selected to ensure accurate observation and measurement of skidding conditions.
+
+
+
+
+Procedure
+A curved track of known radius was prepared using a flat surface.
+The radius of the curve was measured carefully using a measuring tape.
+The model car was placed at the starting point of the track.
+ The car was gradually pushed or allowed to move with increasing speed.
+ Observations were made to identify the point at which the car began to skid or lose grip.
+The speed of the car was estimated using distance and time measurements.
+Multiple trials were conducted to improve accuracy.
+ The experiment was repeated for different surface conditions if applicable.
+
+Proper care was taken to maintain consistent conditions during each trial.
+
+
+
+
+OBSERVATIONS
+
+Observation Notes:
+Skidding was observed at higher speeds
+Smooth surfaces caused earlier skidding
+Rough surfaces allowed higher safe speeds
+
+
+
+
+
+
+
+
+
+
+
+
+CALCULATIONS
+
+Speed is calculated using:
+
+
+The theoretical maximum speed is calculated using:
+
+
+Example:
+
+* (r = 0.5 , m)
+* (\mu = 0.4)
+* (g = 9.8 , m/s^2)
+
+
+
+
+
+CONCLUSION (EXPANDED)*
+
+From this experiment, it can be concluded that the stability of a vehicle on a curved path depends mainly on its speed, the radius of the curve, and the friction between the tires and the surface. As speed increases, the required centripetal force also increases. When this force exceeds the maximum frictional force available, the vehicle begins to skid.
+
+The results confirm that higher friction allows higher safe speeds, while lower friction reduces the safe limit. This explains why vehicles are more likely to skid on wet or icy roads.
+
+This project highlights the importance of controlling speed while driving on curves and demonstrates the practical application of physics concepts in real-life situations.
+
+
+
+
+
+APPLICATIONS
+
+Designing safe road curves
+Determining speed limits on highways
+Automobile tire manufacturing
+Accident prevention strategies
+Understanding driving safety rules
+
+
+
+
+
+
+
+
+
+
+
+RESULT
+
+The experiment successfully determined the speed at which the model car begins to skid. It was observed that:
+
+Skidding occurs when speed exceeds a certain limit
+The limit depends on friction and curve radius
+Experimental results were close to theoretical values
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SOURCES OF ERROR
+
+* Human reaction time error
+* Uneven track surface
+* Inaccurate speed measurement
+* Variations in friction
+* Experimental limitations
+
+
+
+
+
+
+
+
+
+
+
+
+
+References 
+
+* NCERT Physics Textbook
+* School Notes
+* Internet resources on circular motion and friction

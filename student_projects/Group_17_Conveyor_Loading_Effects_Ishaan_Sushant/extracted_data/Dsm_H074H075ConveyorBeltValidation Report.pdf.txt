@@ -1,0 +1,27 @@
+Validation Report: Dynamic Modelling and
+Simulation of a Conveyor Belt
+1. Objective of Validation
+The purpose of validation is to verify that the developed dynamic model of the conveyor belt
+accurately represents the physical system and produces results consistent with analytical
+calculations and physical laws.
+2. Validation 1 – Energy Consistency (CO5)
+At steady state, KE = 1/2 mv^2 = 1.125 J. Simulation result » 1.12 J. The simulated value closely
+matches analytical computation.
+3. Validation 2 – Analytical Time to Reach Belt Speed (CO4)
+t = Vbelt/(mg) = 1.5/(0.35×9.81) = 0.437 s. Simulation shows » 0.43 s. Error » 1.6%.
+4. Validation 3 – Dimensional Consistency Check
+dv/dt = mg. Units on both sides are m/s², confirming dimensional correctness.
+5. Sensitivity Analysis
+Varying m from 0.2 to 0.5 changes acceleration time from 0.76 s to 0.31 s. Higher m leads to faster
+lock-in.
+6. Model Limitations
+Belt elasticity not considered. Motor torque dynamics excluded. No experimental validation.
+Longitudinal vibration ignored.
+7. Overall Conclusion
+The model is validated through analytical comparison, dimensional checks, and sensitivity analysis.
+Results show strong agreement.
+Sensitivity Analysis Table
+Coefficient of Friction (m) Acceleration (m/s²) Time (s)
+0.20 1.962 0.76
+0.35 3.433 0.43
+0.50 4.905 0.31

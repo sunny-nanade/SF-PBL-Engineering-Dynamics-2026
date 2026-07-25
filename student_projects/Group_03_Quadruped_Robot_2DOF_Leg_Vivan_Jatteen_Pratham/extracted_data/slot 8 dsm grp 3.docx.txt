@@ -1,0 +1,38 @@
+Validation Evidence
+1. Textbook Comparison
+To validate the derived mathematical model of the quadruped leg, results were compared with standard kinematic equations from textbooks on robotic mechanisms and planar link systems.
+The inverse kinematics equations derived for the two-link leg mechanism were matched with standard formulations:
+Position of end-effector (foot) was verified using known trigonometric relations.
+Joint angle relationships were cross-checked with classical 2R manipulator equations.
+The obtained results showed strong agreement with textbook formulas, confirming the correctness of the geometric and trigonometric assumptions used in the model.
+
+2. Energy Check Calculation
+An energy-based validation was performed to ensure physical consistency of the system.
+Total energy of the system = Kinetic Energy (KE) + Potential Energy (PE)
+For static and quasi-static conditions, the energy variation remained consistent with expected theoretical behavior.
+Observations:
+No unrealistic gain or loss of energy was observed.
+Energy values remained within physically acceptable limits.
+This confirms that the model does not violate conservation principles.
+Thus, the model is physically valid under assumed conditions.
+
+3. Sensitivity Analysis
+Sensitivity analysis was conducted to study how variations in input parameters affect the system output.
+Parameters varied:
+Link lengths
+Joint angles
+Input position of the foot
+Observations:
+Small variations in joint angles resulted in noticeable changes in foot position, indicating high sensitivity.
+Link length variations significantly affected reach and workspace.
+The system showed predictable and stable behavior for small perturbations.
+Conclusion:
+The model is sensitive but stable, and behaves as expected for a multi-link mechanical system.
+
+Overall Conclusion
+The quadruped leg model has been successfully validated through:
+Comparison with standard textbook equations
+Energy consistency checks
+Sensitivity analysis
+All validation methods confirm that the derived model is mathematically correct, physically consistent, and practically reliable.
+

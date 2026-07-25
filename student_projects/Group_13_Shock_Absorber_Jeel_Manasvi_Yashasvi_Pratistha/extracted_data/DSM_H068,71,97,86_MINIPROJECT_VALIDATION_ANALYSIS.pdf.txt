@@ -1,0 +1,113 @@
+Shock Absorber Simulation Validation Report
+Topic: Modelling Energy Loss in a Shock Absorber
+By: H068, H071, H097, H086
+Title: Making Sure Our Shock Absorber Energy Loss Model Actually Works
+1. Why We're Doing This
+So, we built a simulation of a shock absorber to study how it loses energy—basically, how it
+turns motion into heat. But before we trust the results, we need to check if the physics
+inside the simulation makes sense. This report walks through how we validated that.
+We did three things. First, we compared our simulation equations to standard textbook
+formulas. Second, we checked whether energy is conserved properly (or rather, whether the
+energy we lose to damping matches what we expect). Third, we tweaked key parameters like
+the damping coefficient and fluid viscosity to see if the simulation reacts in a realistic way.
+Shock absorbers are tricky because you've got spring forces, damping forces, friction from
+seals, and even gas pressure fighting back. Our simulation tries to capture all that, but
+without going overboard on complexity.
+2. How Our Equations Stack Up Against Textbooks
+We looked at the main forces in our simulation and compared them to what you'd find in a
+mechanical vibrations or fluid mechanics textbook.
+Damping force (linear model)
+In our simulation: 𝐹 = −𝑐⋅𝑣
+𝑑
+Textbook says: 𝐹 = 𝑐 ⋅𝑣
+𝑑
+The only difference is the negative sign—we just use that to make sure damping always
+pushes opposite to motion. Same physics.
+Damping force (quadratic model for high speeds)
+Our simulation: 𝐹 = −𝑐 ⋅𝑣 ∣ 𝑣 ∣
+𝑑 2
+Textbook: 𝐹 = 1 𝜌𝐶 𝐴𝑣2
+𝑑 𝑑
+2
+They're really the same thing. The quadratic form is what happens when fluid flows through
+small holes in the piston at high speed—very common in real shock absorbers.
+Spring force
+Both us and the textbook: 𝐹 = −𝑘⋅𝑥
+𝑠
+No surprises here. Some shock absorbers also have a gas spring, so we threw in 𝐹 =
+𝑔𝑎𝑠
+𝑃0𝐴
+for those cases.
+(1−𝑥/𝑥
+𝑚𝑎𝑥
+)𝛾
+Seal and piston friction
+Our simulation: 𝐹 = 𝜇 ⋅𝐹 ⋅sign(𝑣)
+𝑓 𝑁
+Textbook: Same basic idea, though many books just treat it as simple Coulomb friction.
+Bottom line: our equations match up nicely with theory.
+3. Checking the Energy Balance
+If our simulation is physically correct, the energy you put in should either get stored (in the
+spring) or turned into heat (by the damper). So we tracked everything.
+Kinetic energy
+1
+𝑇 = 𝑚𝑣2
+2
+Spring potential energy
+1
+𝑉 = 𝑘𝑥2
+2
+Total mechanical energy
+𝐸 = 𝑇+𝑉
+𝑚𝑒𝑐ℎ
+Power lost to damping
+𝑃 = 𝐹 ⋅𝑣 = 𝑐𝑣2
+𝑙𝑜𝑠𝑠 𝑑
+Total energy dissipated
+𝐸 = ∫𝐹 ⋅𝑣 𝑑𝑡 = ∫𝑐𝑣2𝑑𝑡
+𝑙𝑜𝑠𝑠 𝑑
+We made sure that:
+𝐸 ≈ 𝐸 +𝐸 +𝐸
+𝑖𝑛𝑝𝑢𝑡 𝑠𝑡𝑜𝑟𝑒𝑑 𝑙𝑜𝑠𝑠 𝑓𝑟𝑖𝑐𝑡𝑖𝑜𝑛
+There's always a tiny leftover error, but it's small enough to tell us the simulation is
+numerically stable. Over one full compression and rebound cycle, the mechanical energy we
+started with ends up almost exactly equal to the heat we dissipated. That's a good sign.
+4. What Happens When We Change Things?
+We wanted to see if the simulation responds the way a real shock absorber would, so we
+played with a few knobs.
+Damping coefficient (c)
+Crank it up, and the oscillation dies down way faster. But you also get bigger forces
+transmitted to the car body. Energy loss per cycle goes up linearly—makes sense.
+Fluid viscosity
+Thicker fluid means more damping and more heat. But if you go too far, you risk cavitation
+(air bubbles forming) or overheating. The simulation shows exactly that trend.
+Orifice size
+Make the little holes in the piston smaller, and the quadratic damping effect kicks in harder
+at high speeds. This is how real shock tuners adjust "high-speed compression" damping.
+Gas pressure (for gas shocks)
+Higher gas pressure helps prevent cavitation and adds a bit of spring force, but it doesn't
+change total energy loss over a full cycle by much. Simulation matches reality here too.
+Overall, tweaking parameters gives you exactly what you'd expect. So the model passes the
+"does it feel right?" test.
+5. What Works and What Doesn't
+The good news: our simulation does a solid job of capturing how shock absorbers lose
+energy. Using both linear and quadratic damping lets us handle low-speed and high-speed
+behaviour pretty well.
+The spring force, friction, and gas spring terms all work together to make the model behave
+like a real suspension component.
+But let's be honest—there are some things we left out:
+• Temperature changes: real shock fluid gets thinner as it heats up. We don't model
+that yet.
+• Cavitation: when the fluid vaporizes at high speeds, damping drops off. Not in our
+model.
+• Seal friction hysteresis: real seals don't behave exactly like simple Coulomb friction.
+They have memory effects.
+Still, even with these limitations, the model is a solid starting point. Next steps could be
+adding thermal effects and validating against dyno test data.
+6. Conclusion
+We validated our shock absorber simulation by comparing it to textbook equations, checking
+energy conservation, and running sensitivity tests. Everything behaves the way physics says
+it should.
+So yeah—we're confident this model can be used for teaching, suspension design, or just
+experimenting with how energy gets turned into heat in mechanical systems. It's not perfect,
+but it's physically sound.

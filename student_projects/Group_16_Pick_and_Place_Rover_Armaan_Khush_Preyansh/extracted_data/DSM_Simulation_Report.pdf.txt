@@ -1,0 +1,240 @@
+DYNAMIC SYSTEMS & MECHATRONICS DSM FINAL PROJECT
+Mobile Robot + Robotic Arm
+PyBullet Simulation Analysis Report
+Mission Profile : START ( 6, 6) Sample Block GOAL (6,6)
+Robot Platform : Clearpath Husky base + KUKA iiwa 7-DOF arm
+Path Planner : A* grid planner | cell size 0.28 m
+Obstacle Avoid : Ray-cast reactive avoidance + boundary guard
+Pick & Place : IK Cartesian approach + constraint grasp
+Simulation : PyBullet | t = 1/240 s | Horizon = 120 s
+Preyansh Patni
+DSM Final Project April 2026
+CONFIDENTIAL FOR ACADEMIC USE ONLY
+6
+4
+2
+0
+2
+4
+6
+6 4 2 0 2 4 6
+X (m)
+)m(
+Y
+XY Trajectory (Phase-coloured)
+1.4
+GOAL
+1.2
+1.0
+0.8
+0.6
+0.4
+0.2
+0.0
+0 20 40 60 80 100 120
+Time (s)
+START
+NAV_TO_SAMPLE
+PICK
+NAV_TO_GOAL
+PLACE/DONE
+)s/m(
+deepS
+Robot Speed vs Time
+NAV_TO_SAMPLE PICK NAV_TO_GOAL PLACE/DONE
+0.4
+0.2
+0.0
+0.2
+0.4
+0 20 40 60 80 100 120
+Time (s)
+)dar(
+waY
+Page 1 Time Response: Position, Speed & Heading
+Robot Heading (Yaw) vs Time
+NAV_TO_SAMPLE PICK NAV_TO_GOAL PLACE/DONE
+1.4
+1.2
+1.0
+0.8
+0.6
+0.4
+0.2
+0.0
+0 20 40 60 80 100 120
+Time (s)
+)W(
+rewoP
+Instantaneous Power (Base + Arm)
+NAV_TO_SAMPLE PICK NAV_TO_GOAL BaPsLeA CmE/oDtOoNrEs
+Arm actuators 140
+120
+100
+80
+60
+40
+20
+0
+0 20 40 60 80 100 120
+Time (s)
+)J(
+ygrenE
+Cumulative Energy vs Time
+NAV_TO_SAMPLE PICK NAV_TO_GOAL PLACE/DONE
+27.7 J
+80.5 J
+1.1 J
+41.0 J
+Energy Share by Phase
+1.75
+PLACE/DONE
+1.50
+18.4%
+1.25
+1.00
+27.3% NAV_TO_SAMPLE
+0.75
+53.5%
+NAV_TO_GOAL
+0.50
+0.7%
+PICK 0.25
+0.00
+NAV_TO_SAMPLE PICK NAV_TO_GOAL PLACE/DONE
+Phase
+)W(
+rewoP
+naeM
+Page 2 Energy Consumption Analysis
+Mean Power per Phase
+1.37 1.39 1.38
+0.09
+1.0
+0.5
+0.0
+0.5
+1.0
+0 20 40 60 80 100 120
+Time (s)
+)dar(
+elgnA
+KUKA iiwa Joints J1 J4 vs Time
+NAV_TO_SAMPLE PICK NAV_TO_GOAL PLACE/DONE J1 1.4
+J2
+J3 1.2
+J4
+1.0
+0.8
+0.6
+0.4
+0.2
+0.0
+0 20 40 60 80 100 120
+Time (s)
+)dar(
+elgnA
+KUKA iiwa Joints J5 J7 vs Time
+NAV_TO_SAMPLE PICK NAV_TO_GOAL PLACE/DONEJ5
+J6
+J7
+6
+5
+4
+3
+2
+1
+0
+0 20 40 60 80 100 120
+Time (s)
+)m(
+ecnaraelC
+Min Obstacle Clearance vs Time
+Robot radius (0.55 m)
+Danger zone (1.0 m)
+7
+NAV_TO_SAMPLE PICK NAV_TO_GOAL ClearancPeL A<C Era/DdOiuNsE
+6
+5
+4
+3
+2
+1
+0
+0 20 40 60 80 100 120
+Time (s)
+)s/dar(
+||td/qd||
+Page 3 Arm Joint Trajectories & Obstacle Clearance
+Arm Joint Velocity Norm vs Time
+NAV_TO_SAMPLE PICK NAV_TO_GOAL PLACE/DONE
+Mission Time Total Energy Min Clearance
+HEADING_GAIN HEADING_GAIN HEADING_GAIN
+ROBOT_RADIUS ROBOT_RADIUS ROBOT_RADIUS
+STUCK_TIMEOUT STUCK_TIMEOUT STUCK_TIMEOUT
+AVOID_DIST AVOID_DIST AVOID_DIST
+CRUISE_SPEED High (+20 40%) CRUISE_SPEED High (+20 40%) CRUISE_SPEED High (+20 40%)
+Low ( 20 40%) Low ( 20 40%) Low ( 20 40%)
+80 100 120 140 30 40 50 60 0.5 0.6 0.7 0.8 0.9 1.0
+Time (s) Energy (J) Clearance (m)
+160
+150
+140
+130
+120
+110
+100
+0.4 0.6 0.8 1.0 1.2
+Speed (m/s)
+)s(
+emiT
+noissiM
+Cruise Speed vs Mission Time
+52
+50
+48
+46
+Base=0.95 m/s
+0.4 0.6 0.8 1.0 1.2 1.4
+Avoid dist (m)
+)J(
+ygrenE
+Page 4 Sensitivity Analysis
+Sensitivity Spider
+Avoid Distance vs Total Energy
+Time
+AVOID_DIST
+Energy
+Base=1.0 m
+Clearance
+STUCK_TIMEOUT
+0.8
+0.7
+0.6
+0.5
+0.4 0.3
+0.2
+0.1
+CRUISE_SPEED
+ROBOT_RADIUS
+HEADING_GAIN
+Page 5 Simulation Summary Statistics
+Metric Value Unit Notes
+Total Mission Time 120.0 s Within 120 s budget
+Total Distance Travelled 131.65 m Odometry integral
+Peak Speed 1.250 m/s During NAV_TO_GOAL phase
+Mean Speed (driving phases) 1.200 m/s Excludes PICK phase
+Total Energy Consumed 150.30 J Base + arm combined
+Base Motor Energy 148.97 J Wheel drive subsystem
+Arm Actuator Energy 1.33 J KUKA iiwa 7 joints
+NAV_TO_SAMPLE Energy 41.02 J Phase 1
+PICK Phase Energy 1.09 J Phase 2 (arm dominant)
+NAV_TO_GOAL Energy 80.48 J Phase 3 (base + arm carry)
+PLACE/DONE Energy 27.70 J Phase 4
+Min Obstacle Clearance 0.689 m Global minimum
+Mean Obstacle Clearance 2.785 m Mission average
+Pick Phase Duration 12.0 s IK approach + grasp + lift
+NAV_TO_GOAL Duration 58.0 s Carrying sample to goal
+Max Joint Velocity Norm 7.60 rad/s All 7 joints combined
+Recovery Events 0 No stuck / deadlock detected
+Mission Result SUCCESS Goal tile reached & sample placed

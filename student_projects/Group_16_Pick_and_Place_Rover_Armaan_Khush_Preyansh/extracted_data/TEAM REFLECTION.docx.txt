@@ -1,0 +1,66 @@
+TEAM REFLECTION
+
+
+
+Project #: 
+
+Project Title: __PICK-PLACE ROVER
+
+Category:   A   /   B   /   C   /   D   /   E    
+
+Team Members: Preyansh Patni H056
+                               Khush Mehta H041
+                               Armaan Kotadiya H034
+
+Date: 
+
+
+
+
+Q1: What was the single hardest technical challenge you faced in deriving the mathematical model? How did you resolve it?
+
+Ans: The hardest part in deriving the mathematical model was dealing with the interaction between the mobile base and the robotic arm. Both parts influence each other, which makes the system quite complex. The base has movement constraints, while the arm has multiple joints, so combining their dynamics leads to nonlinear and tightly coupled equations. Even small errors in handling these interactions can give completely incorrect results.
+Initially, using Newton’s approach made the equations too complicated, especially because of multiple coordinate transformations and terms like Coriolis effects. So, to simplify the process, I broke the system into two parts, the base and the arm, and then expressed everything in a common reference frame.
+Instead of working with forces directly, I used the Lagrangian method, which focuses on energy. This made it easier to handle the coupling between different parts of the system. I also used Jacobian relationships to connect joint movements with overall motion.
+Finally, I verified the model using simulation to make sure the behavior matched what we expect physically.
+
+
+Q2: Which Course Outcome (CO1-CO5) was most challenging for your team? Why?
+
+Ans:
+The most challenging course outcome for our team was CO4, which involves applying constitutive laws to analyze dynamic systems.The main reason it was difficult is that it goes beyond just understanding concepts. We had to actually apply multiple principles together in a real system. Unlike simpler topics like kinematics or basic force analysis, this required us to combine different ideas like motion, forces, and system behaviour all at once.
+In our project, the difficulty increased because we were working with a system where different parts affect each other. So we had to be very careful with how we applied the laws and made sure everything was consistent. Even small mistakes could lead to wrong results.
+To handle this, we broke the problem into smaller parts, applied the concepts step by step, and checked our results using simulation to make sure everything was working correctly.
+
+
+Q3: What would you do differently if you started the project over?
+Ans: 
+If we were to start the project again, we would focus more on planning and structuring the model early on. Initially, we spent a lot of time trying to directly build the complete system, which made things complicated and harder to debug. Instead, we would begin by clearly breaking the system into smaller subsystems and validating each part individually before integrating them. This would reduce errors and make the overall development more efficient. 
+We would also spend more time deciding the modelling approach at the start, such as choosing the most suitable formulation and reference frames, to avoid reworking parts later. Finally, we would incorporate simulation and testing earlier in the process, so that mistakes could be identified and corrected sooner rather than at later stages.
+
+
+Q4: What did you learn from this project that a regular textbook problem could NOT teach you?
+
+Ans: 
+This project taught us how to deal with real-world complexity, which a textbook problem usually doesn’t capture. In textbooks, problems are well-defined, assumptions are clearly given, and the solution path is straightforward. In this project, we had to decide the assumptions ourselves, choose the right approach, and deal with uncertainties and errors. We also learned the importance of model validation. It’s not enough to just derive equations, we had to verify whether the model actually behaves correctly through simulation. This helped us understand the gap between theory and practical implementation .Another key learning was debugging and iteration. Things didn’t work perfectly on the first try, so we had to repeatedly refine our model, identify mistakes, and improve it step by step. Overall, the project gave us experience in problem-solving, decision-making, and handling complex systems, which is something textbook problems don’t fully provide.
+
+
+
+Q5: How did you divide work among team members? Did everyone understand the full derivation?
+
+
+Ans: We divided the work based on the major components of the project. Preyansh focused on modelling and derivation . Khush worked on simulation and implementation, and Armaan handled validation and documentation. This helped us move faster and keep the work organized.
+However, we made sure that everyone stayed involved in the overall process. We regularly discussed our progress as a group, explained our parts to each other, and clarified doubts. This way, even if someone was working on a specific section, they still had a good understanding of the complete model.
+By the end of the project, all team members had a clear idea of the full derivation, even if they were not directly responsible for every step.
+
+
+
+
+Q6: What AI tools did you use? For what specific purpose? What did you NOT use AI for?
+
+Ans:
+We used AI tools mainly as supporting aids, not as a replacement for our own work. Tools like CHATGPT , ANTIGRAVITY , CLAUDE AND PERPLEXITY were used to clarify concepts, understand theoretical approaches, and resolve specific doubts during the modelling process. We also used AI to verify our understanding of equations and improve the clarity of our documentation and explanations.
+However, we did not rely on AI to directly generate the complete mathematical model or derivations. The core work, including formulating the equations, applying the laws, and building the model, was done by us to ensure we fully understood the system.
+In short, AI was used as a learning and assistance tool, while the actual problem-solving and derivation were carried out independently by the team.
+
+

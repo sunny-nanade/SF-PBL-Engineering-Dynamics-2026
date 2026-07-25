@@ -1,0 +1,131 @@
+DIGITAL TWINS OF MOTORS
+Team: Tirthika Ghadi (H020), Diya P. Shah (H096)
+Course: Dynamic System Modelling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: [E] | Complexity: [Medium]
+COs Exercised: [CO1, CO2, CO3, CO4, CO5] | Date: [19/04/2026]
+
+SYSTEM INTRODUCTION & MOTIVE
+ 
+
+What is the system?
+01
+A real-time intelligent motor control system consisting of three different motors (DC Motor ,Servo Motor, Stepper Motor) connected with Arduino and controlled using a Digital Twin.
+02
+Why does it matter? 
+Used in:
+Smart factories 
+Robotic systems 
+Predictive maintenance 
+Industry 4.0 automation 
+Problem Statement
+03
+Can a virtual digital twin detect faults in real motors and automatically heal the system by correcting parameters?
+ 
+
+PROBLEM FORMULATION & ASSUMPTIONS
+Inputs
+PWM Voltage Input
+Step Input 
+Desired Position Command
+
+ 
+Outputs
+Motor Speed (RPM) 
+Shaft Position 
+Current Drawn
+
+  
+
+
+State Variables
+Angular Position θ 
+Angular Velocity ω 
+Current I
+
+Parameters
+ Resistance R
+ Inductance L
+ Inertia J
+Friction B
+
+
+
+Degree Of Freedoms 
+3 Degrees of Freedom
+Each motor has independent rotational motion
+
+
+Assumptions
+Linear motor behavior near operating region
+No backlash in gears
+Constant supply voltage
+
+
+
+
+
+
+
+
+
+
+
+
+FREE BODY DIAGRAM (FBD)
+ 
+MATHEMATICAL DERIVATION 
+Method
+ Newton
+
+Why this method
+Newton’s rotational law was used because the motor system has direct torque interactions on the shaft, making it easiest to model using a Free Body Diagram (FBD). 
+Newton’s method is preferred over Lagrange here because the system is a simple rotating body with minimal constraints, so no need for energy-coordinate formulation. It gives a faster and more intuitive derivation for electromechanical motor dynamics.
+
+
+FINAL EQUATIONS 
+
+STATE – SPACE 
+SIMULATION AND ENERGY ANALYSIS 
+SIMULATION VALIDATION  
+VALIDATION & ANALYSIS 
+Learned 
+Modeling real systems 
+PID control 
+Simulink analysis 
+Hardware-software integration 
+CONCLUSIONS
+01.
+
+Future Scope
+AI predictive maintenance 
+Cloud monitoring 
+Unity 3D dashboard
+02.
+
+REFERENCES 
+
+
+
+
+
+Books
+ J.J. D’Azzo & C.H. Houpis, Linear Control System Analysis and Design, McGraw Hill. 
+
+Software Tools
+MATLAB Simulink, MathWorks Inc. 
+Arduino IDE, Arduino Official Development Environment. 
+ 
+Research papers 
+Tao, F., et al., Digital Twin Driven Smart Manufacturing, Journal of Manufacturing Systems.
+
+AI disclosure 
+AI tools were used for 50% of coding assistance, debugging, formatting, and presentation structuring.Core modeling, equations, and interpretation were independently verified.
+
+
+THANKS 
+Team: Tirthika Ghadi (H020), Diya P. Shah (H096)
+Course: Dynamic System Modelling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: [E] | Complexity: [Medium]
+COs Exercised: [CO1, CO2, CO3, CO4, CO5] | Date: [19/04/2026]

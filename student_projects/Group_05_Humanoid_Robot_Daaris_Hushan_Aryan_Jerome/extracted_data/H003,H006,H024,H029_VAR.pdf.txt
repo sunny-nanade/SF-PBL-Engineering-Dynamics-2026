@@ -1,0 +1,79 @@
+Biped Simulation Validation Report
+Topic: Self balancing and walking humanoid robot simulation which includes lower body joint
+and torque analysis.
+By: H003,H006,H024,H029
+1. Introduction
+This report outlines the validation of the biped simulation created in PyBullet. The purpose is to verify that the
+simulated responses are consistent with Euler-Lagrange rigid-body dynamics, expected energy behaviour, and
+contact-based locomotion physics. The validation process uses three components: comparison with standard
+analytical equations, energy verification, and action-based response analysis using walking, squatting, jumping
+without torso twist, and jumping with torso twist.
+2. Textbook Comparison
+The simulation is compared against the standard Euler-Lagrange model for articulated robots.
+Simulation / model form:
+.
+. . .
+𝑀(𝑞)𝑞+𝐶(𝑞,𝑞)𝑞+𝐺(𝑞)= 𝜏+𝐽𝑇𝜆
+𝑐
+Textbook / analytical form:
+𝑑 𝜕𝐿 𝜕𝐿
+𝑑𝑡𝜕𝑞 . − 𝜕𝑞 = 𝑄 𝑖
+𝑖 𝑖
+The project implementation is consistent with the analytical structure: URDF inertial properties define the rigid-
+body parameters, robot.py defines the kinematic chain and Jacobian, and contact enters through ground reaction
+forces at the feet.
+3. Energy Validation
+The validation uses the standard Euler-Lagrange energy definitions.
+𝑛
+1 1
+𝑇 = ∑( 𝑚 𝑣2 + 𝜔𝑇𝐼𝜔 )
+2 𝑖 𝐶𝑖 2 𝑖 𝑖 𝑖
+𝑖=1
+𝑛
+𝑉 = ∑𝑚 𝑔𝑧
+𝑖 𝐶𝑖
+𝑖=1
+𝐸 = 𝑇+𝑉
+The current analysis pipeline saves grouped hip, knee, and ankle kinetic, potential, and total energies for each
+action. These quantities provide a direct validation check on whether the simulated motion evolves in a
+physically meaningful way.
+4. Action-Based Validation Summary
+The following summaries are computed from the saved analysis CSV files in the project.
+Action Duration (s) Peak GRF (N) Max Hip Max Knee Max Ankle
+Energy (J) Energy (J) Energy (J)
+jump_w_twist 9.075 2420.051669 2.888025 0.592896 0.466087
+jump_wo_twist 9.845833 2420.051669 2.888025 0.592896 0.466087
+squat 11.254167 2420.051669 2.888025 0.592896 0.466087
+walk 15.108333 2420.051669 2.888025 0.592896 0.611672
+Action Hip Torque Knee Torque Ankle Hip Angle Knee Angle Ankle Angle
+Max Max Torque Max Max Max Max
+jump_w_twist 20.148115 12.727922 13.503495 1.665426 3.219316 1.611893
+jump_wo_twist 18.985988 12.727922 14.555442 1.564331 3.245737 1.599991
+squat 18.985988 12.727922 13.503495 1.793894 3.535092 1.796125
+walk 18.985988 12.727922 14.590835 1.0874 1.993838 1.158896
+5. Sensitivity Analysis
+Sensitivity analysis for the current project is interpreted through task variation and controller/terrain parameters
+rather than through fluid parameters as in the reference ROV report. The biped exposes stride length, step
+height, and plane inclination during walking, while the action selection itself changes the required contact,
+torque, and energy demand.
+• Walking introduces periodic contact transfer and cyclic energy exchange.
+• Squatting increases grouped knee and hip excursions while keeping the feet largely planted.
+• Jumping increases peak ground reaction force and transient torque demand.
+• Torso twist during jumping adds additional coupled rotational demand on the lower-body chain.
+6. Discussion
+The validation results support the consistency of the biped simulation with Euler-Lagrange mechanics. The
+saved analysis confirms that the model produces finite and structured responses in ground reaction force,
+grouped torque, grouped angle, and grouped energy. The contact-driven nature of walking and jumping is
+visible through high GRF peaks, while the energy channels remain interpretable in terms of rigid-body motion
+and gravitational storage.
+There are still modelling limitations. The current report uses a PyBullet rigid-body engine rather than a fully
+symbolic closed-form derivation of M(q), C(q, qdot), and G(q). Contact is also numerical and depends on
+simulation settings rather than a dedicated analytical contact model. Even so, the system is appropriate for
+project-level dynamic systems analysis and validation.
+7. Conclusion
+The validation of the biped simulation was performed by comparing it with Euler-Lagrange dynamic structure,
+verifying energy behaviour, and reviewing action-dependent response trends from the saved simulation analysis
+outputs. The resulting model behaves in a physically coherent manner and can be used for further educational
+and project-level studies in humanoid lower-body dynamics.
+8. Saved Analysis Snapshot
+A representative saved dashboard from the walking analysis is included below.

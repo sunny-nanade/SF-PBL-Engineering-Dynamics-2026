@@ -1,0 +1,48 @@
+Phase 4: Team Reflection (For Slot 2)
+Project Title: Automated EOT Crane
+Category: D
+Team Members: H066,H067,H090,H094
+Q1: What was the single hardest technical challenge you faced in deriving
+the mathematical model? How did you resolve it?
+The hardest challenge was figuring out how to mathematically link the horizontal
+motion of the crane bridge to the swinging motion of the payload. Initially, we
+treated them as separate systems. We resolved this by defining the absolute spatial
+position of the payload relative to the moving bridge, and taking the second time
+derivative (acceleration) using the product rule. This revealed that the bridge's
+acceleration acts directly as a driving force on the pendulum.
+Q2: Which Course Outcome (CO1-CO5) was most challenging for your
+team? Why?
+CO4 (Apply the constitutive laws to analyse the dynamic systems of particles
+and rigid bodies) was the most challenging. While calculating pure kinematics
+(CO1) was straightforward, applying Newton's Second Law to a coupled system
+where the cable tension acts as both a vertical support and a horizontal restoring
+force required careful sign convention and a solid understanding of the small-
+angle approximation.
+Q3: What would you do differently if you started the project over?
+If we started over, we would begin by modelling a purely 2D version of the crane
+(just the trolley and payload) before attempting the full 3D spatial model.
+Jumping straight into 5 Degrees of Freedom made the initial coordinate mapping
+and velocity derivatives overwhelmingly complex.
+Q4: What did you learn from this project that a regular textbook problem
+could NOT teach you?
+Textbook problems usually provide a static formula for the natural frequency of
+a pendulum. This project taught us how to model the source of the disturbance.
+We learned that hoisting a load upwards (changing the cable length L
+dynamically) introduces a Coriolis acceleration term (2 * L̇ * θẋ ) that actively
+changes the swing behaviour, which is a critical reality in industrial crane
+operation.
+Q5: How did you divide work among team members? Did everyone
+understand the full derivation?
+H090 and H066 focused heavily on the Phase 1 Free Body Diagrams and the
+Newton-Euler derivations. H067 and H094 took the lead on translating those final
+EOMs into the Python solve_ivp simulation and conducting the energy validation
+checks. We held a team review session where the derivation team walked the
+coding team through the math step-by-step.
+Q6: What AI tools did you use? For what specific purpose? What did you
+NOT use AI for?
+We used the AI tool Gemini. We used it to help format and verify our step-by-
+step mathematical derivation of the Equations of Motion, and to translate our final
+equations into functional Python syntax using the scipy.integrate.solve_ivp
+library to generate our validation plots. We did NOT use AI to draw our Free
+Body Diagrams, nor did we submit any derivation steps or code that we could not
+physically explain or defend ourselves.

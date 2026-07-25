@@ -1,0 +1,57 @@
+System Identification Report
+Project Title: Quadruped Leg
+Phase: Phase 1 – System Identification
+Date: 25/04/26
+
+1. System Selection & Approval
+The system selected is a single leg of a quadruped robot, modeled as a planar multi-link mechanism. This system was chosen from the provided problem bank and approved by the instructor.
+
+2. Real-World Application
+Quadruped leg mechanisms are widely used in robotics for locomotion, such as robotic dogs and terrain exploration robots, where stable and adaptive walking is required.
+
+3. System Description
+The quadruped leg is modeled as a 2-link or 3-link articulated system connected by rotary joints (hip, knee, and optionally ankle). The motion is constrained to a 2D plane for simplicity.
+
+4. Inputs, Outputs, State Variables, Parameters
+Inputs:
+Joint torques (τ₁, τ₂) or joint angles (θ₁, θ₂)
+Outputs:
+Position of foot (end-effector): (x, y)
+State Variables:
+Joint angles: θ₁, θ₂
+Angular velocities: θ̇₁, θ̇₂
+Parameters:
+Link lengths: L₁, L₂
+Mass of links: m₁, m₂
+Gravitational acceleration: g
+
+5. Degrees of Freedom (DOF)
+The system has 2 degrees of freedom, corresponding to the two independent joint rotations (hip and knee).
+Each joint contributes one rotational DOF, and the motion of the leg is fully described by these two variables.
+
+6. Key Assumptions (with reasoning)
+Planar motion: Motion is restricted to 2D to simplify analysis while still capturing essential behavior.
+Rigid links: Links are assumed rigid to avoid deformation complexity.
+Frictionless joints: Neglecting friction simplifies dynamic equations and focuses on primary motion.
+Point masses at link centers: Simplifies inertia calculations while maintaining physical relevance.
+Uniform gravity: Assumed constant for all calculations.
+
+7. Free Body Diagram (FBD)
+A Free Body Diagram is drawn showing:
+Each link separately
+Forces acting: weight (mg), joint reaction forces
+Applied torques at joints
+
+
+
+
+8. Coordinate System & Sign Convention
+Origin is fixed at the hip joint
+X-axis: horizontal direction
+Y-axis: vertical upward direction
+Joint angles (θ₁, θ₂) are measured counterclockwise from the horizontal
+Positive rotation: counterclockwise
+
+Conclusion
+The system has been clearly identified with defined inputs, outputs, assumptions, and physical structure. This forms the foundation for further kinematic and dynamic modeling in later phases.
+

@@ -1,0 +1,133 @@
+MATHEMATICAL MODELING OF DC, STEPPER AND SERVO MOTORS
+Team: Aadhar Patel, Arshaan Lakhani, Ishan Patel, Paarth Patel
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: E| Complexity: Medium 
+COs Exercised: [CO1, CO2, CO3, CO4, CO5] | Date: 19/04/2026
+1. System Introduction & Motivation
+The system under study consists of three types of electric motors 
+	DC, stepper and servo motor, which convert electrical energy into mechanical motion.
+A DC motor provides continuous rotational motion.
+A stepper motor produces discrete angular steps.
+A servo motor enables precise position, velocity, and acceleration control using feedback.
+These motors are fundamental in modern engineering systems
+DC Motors → conveyors, fans, electric vehicles
+Stepper Motors → 3D printers, CNC machines, robotics
+Servo Motors → robotic arms, aerospace systems, automation
+
+What question are we answering?
+	How can we mathematically model DC, stepper, and servo motors using physical laws 	(FBD, 	electrical laws), and represent them in forms suitable for analysis such as 	differential equations and state-space models?
+
+ Problem Formulation & Assumptions for DC Motor
+Inputs
+Voltage: V(t)
+Load torque disturbance: T_L(t)
+
+Outputs
+Angular velocity: \omega(t) and Angular position: \theta(t)
+
+State Variables
+x_1 = \omega(t) (angular velocity)
+x_2 = i(t) (armature current)
+
+Parameters
+J: Moment of inertia
+B: Viscous friction coefficient
+R: Armature resistance
+L: Armature inductance
+K_t: Torque constant
+K_e: Back EMF constant
+
+DOF = 1. Only one independent mechanical motion: shaft rotation
+
+ Problem Formulation & Assumptions for Stepper Motor
+Inputs
+Phase voltages: V_A(t), V_B(t)
+Pulse sequence (digital control input)
+
+Outputs
+Angular position: \theta(t)
+Step position (discrete)
+
+State Variables
+x_1 = \theta(t)
+x_2 = \dot{\theta}(t)
+x_3 = i_A(t)
+x_4 = i_B(t)
+
+Parameters
+J: Rotor inertia
+B: Damping coefficient
+R, L: Phase resistance & inductance
+K_m: Motor torque constant
+
+DOF = 1. Only one mechanical motion: rotor angle (theta)
+
+ Problem Formulation & Assumptions for Servo Motor
+Inputs
+Control voltage: V(t)
+Reference input (desired position): \theta_{ref}(t)
+Load torque: T_L(t)
+
+Outputs
+Angular position: \theta(t)
+Angular velocity: \dot{\theta}(t)
+
+State Variables
+x_1 = \theta(t)
+x_2 = \dot{\theta}(t)
+x_3 = i(t)
+
+Parameters
+J: Inertia
+B: Damping coefficient
+R, L: Electrical parameters
+K_t, K_e: Motor constants
+Controller gain (if included): K_p, K_d, etc.
+
+DOF = 1. Only one motion: shaft rotation. 
+
+3. Free Body Diagram / System Schematic
+4. Mathematical Derivation (Part 1) 
+Method: Newton – Euler Method
+5. Final Equations & State-Space
+FINAL EQUATIONS AND STATE SPACE FOR DC, STEPPER AND SERVO MOTOR
+DC MOTOR							STEPPER MOTOR							SERVO MOTOR 
+
+State space of stepper is non-linear due to sin and cosine terms 
+6. Simulation & Energy Analysis
+7. Simulation Visualization
+8. Validation & Analysis
+Validation of DC
+Validation of Stepper 
+9. Conclusions & Reflections
+The mathematical models of DC, stepper, and servo motors were successfully derived and validated, showing that DC and servo motors are linear systems while the stepper motor is nonlinear.
+
+Key Finding: The models accurately represent electromechanical energy conversion and system dynamics, matching standard textbook formulations.
+
+What we learned that a textbook couldn’t teach: Converting real systems into equations requires proper assumptions and interpretation; CO2 (FBD) was the most challenging concept.
+
+What we would do differently: Start early with simulation tools and improve validation of assumptions and intermediate steps.
+
+Course units most critical & CO Self-Assessment: Kinematics, FBD, Forces, Laws, and Energy were essential;CO1 ✓  CO2 ✓  CO3 ✓  CO4 ✓  CO5 ✓
+10. References & AI Disclosure
+Textbook References:
+  [1] Ginsberg, J. (2008). Engineering Dynamics. Cambridge UP.
+  [2] Electrical equivalent circuit based modeling and analysis of direct current motors by Ali Bekir Yeldiz
+
+Online Resources:
+	https://www.electricalsblog.com/torque-equation-of-dc-motor-derivation?utm_source=chatgpt.com
+
+AI Tools
+  Tool: ChatGPT-4o, Antigravity, Codex
+  Purpose: Mathematical help, Python syntax debugging
+  NOT used for:  Equations of Motion, Derivation done by hand
+Electrical equivalent circuit based modeling and analysis of direct current motors
+
+Thank You — Questions?
+Team: Aadhar Patel, Arshaan Lakhani, Ishan Patel, Paarth Patel
+Project: Mathematical Modelling of DC, Stepper and Servo Motor
+Category: [E]
+COs: [CO1-CO5]
+
+[ALL members prepared for Q&A — evaluators may direct to specific members]

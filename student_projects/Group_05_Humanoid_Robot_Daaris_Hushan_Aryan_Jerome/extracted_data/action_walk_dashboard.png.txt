@@ -1,0 +1,1 @@
+[Error extracting Image (Tesseract might not be installed): C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.]

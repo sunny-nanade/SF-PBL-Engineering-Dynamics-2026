@@ -1,0 +1,83 @@
+Phase 2: Mathematical Modeling of Rover Dynamics
+
+🟢 1. Method Chosen
+Newton’s Second Law
+
+
+Justification:
+Newton’s method is used because:
+Forces and moments are clearly identifiable from the Free Body Diagram 
+Direct relation between physical forces and motion 
+Suitable for rigid body planar motion 
+
+🟢 2. System Variables
+
+🟢 3. Forces Identified (From FBD)
+→ front lateral force 
+→ rear lateral force 
+→ yaw moment 
+
+🟢 4. Step-by-Step Derivation
+
+🔴 Step 1: Lateral Force Equation
+
+Lateral acceleration:
+
+
+Substitute:
+
+
+🔴 Step 2: Yaw Moment Equation
+
+
+Final form:
+
+
+🔴 Step 3: Tire Force Model
+Front:
+
+Rear:
+
+
+🔴 Step 4: Substitution into Equations
+Substitute into Step 1:
+
+
+Expand:
+
+
+Rearranged:
+
+
+🔴 Step 5: Moment Equation Substitution
+
+Substitute forces:
+
+
+Expand:
+
+
+Rearranged:
+
+
+🟢 5. Final Equations of Motion
+✔ Lateral Dynamics:
+
+✔ Yaw Dynamics:
+
+
+🟢 6. State-Space Form
+Let:
+
+Where input:
+
+
+🟢 7. Units Check
+✔ All terms consistent
+
+🟢 8. Physical Meaning
+→ deviation from direction 
+→ turning rate 
+→ tire stiffness 
+→ steering input
+

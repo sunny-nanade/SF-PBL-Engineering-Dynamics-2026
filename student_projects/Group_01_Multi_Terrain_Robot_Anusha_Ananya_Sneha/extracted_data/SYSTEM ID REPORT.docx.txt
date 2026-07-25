@@ -1,0 +1,44 @@
+SYSTEM ID REPORT
+
+1. System Description
+The selected system is a 4-wheel skid-steering rover. It is commonly used in robotic applications such as planetary exploration, surveillance, and rough terrain navigation.
+2. Real-World Application
+This type of rover is used in environments where traditional steering is difficult, such as Mars rovers, military robots, and autonomous ground vehicles operating on uneven terrain.
+3. Inputs, Outputs, States, Parameters
+Inputs:
+→ yaw moment (steering input via differential torque) 
+Outputs:
+→ yaw rate 
+→ slip angle 
+→ position of the rover 
+State Variables:
+→ slip angle 
+→ yaw rate 
+Parameters:
+→ mass of rover 
+→ moment of inertia 
+→ forward velocity 
+→ geometry distances 
+→ cornering stiffness
+
+4. Degrees of Freedom (DOF)
+The system has 2 degrees of freedom:
+Lateral motion (slip angle ) 
+Rotational motion (yaw rate ) 
+Justification:
+The rover's motion is constrained to a plane, and its forward velocity is assumed constant. Hence, only lateral and rotational dynamics are considered.
+5. Key Assumptions
+The rover moves on a flat surface 
+Forward velocity is constant 
+Tire behavior follows a linear model (small slip angles) 
+No vertical motion or suspension effects considered 
+Air resistance is neglected 
+Reasoning:
+These assumptions simplify the system while preserving the dominant dynamics affecting steering and motion.
+6. Free Body Diagram (FBD)
+7. Coordinate System & Sign Convention
+-axis → forward direction of rover 
+-axis → lateral direction 
+Positive → counterclockwise rotation 
+Positive → deviation to the left 
+

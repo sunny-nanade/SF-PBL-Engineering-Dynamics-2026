@@ -1,0 +1,107 @@
+ROV Simulation Validation Report
+Topic: Dynamic Modelling of a Sensor Integrated
+Remotely Operated Underwater Vehicle for
+Environment Modelling and Mapping of Seabed
+By: H035, H040, H046, H047
+1. Introduction
+This report outlines the validation of an underwater Remotely Operated Vehicle
+(ROV) simulation created with PyBullet. The goal is to ensure that the physics in
+the simulation reflect real underwater dynamics accurately.
+The validation process consists of three main components: comparison with
+standard textbook equations, testing energy consistency, and conducting a
+sensitivity analysis on key physical parameters—like fluid density and drag
+coefficient.
+Underwater vehicle dynamics are complex due to the interplay of fluid forces and
+rigid body motion. This simulation aims to capture those interactions by using
+simplified but meaningful models.
+2. Textbook Comparison
+The simulation includes buoyancy, drag, thrust, and restoring moments, which
+are compared with standard equations from fluid mechanics and marine
+engineering.
+Buoyancy Force
+Simulation:
+•
+𝐹 = 𝜌𝑉𝑔𝜆
+𝑏
+Textbook:
+•
+𝐹 = 𝜌𝑉𝑔
+𝑏
+The multiplier 𝜆accounts for real-world variations such as imperfect geometry
+and density changes.
+Drag Force
+Simulation:
+•
+1
+𝐹 = − 𝜌𝐶 𝐴𝑣 ∣ 𝑣 ∣
+𝑑 𝑑
+2
+Textbook:
+•
+1
+𝐹 = 𝜌𝐶 𝐴𝑣2
+𝑑 𝑑
+2
+The negative sign ensures drag always opposes motion.
+Rotational Drag
+𝜏 ∝ 𝜔 ∣ 𝜔 ∣
+𝑑
+This quadratic dependence matches fluid resistance behavior.
+Restoring Moment
+𝜏 = r × 𝐹
+𝑏
+where ris the distance between the center of buoyancy and center of mass.
+Overall, the simulation equations closely match established theoretical models.
+3. Energy Validation
+Energy validation ensures consistency with conservation principles.
+Kinetic Energy
+1 1
+𝑇 = 𝑚𝑣2 + 𝐼𝜔2
+2 2
+Potential Energy
+𝑉 = 𝑚𝑔𝑧
+Total Energy
+𝐸 = 𝑇 + 𝑉
+Thruster Power
+𝑃 = 𝐅 ⋅ 𝐯
+Drag Loss
+Energy dissipated due to drag:
+𝐸 = ∫𝐹 ⋅ 𝑣 𝑑𝑡
+loss 𝑑
+The total work done by thrusters satisfies:
+𝐸 ≈ 𝐸 + 𝐸
+input stored loss
+A small residual error confirms numerical stability.
+Drag Loss:
+Energy is lost through fluid resistance. The total work done by the thrusters is
+compared with total energy and drag losses. A small residual difference indicates
+numerical stability and correctness of implementation.This validation
+demonstrates that the system adheres to expected physical laws.
+4. Sensitivity Analysis
+Sensitivity analysis examines how tweaks in parameters impact system
+performance.
+Fluid Density:
+Raising density enhances buoyancy, letting the ROV rise more easily.
+Drag Coefficient:
+Increased drag slows speed and heightens energy loss.
+Buoyancy Multiplier:
+A higher multiplier boosts upward force and stabilizes the ROV.
+These results show the simulation reacts realistically to parameter changes.
+Sensitivity analysis is key to ensuring the model is robust and dependable.
+5. Discussion
+The simulation successfully captures essential aspects of underwater motion.
+Using quadratic drag models and distributed thruster forces provides a realistic
+depiction of vehicle behavior.
+The restoring moment is vital for maintaining stability, especially during
+disturbances.
+However, limitations exist, including simplified geometry and a lack of complex
+fluid phenomena like turbulence and vortex shedding.
+Despite these limitations, the model establishes a solid foundation for future
+development and testing.
+6. Conclusion
+The validation of ROV simulation was performed based on comparing with
+analytical expressions, energy verification, and sensitivity analysis.
+It has been shown that the simulated system works realistically from a physical
+point of view.
+Thus, the model can be successfully used in education and experiments
+concerning underwater robotics.

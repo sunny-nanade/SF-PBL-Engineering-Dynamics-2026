@@ -1,0 +1,207 @@
+Equations of Motion (EOM) Derivation
+Mathematical Modeling of a Hexapod Robot
+By: Prachi Gopani [H021]
+Hrishikesh Gudekar [H022]
+Daksh Hariya [H023]
+1. Introduction
+Hexapod robots are bio-inspired locomotion systems that replicate the walking mechanisms
+of insects and crustaceans. These robots are capable of stable locomotion because their six-
+leg configuration allows multiple legs to maintain contact with the ground at all times.
+Each leg of a hexapod robot typically consists of three rotational joints: the coxa, femur, and
+tibia. These joints allow the robot to move its legs in different directions and generate the
+walking motion required for locomotion.
+To analyze the motion and dynamics of the robot, it is necessary to develop a mathematical
+model describing the relationship between joint torques, forces, and resulting motion. In this
+work, the equations of motion (EOM) for a hexapod leg are derived using the Lagrangian
+method, which is widely used in robotics and dynamic system modeling.
+The derived equations will later be useful for simulation, gait planning, stability analysis, and
+control system design.
+2. System Description
+Each leg of the hexapod robot is modeled as a three-link serial manipulator.
+The joints are:
+Joint Link Function
+Coxa Link 1 rotates the leg sideways
+Femur Link 2 lifts the leg up and down
+Tibia Link 3 extends the leg
+The links are connected by revolute joints driven by motors.
+Let
+• 𝑙 = length of coxa link
+1
+• 𝑙 = length of femur link
+2
+• 𝑙 = length of tibia link
+3
+Joint angles:
+• 𝜃 = coxa joint angle
+1
+• 𝜃 = femur joint angle
+2
+• 𝜃 = tibia joint angle
+3
+These joints provide 3 degrees of freedom (3-DOF) for each leg.
+3. Modeling Assumptions
+To simplify the modeling process, the following assumptions are made:
+1. The robot body is treated as a rigid body.
+2. Each leg is modeled as a three-link planar manipulator.
+3. The ground surface is assumed to be flat and rigid.
+4. The foot does not slip during ground contact.
+5. Air resistance is neglected.
+6. Friction at the joints is negligible.
+7. The center of mass of each link lies at the geometric center of the link.
+These assumptions reduce the complexity of the dynamic equations.
+4. Coordinate System and Generalized
+Coordinates
+To describe the configuration of the robot, a coordinate system is defined.
+A world coordinate frame is attached to the ground.
+A body coordinate frame is attached to the center of the robot body.
+The configuration of one leg is defined by the generalized coordinates:
+𝑞 = [𝜃 ,𝜃 ,𝜃 ]
+1 2 3
+where
+Variable Meaning
+𝜃 coxa joint angle
+1
+𝜃 femur joint angle
+2
+𝜃 tibia joint angle
+3
+These angles fully describe the leg configuration.
+5. Choice of Dynamic Modeling Method
+The Lagrangian formulation is used to derive the equations of motion.
+The Lagrangian method is preferred because:
+• It uses generalized coordinates, which simplifies modeling of multi-link robotic
+systems.
+• It avoids calculating forces individually for each link.
+• It provides a systematic approach to deriving dynamic equations.
+Therefore, the Lagrangian method is well suited for multi-joint robotic systems such as
+hexapod legs.
+6. Kinematic Model of the Leg
+The position of the foot relative to the hip joint is determined using forward kinematics.
+Let
+• 𝑙 ,𝑙 ,𝑙 be the link lengths.
+1 2 3
+The position of the foot in Cartesian coordinates is:
+𝑥 = 𝑙 cos⁡𝜃 +𝑙 cos⁡(𝜃 +𝜃 )+𝑙 cos⁡(𝜃 +𝜃 +𝜃 )
+1 1 2 1 2 3 1 2 3
+𝑦 = 𝑙 sin⁡𝜃 +𝑙 sin⁡(𝜃 +𝜃 )+𝑙 sin⁡(𝜃 +𝜃 +𝜃 )
+1 1 2 1 2 3 1 2 3
+These equations describe the position of the foot based on joint angles.
+7. Velocity Derivation
+Velocity is obtained by differentiating the position equations with respect to time.
+For the x-direction:
+𝑥̇ = −𝑙 sin⁡𝜃 𝜃̇ −𝑙 sin⁡(𝜃 +𝜃 )(𝜃̇ +𝜃̇ )−𝑙 sin⁡(𝜃 +𝜃 +𝜃 )(𝜃̇ +𝜃̇ +𝜃̇ )
+1 1 1 2 1 2 1 2 3 1 2 3 1 2 3
+For the y-direction:
+𝑦̇ = 𝑙 cos⁡𝜃 𝜃̇ +𝑙 cos⁡(𝜃 +𝜃 )(𝜃̇ +𝜃̇ )+𝑙 cos⁡(𝜃 +𝜃 +𝜃 )(𝜃̇ +𝜃̇ +𝜃̇ )
+1 1 1 2 1 2 1 2 3 1 2 3 1 2 3
+These equations represent the velocity of the foot.
+8. Acceleration Derivation
+Acceleration is obtained by differentiating velocity with respect to time.
+This produces second-order derivatives of the joint angles.
+The acceleration of the foot is expressed as:
+𝑑
+𝑥̈ = (𝑥̇)
+𝑑𝑡
+𝑑
+𝑦̈ = (𝑦̇)
+𝑑𝑡
+These equations are necessary for deriving the dynamic equations.
+9. Forces Acting on the System
+The following forces act on the hexapod leg.
+Gravitational Force
+𝐹 = 𝑚𝑔
+𝑔
+where
+• 𝑚= mass of the link
+• 𝑔 = 9.81 𝑚/𝑠2
+Ground Reaction Forces
+When the foot contacts the ground, reaction forces act on the leg.
+𝐹 = [𝐹 ,𝐹 ]
+𝑥 𝑦
+where
+• 𝐹 = horizontal ground force
+𝑥
+• 𝐹 = vertical ground force
+𝑦
+Joint Actuator Torques
+Motors at the joints apply torques.
+𝜏 = [𝜏 ,𝜏 ,𝜏 ]
+1 2 3
+where
+Torque Joint
+𝜏 coxa
+1
+𝜏 femur
+2
+𝜏 tibia
+3
+10. Kinetic Energy
+The kinetic energy of the system is
+1 1 1
+𝑇 = 𝑚 𝑣2 + 𝑚 𝑣2 + 𝑚 𝑣2
+2 1 1 2 2 2 2 3 3
+where
+• 𝑚 ,𝑚 ,𝑚 = masses of links
+1 2 3
+• 𝑣 ,𝑣 ,𝑣 = velocities of the centers of mass.
+1 2 3
+11. Potential Energy
+Potential energy due to gravity is
+𝑉 = 𝑚𝑔ℎ
+where
+• ℎ= height of the center of mass.
+12. Lagrangian Formulation
+The Lagrangian of the system is defined as
+𝐿 = 𝑇−𝑉
+The equations of motion are derived using:
+𝑑 ∂𝐿 ∂𝐿
+( )− = 𝑄
+𝑑𝑡 ∂𝑞̇ ∂𝑞 𝑖
+𝑖 𝑖
+where
+• 𝑞 = generalized coordinate
+𝑖
+• 𝑄 = generalized force.
+𝑖
+13. Final Dynamic Equation of Motion
+After applying Lagrange’s equation for all coordinates, the dynamic model becomes
+𝑀(𝑞)𝑞̈ +𝐶(𝑞,𝑞̇)𝑞̇ +𝐺(𝑞) = 𝜏
+where
+Term Meaning
+𝑀(𝑞) mass matrix
+𝐶(𝑞,𝑞̇) Coriolis and centrifugal forces
+𝐺(𝑞) gravity vector
+𝜏 actuator torque
+14. State-Space Representation
+Define the state vector
+𝑞
+𝑥 = [ ]
+𝑞̇
+The system can be written as
+𝑞̇
+𝑥̇ = [ ]
+𝑀−1(𝑞)(𝜏−𝐶(𝑞,𝑞̇)𝑞̇ −𝐺(𝑞))
+This representation is useful for simulation and control design.
+15. Unit Consistency Check
+Quantity Unit
+Angle rad
+Velocity rad/s
+Acceleration rad/s²
+Force N
+Torque N·m
+Mass kg
+All equations are dimensionally consistent.
+16. Physical Meaning of Dynamic Terms
+For the equation
+𝑀(𝑞)𝑞̈ +𝐶(𝑞,𝑞̇)𝑞̇ +𝐺(𝑞) = 𝜏
+M(q) represents inertia of the links.
+C(q,q̇ ) represents velocity-dependent forces.
+G(q) represents gravitational forces.
+τ represents torques applied by motors.
+17. Conclusion
+A dynamic model of a hexapod robot leg with three joints (coxa, femur, tibia) was developed.
+The kinematic equations describing foot position were derived, followed by velocity and
+acceleration expressions. Using the Lagrangian formulation, the equations of motion were
+obtained.
+The final equations describe the relationship between joint torques and leg motion, providing
+a foundation for simulation, gait design, and control of the hexapod robot.

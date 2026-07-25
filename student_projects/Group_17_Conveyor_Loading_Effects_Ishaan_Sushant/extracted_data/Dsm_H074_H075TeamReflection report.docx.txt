@@ -1,0 +1,24 @@
+Team Reflection
+
+Project: DSM MINI PROJECT 2026
+Project Title: Dynamic Modelling and Simulation of a Conveyor Belt Under Variable Load Conditions
+Category: B
+Team Members: Suhanant Shetty (H075), Ishaan Sheth (H074)
+Date: 20/04/2026
+
+Q1: What was the single hardest technical challenge you faced in deriving the mathematical model? How did you resolve it?
+The most challenging part was correctly modelling the Coulomb friction behaviour between the conveyor belt and the block. Since the friction force changes direction based on the relative velocity, implementing the sign function while maintaining numerical stability required careful handling. This was resolved by introducing a small tolerance band around the belt velocity.
+Q2: Which Course Outcome (CO1–CO5) was most challenging for your team? Why?
+CO4 was the most challenging because applying Newton’s Second Law with Coulomb friction and switching conditions required multiple iterations and validation.
+Q3: What would you do differently if you started the project over?
+We would start with a simplified analytical model first and validate assumptions earlier, and plan visualization alongside simulation.
+Q4: What did you learn from this project that a regular textbook problem could NOT teach you?
+The project highlighted how simulation reveals transient behavior and the importance of validation using energy and sensitivity analysis.
+Q5: How did you divide work among team members? Did everyone understand the full derivation?
+Mathematical Derivation & Assumptions: Suhanant Shetty, Ishaan Sheth
+Simulation Coding: Suhanant Shetty
+Visualization: Ishaan Sheth
+Validation & Analysis: Both
+Presentation & Documentation: Both
+Q6: What AI tools did you use?
+AI tools were used for structuring the report, formatting equations, and debugging. Core derivation and modelling were done manually.

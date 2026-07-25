@@ -1,0 +1,49 @@
+Phase 1: System Identification Report
+System Selected: Automated EOT Crane
+Category: Category D - Mechanical & Industrial Systems
+1. Real-World Application
+EOT cranes are heavily utilized in industrial warehouses and manufacturing floors to safely
+lift and transport heavy payloads across three dimensions. Understanding the dynamics is
+critical for implementing anti-sway control algorithms that prevent dangerous payload
+oscillations during sudden stops or starts.
+2. System Variables & Parameters
+1. INPUTS:
+ Input 1: Fx (Force applied by the bridge motor)
+ Input 2: Fy (Force applied by the trolley motor)
+ Input 3: Fz (Hoisting tension force altering the cable length)
+2. OUTPUTS:
+ Output 1: Position of the payload in 3D space (xp, yp, zp)
+ Output 2: Swing angles of the payload
+3. STATE VARIABLES:
+ State Variable 1: xb (Position of the bridge)
+ State Variable 2: yt (Position of the trolley on the bridge)
+ State Variable 3: L (Length of the hoist cable)
+ State Variable 4: θx and θy (Pendulum swing angles of the payload)
+ State Variable 5: Velocities for the bridge, trolley, cable length, and swing angles
+4. SYSTEM PARAMETERS:
+ System Parameter 1: Mb (Mass of the bridge)
+ System Parameter 2: mt (Mass of the trolley)
+ System Parameter 3: mp (Mass of the payload)
+ System Parameter 4: g (Acceleration due to gravity)
+3. Degrees of Freedom (DOF) Identification
+The full spatial system possesses 5 Degrees of Freedom.
+1. Bridge translation along the X-axis.
+2. Trolley translation along the Y-axis.
+3. Hoist cable extension along the Z-axis.
+4. Payload swing angle θx (rotation about the Y-axis).
+5. Payload swing angle θy (rotation about the X-axis).
+4. Key Assumptions & Physical Reasoning
+ Rigid Body Dynamics: The bridge and trolley are modelled as rigid bodies with no
+flex or deformation.
+ Particle Kinetics for Payload: The payload is modelled as a point mass particle.
+ Massless & Inextensible Cable: The hoist cable does not stretch, and its mass is
+negligible compared to the payload.
+ Viscous Friction: Friction between the wheels and rails is proportional to velocity.
+5. Coordinate System & Sign Convention
+A fixed Cartesian coordinate system (X, Y, Z) is established at the corner of the runway.
+ Positive X: Forward along the runway.
+ Positive Y: Rightward across the bridge span.
+ Positive Z: Downward (direction of gravity).
+ Swing angles are measured from the vertical Z-axis, with counter-clockwise taken as
+positive.
+6. Free Body Diagram (FBD) Description

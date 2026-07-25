@@ -1,0 +1,101 @@
+Project Title:  MULTI – TERRAIN QUADRUPEDAL WHEELED ROBOT MECHANISM
+Category: A  /  B  /  C  /  D  /  E   (circle one)
+Team Members: H079 (ANUSHA SURVE), H082 (ANANYA VERMA), H084 (SNEHA WAGHODE) 
+Date: _____________________________________________
+
+
+Q1: What was the single hardest technical challenge you faced in deriving the mathematical model? How did you resolve it?
+Answer: 
+The hardest technical challenge we faced was deriving the coupled dynamic equations for skid steering and understanding how they relate to actual rover motion. Unlike textbook problems where systems are simplified, our rover model involved multiple interacting components like lateral forces, yaw motion, and slip angle. The equations from the research paper were not straightforward, especially when substituting the tire force equations into the motion equations.
+Another difficulty was connecting the physical system (rover) with the mathematical representation, particularly understanding how variables like yaw rate, slip angle, and torque difference actually affect motion.
+We resolved this by:
+Breaking the derivation into smaller steps instead of trying to understand the final equation directly 
+Rewriting each equation in our own notation and understanding the physical meaning of each term 
+Cross-verifying with diagrams and relating each force term to the Free Body Diagram 
+Simulating the equations in Python to see if the behavior made sense physically 
+This iterative process helped us move from just “using equations” to understanding the dynamics of the rover.
+
+
+
+
+
+
+
+
+
+Q2: Which Course Outcome (CO1-CO5) was most challenging for your team? Why?
+Answer: 
+The most challenging outcome for our team was CO4 (Mathematical Modeling and deriving equations of motion).
+This was difficult because:
+It required us to derive equations from first principles, not just apply formulas 
+The system was not a simple particle or rigid body — it involved multi-body dynamics and coupled equations 
+We had to ensure unit consistency, correct assumptions, and physical validity 
+Also, understanding how to go from:
+FBD → equations → simulation → real system
+It was initially confusing.
+However, once we started implementing the equations in simulation (Python and PyBullet), it became clearer how the theory connects to actual motion.
+
+Q3: What would you do differently if you started the project over?
+Answer:
+If we started the project again, we would:
+Begin with the simulation earlier, instead of focusing only on the derivations first 
+Clearly define all variables and assumptions at the beginning to avoid confusion later 
+Work on Free Body Diagrams in more detail early on, since they form the base of everything 
+Divide tasks based on strengths (coding, theory, modeling) from the start 
+We also realized that understanding improves significantly when theory is combined with visualization, so we would integrate:
+ mathematical modeling + simulation + physical interpretation simultaneously
+
+
+
+
+
+
+
+Q4: What did you learn from this project that a regular textbook problem could NOT teach you?
+Answer:
+This project taught us several things that textbook problems usually do not cover:
+How to deal with real-world complexity, where systems are not ideal, and equations are not clean 
+The importance of assumptions and how they affect the final model 
+How different domains (mechanics, control systems, programming) come together in one system 
+How to validate whether results are physically meaningful, not just mathematically correct 
+We also learned that:
+A correct equation is not enough — it must produce realistic behavior when simulated
+Working with PyBullet and coding helped us understand how theory translates into real motion, which textbooks cannot fully demonstrate.
+
+Q5: How did you divide work among team members? Did everyone understand the full derivation?
+Answer:
+We divided the work based on different aspects of the project:
+Some members focused on mathematical derivations and theory 
+Some worked on simulation and coding (Python, PyBullet) 
+Others worked on documentation and presentations. 
+Initially, not everyone understood the full derivation because the equations were complex and interconnected. However, we made sure to:
+Conduct group discussions where each part was explained 
+Simplify equations and explain their physical meaning 
+Help each other understand difficult concepts 
+By the end, all members had a basic understanding of the full model, though some parts were handled in greater detail by specific members.
+
+
+
+
+
+Q6: What AI tools did you use? For what specific purpose? What did you NOT use AI for?
+Answer:
+We used AI tools (like ChatGPT) mainly for:
+Understanding difficult concepts in dynamics and kinematics 
+Clarifying steps in mathematical derivations 
+Debugging and structuring simulation code 
+Getting guidance on implementing models in Python and PyBullet 
+However, we did NOT use AI to:
+Directly copy final answers without understanding 
+Generate complete derivations without verifying them 
+Replace our own reasoning or problem-solving 
+We ensured that:
+Every equation, code, and concept was understood, modified, and verified by us
+
+
+
+
+
+
+
+

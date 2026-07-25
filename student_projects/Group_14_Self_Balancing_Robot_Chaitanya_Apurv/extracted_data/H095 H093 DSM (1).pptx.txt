@@ -1,0 +1,87 @@
+        2 DOF Self-Balancing Robot
+Team: [Apurv Sambhare(H095)], [Chaitanya Sontakke(H093)]
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: [C] | Complexity: [Medium]
+COs Exercised: [CO1, CO2, CO3, CO4, CO5] | Date: [24/04/2026]
+ 
+System Description
+The selected system is a two-wheeled self-balancing robot model as an Inverted Pendulum mounted on a moving base. The objective of the system is to maintain an upright position by dynamically adjusting wheel motion in response to tilt.
+
+Real-World Applications
+Personal Transport Systems
+Self-balancing robots are used in devices like the Segway PT, where dynamic balancing allows smooth and stable human transportation.
+Warehouse & Industrial Robotics
+Used in autonomous robots for material handling, where balance control enables efficient navigation in tight spaces and uneven loads
+
+Problem Statement
+The objective is to model and simulate a two-wheeled self-balancing robot, which behaves like an Inverted Pendulum. The system is inherently unstable and requires motor torque input to maintain upright balance. The goal is to derive its equations of motion, simulate the dynamics, and analyze stability under disturbances.
+
+
+
+
+
+
+
+2 DOF Self-Balancing Robot-Introduction
+Problem Formulation & Assumptions
+Assumptions with Physical Justification
+
+No Slip Condition
+Wheels roll without slipping ensures x=rϕ
+
+Rigid Body Approximation
+Body and wheels do not deform 
+
+Planar Motion
+Motion restricted to 2D plane justified by symmetric wheels 
+
+Negligible Air Resistance
+Effect is very small compared to gravity and motor forces 
+
+Uniform Mass Distribution
+Allows use of I_CGas constant
+FBD-2 DOF Self-Balancing Robot
+.
+Mathematical model equations of 2 DOF Self-Balancing Robot 
+5. Final Equations & State-Space
+
+Simulation & Energy Analysis
+7. Simulation Visualization
+8. Validation & Analysis
+Validation 1: Energy conservation check (CO5)
+  Total energy [conserved / decays X% from damping]
+Validation 2: Comparison with analytical/published result (CO4)
+  Textbook: Ginsberg Ch X → w_n = ...; Our sim: w_n = ...
+Validation 3: Dimensional analysis / unit check
+
+Sensitivity Analysis:
+  Varied [param] from [range] → [effect on natural freq/stability]
+
+Limitations:
+  (1) [e.g., Rigid body limits to low-speed regime]
+  (2) [e.g., No experimental validation — simulation only]
+9. Conclusions & Reflections
+Conclusion
+The 2 DOF self-balancing robot was successfully modeled as an Inverted Pendulum using Newton’s laws.
+The derived nonlinear equations of motion were implemented in Python and solved using numerical methods.
+Simulation results show that the system stabilizes under control, with tilt angle approaching zero.
+Energy analysis confirms non-conservative behavior due to external motor torque input, and sensitivity analysis shows physically consistent response to parameter changes.
+Final Outcome:The mathematical model and simulation accurately represent the real system dynamics and validate the effectiveness of the control approach.
+
+10. References & AI Disclosure
+
+Online Resources:
+https://www.ijltemas.in/
+https://www.researchgate.net/
+
+
+AI Tools (Disclosure)
+Tool: ChatGPTPurpose: Assistance with Python code structure, simulation setup, and explanation of conceptsNOT used for: Final derivation (done manually), FBD creation, and conceptual understanding
+
+       Thank You — Questions?
+Team: [Apurv Sambhare(H095)], [Chaitanya Sontakke(H093)]
+Project: [2 DOF Self-Balancing Robot]
+Category: [C]
+COs: [CO1-CO5]
+

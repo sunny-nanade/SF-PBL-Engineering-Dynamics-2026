@@ -1,0 +1,51 @@
+Project #: _11__
+Project Title: ___Digital twin model of 3 motor system fault tolerant system
+Category: A / B / C / D / E (circle one)
+Team Members: ________Tirthika Ghadi (h020) Diya shah (h096)
+Date: __19 April 2026___________________________________________
+Q1: What was the single hardest technical challenge you faced in deriving the mathematical
+model? How did you resolve it?
+The most difficult challenge was deriving an accurate mathematical model for the coupled
+behavior of three motors while incorporating disturbances and fault conditions. Handling
+multiple dynamic variables such as torque, angular velocity, and load interactions made the
+equations complex.
+We initially faced confusion in choosing between Newton’s method and Lagrange’s method.
+We resolved this by breaking the system into individual motor models using Newton’s laws
+and then combining them systematically. Additionally, we verified our equations step-by-step
+using simulation tools, which helped us validate and correct errors in the derivation.
+Q2: Which Course Outcome (CO1-CO5) was most challenging for your team? Why?
+CO3 (Mathematical Modeling and Analysis of Dynamic Systems) was the most challenging.
+It required translating real-world motor behavior into differential equations and then
+converting them into state-space form.
+The difficulty came from ensuring that the assumptions made during modeling did not
+oversimplify the real system. Understanding the physical meaning behind each term in the
+equations also required deep conceptual clarity.
+Q3: What would you do differently if you started the project over?
+If we started again, we would first create a simplified prototype model before attempting the
+full multi-motor system. This would help us understand the dynamics more clearly.
+We would also begin simulation earlier using tools like MATLAB/Simulink or PyBullet,
+instead of completing the entire derivation first. Early visualization could have reduced errors
+and saved time.
+Q4: What did you learn from this project that a regular textbook problem could NOT teach
+you?
+This project taught us how theoretical equations connect to real-world systems. Unlike
+textbook problems, we had to deal with incomplete data, assumptions, and system
+uncertainties.
+We also learned how faults affect system behavior and how self-healing mechanisms (like
+feedback control or PID correction) can stabilize the system. Most importantly, we
+understood the importance of validation through simulation rather than relying only on
+derivations.
+Q5: How did you divide work among team members? Did everyone understand the full
+derivation?
+The work was divided into three main parts: mathematical modeling, simulation, and
+hardware design. Each member initially focused on one area based on their strengths.
+However, we conducted regular discussions to ensure everyone understood the complete
+derivation and system behavior. By the end of the project, all members had a clear
+understanding of both the theoretical and practical aspects.
+Q6: What AI tools did you use? For what specific purpose? What did you NOT use AI for?
+We used AI tools like ChatGPT to clarify concepts, assist in deriving equations, and guide us
+in simulation setup (such as MATLAB/Simulink and PyBullet). It was especially helpful in
+breaking down complex steps and suggesting structured approaches.
+However, we did not rely on AI to directly generate final answers or complete the project
+independently. All derivations, validations, and understanding were done by the team to
+ensure conceptual clarity and originality.

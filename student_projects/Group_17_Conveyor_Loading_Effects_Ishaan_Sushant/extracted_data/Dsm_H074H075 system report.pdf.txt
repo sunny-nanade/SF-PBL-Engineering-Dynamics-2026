@@ -1,0 +1,113 @@
+SYSTEM REPORT
+Dynamic Modelling and Simulation of a Conveyor Belt Under Variable Load
+Conditions
+Name: Sushant Shetty (H075), Ishaan Sheth (H074)
+Course: Dynamic System Modeling (702MH0C023)
+Program: B.Tech Mechatronics, Semester IV
+Institute: NMIMS MPSTME, Mumbai
+Category: B
+Date: 20/04/2026
+1. System Selection and Approval
+The selected system is a conveyor belt transporting a block under Coulomb friction, categorized
+under Category B. The system was chosen due to its relevance in industrial automation and its
+suitability for applying dynamic system modelling concepts such as Newton’s laws, friction
+modelling, and simulation validation.
+2. Real-World Application
+Conveyor belt systems are widely used in manufacturing, mining, and airport baggage handling.
+In these systems, loads are often placed on moving belts, leading to slip, friction-driven
+acceleration, and synchronization challenges. Understanding this behaviour is essential for
+improving efficiency, reducing material loss, and optimizing system performance.
+3. System Definition
+3.1 Inputs
+● Belt velocity, Vbelt=1.5 m/sVbelt =1.5m/s (constant)
+● Coefficient of friction, μμ
+3.2 Outputs
+● Block velocity, v(t)v(t)
+● Block position, x(t)x(t)
+● Kinetic energy, KE(t)KE(t)
+3.3 State Variables
+X=[v,x]TX=[v,x]T
+3.4 Key Parameters
+● Mass, m=1.0 kgm=1.0kg
+● Friction coefficient, μ=0.35μ=0.35
+● Gravity, g=9.81 m/s2g=9.81m/s2
+● Belt velocity, Vbelt=1.5 m/sVbelt =1.5m/s
+4. Degrees of Freedom (DOF)
+The system has 1 degree of freedom, representing translational motion along the belt. No
+rotational or vertical motion is considered, simplifying the system to a point mass model.
+5. Free Body Diagram (FBD)
+The block is subjected to:
+● Weight mgmg (downward)
+● Normal reaction N=mgN=mg (upward)
+● Friction force:
+Ff=μmg⋅sign(Vbelt−v)Ff =μmg⋅sign(Vbelt −v)
+When the block velocity is less than belt velocity, friction accelerates the block. Once both
+velocities match, friction becomes zero.
+6. Mathematical Modelling
+Using Newton’s Second Law:
+mdvdt=μmg⋅sign(Vbelt−v)mdtdv =μmg⋅sign(Vbelt −v)
+Simplified:
+dvdt=μg⋅sign(Vbelt−v)dtdv =μg⋅sign(Vbelt −v)
+Kinematic equation:
+dxdt=vdtdx =v
+7. State-Space Representation
+State vector:
+X=[v,x]TX=[v,x]T
+Equations:
+x˙1=μg⋅sign(Vbelt−x1)x˙1 =μg⋅sign(Vbelt −x1 )x˙2=x1x˙2 =x1
+The system is nonlinear due to the sign function.
+8. Energy Analysis
+Kinetic energy is given by:
+KE=12mv2KE=21 mv2
+At steady state:
+KE=1.125 JKE=1.125J
+Friction performs work on the block, increasing its energy until it reaches belt speed.
+9. Simulation Details
+● Software: Python (NumPy, SciPy, Matplotlib)
+● Solver: solve_ivp (RK45 method)
+● Initial conditions: v(0)=0v(0)=0, x(0)=0x(0)=0
+● Simulation time: 6.5 seconds
+The block reaches the belt velocity of 1.5 m/s at approximately 0.43 seconds.
+10. Results and Discussion
+● Velocity increases linearly due to constant acceleration
+● Position increases continuously over time
+● After reaching belt speed, velocity remains constant
+● Phase behaviour confirms constant acceleration
+11. Validation
+Energy Validation:
+Steady-state kinetic energy matches analytical value (1.125 J) ✔
+Analytical Validation:
+t=Vbeltμg=0.437 st=μgVbelt =0.437s
+Simulation: t≈0.43 st≈0.43s ✔
+Dimensional Check:
+dvdt=μgdtdv =μg
+Units are consistent ✔
+12. Sensitivity Analysis
+μ Time to reach belt speed
+(s)
+0.2 0.76
+0.35 0.43
+0.5 0.31
+Higher friction leads to faster acceleration and quicker synchronization.
+13. Assumptions
+● Point mass model (no rotation)
+● Constant belt velocity
+● Coulomb friction only
+● No air resistance
+● Rigid surfaces
+● No external disturbances
+14. Limitations
+● Belt elasticity not considered
+● Motor dynamics ignored
+● No experimental validation
+● No vibration effects included
+15. Conclusion
+The model successfully captures the dynamic behaviour of a block placed on a moving
+conveyor belt. The block accelerates uniformly due to Coulomb friction and reaches belt speed
+in approximately 0.43 seconds. The simulation results closely match analytical predictions,
+validating the model.
+16. References
+● Ginsberg, J. Engineering Dynamics, Cambridge University Press
+● Beer & Johnston, Vector Mechanics for Engineers
+● SciPy Documentation – solve_ivp
+● Matplotlib Documentation

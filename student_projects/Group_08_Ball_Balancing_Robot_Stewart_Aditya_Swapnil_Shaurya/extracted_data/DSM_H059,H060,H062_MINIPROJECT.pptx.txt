@@ -1,0 +1,90 @@
+Dynamic Modelling of a Ball Balancing Stewart Platform
+Team: Aditya Rajkotia, Shaurya S. Salian, Swapnil Rajuri
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: C | Complexity: High
+COs Exercised: CO1, CO2, CO3, CO4, CO5 | Date: 19/04/2026
+1. System Introduction & Motivation
+What is the system?A Stewart platform simulation that tilts using servo control to balance a ball via a PID feedback loop.
+
+Why does it matter?
+Demonstrates key concepts in control systems, robotics, and real-time stabilization used in practical engineering applications.
+
+Problem Statement:Develop a control system that maintains the ball at the center by dynamically correcting its position under external disturbances.
+2. Problem Formulation & Assumptions
+Inputs:u = [α (tilt about x-axis), β (tilt about y-axis)](Controlled via PID → converted to servo angles)
+Outputs:Ball position (x, y, z)Ball velocity (vx, vy, vz)Platform orientation (roll ≈ β, pitch ≈ α)Error (distance from center)Control response (tilt angles)
+State Variables:X = [x, y, vx, vy, α, β, ∫e, de/dt]
+Parameters:Ball mass ≈ 0.0027 kgGravity = 9.81 m/s²Platform height (H₀)Friction coefficientRestitution factorPID gains (Kp, Ki, Kd)
+Forces:Gravitational forceNormal reaction from platformFrictional forceExternal disturbance forces (user input)
+DOF:DOF = 2 (ball motion on surface) + 2 (platform tilt)Translational: x, yRotational: α (pitch), β (roll)
+Key Assumptions (JUSTIFIED):(1) Platform behaves as a rigid body(2) Small-angle tilt approximation(3) Rolling with limited slip (friction modeled)(4) Ideal actuator response (instant tilt change)(5) Uniform gravity, no air resistance
+3. Free Body Diagram / System Schematic
+4. Mathematical Derivation (Part 1)
+Method: Newton’s Second Law (Ball Dynamics on Inclined PlaneWhy: Newtonian mechanics is used because the ball motion is governed by forces due to gravity and platform tilt, making it a direct and intuitive force-based model.
+Step 1: Apply Newton’s Second Law
+
+
+Step 2: Small Angle Approximation
+
+
+Step 3: Similarly for y-direction
+
+
+Step 4: Include Control (PID Controller)
+
+
+
+Final Solution:
+
+
+
+5. Final Equations & State-Space
+6. Simulation & Energy Analysis
+7. Simulation Visualization
+8. Validation & Analysis
+Textbook Comparison
+
+ Energy Validation (CO5)
+ Sensitivity Analysis
+
+Limitations
+
+9. Conclusions & Reflections
+Key Findings
+ROV dynamics follow a first-order thrust–drag model 
+Energy decreases due to hydrodynamic drag losses 
+Model captures realistic underwater behaviour 
+What We Learned
+Importance of accurate force modelling (drag + buoyancy) 
+Small assumptions impact system response 
+Energy analysis validates physical correctness 
+Challenges Faced
+Maintaining correct sign conventions in derivation 
+Matching simulation with theoretical results 
+Modelling buoyancy and drag accurately 
+CO Self-Assessment
+CO1 (Kinematics): ✓ 
+CO2 (FBD): ✓ 
+CO3 (Forces): ✓ 
+CO4 (Laws & Derivation): ✓ 
+CO5 (Energy Analysis): ✓
+10. References & AI Disclosure
+Textbook References:
+[1] Ginsberg, J. (2008). Engineering Dynamics. Cambridge University Press. 
+[2] Ogata, K. (2010). Modern Control Engineering. Prentice Hall. 
+[3] Siciliano, B. et al. (2010). Robotics: Modelling, Planning and Control. Springer. 
+
+Online Resources:
+ https://en.wikipedia.org/wiki/PID_controller 
+https://en.wikipedia.org/wiki/Stewart_platform 
+Tool: ChatGPT, Anti-Gravity
+Purpose: 
+	Python syntax debugging, Classifying content according to rubrics, Formatting presentation and word 	documents.
+NOT used for: Derivation done by hand, FBD Diagram drawn by hand
+Thank You — Questions?
+Team: Aditya Rajkotia, Shaurya S. Salian, Swapnil Rajuri
+Project: Dynamic Modelling of a Ball Balancing Stewart Platform
+Category: C
+COs: CO1-CO5
+

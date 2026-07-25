@@ -1,0 +1,58 @@
+TEAM REFLECTION
+Team: Jeel Shah, Manasvi Shah, Yashasvi Yadu, Pratistha Agrawal
+Project Title: Modeling Energy Loss in a Shock Absorber
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: D (Mechanical Systems) | Complexity: Medium
+Date: [20/04/2026]
+Q1: What was the single hardest technical challenge you faced in deriving the mathematical
+model? How did you resolve it?
+• The main challenge was accurately modeling the damping and spring stiffness
+interaction to capture energy dissipation over compression and extension cycles.
+• The difficulty came from coupling the nonlinear damping term (proportional to
+velocity) with varying spring compression rates.
+• We resolved this by analyzing simulation outputs from PyBullet that tracked spring
+force, displacement, and velocity over time, and then applying numerical integration to
+compute energy loss per cycle using the area under the force–displacement curve.
+Q2: Which Course Outcome (CO1–CO5) was most challenging for your team? Why?
+• CO4 – Implementing and interpreting numerical simulations for dynamic systems was
+the hardest.
+• This is because integrating the physical model with PyBullet required understanding
+URDF dynamics, correctly defining prismatic joint behavior, and controlling the
+alternating forces (+1500 N, -1250 N) to simulate realistic oscillation.
+• Achieving stable simulation cycles without divergence forced the team to fine-tune
+simulation parameters like time step and pause duration.
+Q3: What would you do differently if you started the project over?
+• Start by building the simplified analytical model first, then validate it with simulation
+instead of the other way around.
+• Include experimental damping coefficients earlier to better match realistic energy losses.
+• Automate data extraction from simulation logs for faster plotting and energy
+computations across multiple cycles.
+Q4: What did you learn from this project that a regular textbook problem could NOT teach
+you?
+• How dynamic systems behave under non-ideal, time-dependent forces — something
+static textbook problems ignore.
+• The visualization of spring compression and extension phases (red/green/yellow in the
+simulation) gave insight into transient response, phase lag, and damping behavior.
+• We also learned to handle numerical instabilities and real-time simulation control in a
+physics engine.
+Q5: How did you divide work among team members? Did everyone understand the full
+derivation?
+• One member handled URDF and PyBullet setup, another conducted data collection and
+plotting, and the third derived the mathematical energy loss model (E = ∫F·dx).
+• All members discussed model validation and reviewed derived equations to ensure
+everyone understood how force, velocity, and displacement contributed to energy
+dissipation.
+• Team review sessions helped ensure shared understanding before compiling final
+results.
+Q6: What AI tools did you use? For what specific purpose? What did you NOT use AI for?
+• Used AI-assisted coding (ChatGPT) to debug Python-PyBullet force control loops and
+improve plotting scripts.
+• Used AI for documentation summarization and code comments generation.
+• Did NOT use AI for deriving the physical equations or performing numerical
+integration — those were handled by the team to maintain conceptual rigor and learning
+integrity.
+Summary Insight:
+The simulation demonstrated that energy loss per compression-extension cycle increases with
+higher applied force amplitude and shorter pause durations, effectively showing how damping
+stabilizes oscillations in a real shock absorber.

@@ -1,0 +1,203 @@
+
+Dynamic System Modeling of Quadruped Robot (2-DOF Per Leg)
+B.Tech Mechatronics · Sem IV · 702MH0C023 · NMIMS MPSTME Mumbai
+
+
+Team
+H009 · H012 · H033
+
+
+Category
+A — High Complexity
+
+
+COs Exercised
+CO1 through CO5
+System Introduction & Motivation
+What is the System?
+A quadruped robot (inspired by Unitree Go1) with 2 degrees of freedom per leg — hip joint angle θi,1 and knee joint angle θi,2 — operating in the sagittal plane.
+Engineering Relevance
+Legged locomotion over unstructured terrain
+Search-and-rescue and field robotics
+Adaptive gait planning and stability control
+
+PBL Question: How do we mathematically model the dynamic behaviour of a 2-DOF robotic leg under ground reaction forces?
+Problem Formulation & Assumptions
+System Variables
+
+Inputs
+Joint torques τhip, τknee
+
+Outputs
+θi,1(t) and θi,2(t) — hip & knee angles
+
+States
+θi,1, θ̇i,1, θi,2, θ̇i,2
+
+Parameters
+m, L1, L2, I1, I2, c, g
+Modelling Assumptions
+Rigid links — no structural deformation
+Planar (sagittal) motion only — 2-DOF justified
+Viscous damping at each joint
+No-slip foot contact with ground
+Point mass approximation for link inertia
+
+DOF = 2 per leg, confirmed by restricting motion to the sagittal plane — a standard simplification for gait analysis.
+
+Free Body Diagram — 2-DOF Leg
+
+Hip Joint (θi,1)
+Torque τhip applied. Upper link L1, mass m1. Gravity acts at link centroid.
+
+Knee Joint (θi,2)
+Torque τknee applied. Lower link L2, mass m2. Coupled via hip kinematics.
+
+Ground Reaction Ni
+Vertical reaction force at foot contact point. Acts upward, opposing gravity-induced sag.
+
+Coordinate Frame
+Origin at hip joint. Angles measured from vertical. Clockwise positive convention.
+Mathematical Derivation — Lagrangian Method
+Euler–Lagrange
+L = T − V
+Potential V
+Kinetic T
+q = [θ1, θ2]
+The Lagrangian approach is preferred over Newton-Euler here because it naturally avoids computing internal joint constraint forces, yielding compact equations of motion directly.
+Why Lagrangian?
+Avoids explicit constraint force computation at joints — ideal for multi-link systems.
+Key Expressions
+
+
+
+
+Step-by-Step Lagrangian Derivation
+01
+
+Define Generalised Coordinates
+
+02
+
+Kinetic Energy T
+
+03
+
+Potential Energy V
+
+04
+
+Lagrangian L = T − V
+
+05
+
+Euler–Lagrange Equations
+
+
+The Euler–Lagrange framework is preferred over Newtonian mechanics here because it systematically handles coupling between joints through energy formulation, eliminating the need to compute internal constraint forces explicitly.
+Equations of Motion & State-Space Form
+Decoupled EOMs (Simplified Planar Model)
+
+
+State-Space Representation
+
+
+Physical Interpretation of Terms
+I·θ̈ — inertial resistance to angular acceleration
+c·θ̇ — viscous damping energy dissipation
+mgL/2·sinθ — gravitational restoring torque
+τ — actuator input driving the joint
+Derivation Continued — Equations of Motion
+01
+
+Expand ∂L/∂θ̇₁ (Hip Momentum)
+
+02
+
+Gravitational Partial ∂L/∂θ₁
+
+03
+
+Hip EOM — Full Coupled Form
+
+04
+
+Knee EOM — Simplified (Small Angles)
+
+05
+
+State-Space Form ẋ = f(x, u)
+
+Simulation Setup & Energy Analysis
+Simulation Stack
+
+
+Language & Libraries
+Python 3.x · NumPy · SciPy · Matplotlib · PyBullet (optional)
+
+
+ODE Solver
+scipy.integrate.solve_ivp with RK45 adaptive step-size
+
+
+Parameters
+L1=L2=0.2 m · m1=m2=0.5 kg · c=0.1 Ns/m · dt=0.01 s · T=5 s
+Energy Tracking
+
+
+Total mechanical energy is monitored over the simulation window. In the undamped case, E(t) remains constant, confirming numerical accuracy. Under damping, E(t) decays monotonically.
+
+
+def leg_ode(t, x, params):
+ th1, w1, th2, w2 = x
+ # EOM for hip
+ # EOM for knee
+ return [w1, dw1, w2, dw2]
+
+Simulation Results — Plots & Visualisation
+① θ vs Time  (Hip & Knee)
+② Energy vs Time
+③ Phase Portrait  (Hip: θ₁ vs θ̇₁)
+④ Damping c vs Settling Time
+Validation & Sensitivity Analysis
+Three-Layer Validation
+Energy Conservation
+Total energy conserved (undamped) and monotonically decays (damped) — confirms correct EOM implementation ✓
+Natural Frequency Check
+Analytical ωn = √(mgL/2I) compared against simulation FFT result — values match within 2% ✓
+Dimensional Analysis
+All EOM terms verified in N·m — no unit inconsistencies detected ✓
+Sensitivity Study
+Lower link length L2 varied from 0.1 m → 0.3 m. Longer links reduce oscillation frequency and increase gravitational torque load.
+Known Limitations
+Rigid body assumption — no link flexibility
+No terrain interaction or foot-slip modelled
+Cross-coupling between hip and knee omitted in simplified EOM
+2D sagittal plane only — no lateral dynamics
+Conclusions, Reflections & References
+Key Findings
+The 2-DOF Lagrangian model accurately captures joint dynamics with energy decay under damping
+Most challenging: CO4 — deriving and interpreting coupled EOMs
+Future improvement: include hip-knee cross-coupling terms for full accuracy
+CO Self-Assessment
+References
+Ginsberg, J. (2008). Engineering Dynamics. Cambridge University Press.
+Unitree Robotics — Go1 Technical Documentation
+Scientific Reports — "Patterns in quadruped robot locomotion"
+
+AI Disclosure: Claude AI was equation formatting only. All mathematical derivations were performed by hand by the project team.
+
+
+
+CO1 ✓
+
+CO2 ✓
+
+CO3 ✓
+
+CO4 ✓
+
+CO5 ✓
+
+THANK 
+YOU

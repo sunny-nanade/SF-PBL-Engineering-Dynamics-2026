@@ -1,0 +1,84 @@
+VALIDATION EVIDENCE FOR ROCKET LANDING
+DYNAMIC MODEL
+1. Textbook Comparison
+To verify the correctness of the derived equations of motion, the rocket model is compared
+with standard dynamic equations used in mechanics and control systems.
+General form of dynamic systems:
+𝐹 = 𝑚𝑥̈,𝜏 = 𝐼𝜃̈
+Derived rocket equations:
+𝑚𝑥̈ = 𝑇sin⁡(𝜃+𝛿)−𝑐𝑥̇
+𝑚𝑧̈ = 𝑇cos⁡(𝜃+𝛿)−𝑚𝑔−𝑐𝑧̇
+𝐼𝜃̈ = 𝑙𝑇sin⁡(𝛿)
+These equations follow Newton–Euler and Lagrangian formulations, consistent with
+standard references such as:
+• Ginsberg – Engineering Dynamics
+• Ogata – Modern Control Engineering
+Conclusion:
+The derived equations match established physical laws → model is theoretically valid
+2. Energy Consistency Check (CO5)
+Total mechanical energy:
+𝐸 = 𝑇+𝑉
+Where:
+• Kinetic Energy:
+1 1
+𝑇 = 𝑚(𝑥̇2 +𝑧̇2)+ 𝐼𝜃̇2
+2 2
+• Potential Energy:
+𝑉 = 𝑚𝑔𝑧
+Energy Validation Result
+From simulation:
+• Total energy decreases over time
+• Energy loss due to:
+o Drag force 𝑐𝑥̇,𝑐𝑧̇
+o Control damping
+𝑑𝐸
+< 0
+𝑑𝑡
+Conclusion:
+Energy behavior is physically correct → model satisfies real-world dynamics
+3. Sample Numerical Energy Check
+Assume:
+• 𝑚 = 1 𝑘𝑔, 𝑔 = 9.81 𝑚/𝑠2
+• 𝑧 = 10 𝑚, 𝑧̇ = 2 𝑚/𝑠
+Kinetic Energy:
+1
+𝑇 = (1)(22) = 2 𝐽
+2
+Potential Energy:
+𝑉 = (1)(9.81)(10) = 98.1 𝐽
+Total Energy:
+𝐸 = 100.1 𝐽
+Interpretation:
+Energy transitions between kinetic and potential during flight, confirming correct physical
+behavior.
+4. Sensitivity Analysis
+Parameters varied:
+• 𝐾 (controller gain)
+𝑝
+• Wind strength
+• Drag coefficient 𝑐
+Parameter Change Effect
+𝐾 ↑ Faster response, more oscillation
+𝑝
+𝐾 ↓ Slow response, poor control
+𝑝
+Wind ↑ Increased lateral deviation
+Drag ↑ Faster energy dissipation
+Observation:
+System responds logically → confirms model sensitivity and correctness
+5. Dimensional Consistency Check
+Quantity Unit
+Force N
+Mass kg
+Acceleration m/s²
+Torque N·m
+All equations are dimensionally consistent
+6. Conclusion of Validation
+The rocket dynamic model is validated using:
+1. Comparison with standard physics equations
+2. Energy consistency check
+3. Numerical verification
+4. Sensitivity analysis
+Final Conclusion:
+The model accurately represents the physical behavior of a rocket landing system and is
+suitable for simulation and control design.

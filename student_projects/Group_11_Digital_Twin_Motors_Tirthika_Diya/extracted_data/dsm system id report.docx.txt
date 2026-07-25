@@ -1,0 +1,51 @@
+Project Title - Digital Twin of Multi-Motor System with Self-Healing Capability
+
+Category E — Digital Twins / Electromechanical Systems
+Real-World Application
+This system models industrial multi-motor setups used in conveyor belts, robotics, and manufacturing lines, where fault detection and self-healing ensure continuous operation and prevent system failure.
+System Description
+The system consists of three different motors (DC, Servo, and Stepper) operating simultaneously. A digital twin model monitors their behavior, detects faults in one motor, and redistributes load to maintain overall system performance.
+Inputs, Outputs, States, Parameters
+This system models industrial multi-motor setups used in conveyor belts, robotics, and manufacturing lines, where fault detection and self-healing ensure continuous operation and prevent system failure.
+
+
+
+
+Degrees of Freedom (DOF)
+The system has:  3 Degrees of Freedom
+The system has 3 degrees of freedom since each motor rotates independently and requires one state variable (angular velocity) to describe its motion. There is no mechanical coupling between the motors; hence each contributes one independent DOF.
+Key Assumptions
+Motors are modelled as linear systems.
+Friction is viscous and proportional to velocity.
+Electrical dynamics are simplified into transfer functions.
+No mechanical coupling between motors (independent operation).
+Load sharing occurs only through control logic, not physical linkage.
+External disturbances affect only one motor at a time.
+System operates within stable region (no saturation effects).
+Coordinate System & Sign Convention
+Positive rotation direction is assumed clockwise.
+Speed is measured in rad/s.
+Error is defined as: 
+
+Free Body Diagram
+
+
+
+
+
+
+
+
+
+SYSTEM BEHAVIOR
+Under normal conditions, all motors track reference speed.
+When one motor experiences a fault (speed drop),
+The digital twin detects deviation using error threshold,
+Control system increases input to healthy motors,
+System maintains overall performance.
+Why This System is Dynamic
+This is a dynamic system because:
+Output depends on time-varying inputs
+System involves inertia and energy storage
+Behaviour changes under disturbance
+

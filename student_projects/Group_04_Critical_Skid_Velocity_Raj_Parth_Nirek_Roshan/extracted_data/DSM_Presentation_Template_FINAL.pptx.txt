@@ -1,0 +1,83 @@
+Determination of Skidding Speed of a Model Car on a Curved Path
+Team: Roshan Jahan (25), Parth Dorugade(15), Raj Desai(14), Nirek Doshi(16)
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: [A/B/C/D/E] | Complexity: [Medium/High/Very High]
+COs Exercised: [CO1, CO2, CO3, CO4, CO5] | Date: [DD/MM/YYYY]
+1. System Introduction & Motivation
+This project studies vehicle skidding on curved roads using a model car. 
+Skidding occurs when friction is not enough to provide required centripetal force. 
+Important for: 
+Road safety 
+Accident prevention 
+Designing safe speed limits 
+Problem Statement:At what speed does a car start skidding on a curved path?
+
+2. Problem Formulation & Assumptions
+Inputs: Speed (v), Radius (r), Friction (μ)Outputs: Skidding condition / Safe speed
+State Variables: Velocity (v), Position
+Parameters:
+Mass (m) 
+Radius (r) 
+Coefficient of friction (μ) 
+Gravity (g) 
+Assumptions:
+Motion is circular 
+Surface is uniform 
+Air resistance is negligible 
+Friction is constant
+
+  
+3. Free Body Diagram / System Schematic
+
+Forces acting on car: 
+Frictional force (towards center) 
+Weight (mg) downward 
+Normal reaction upward 
+Friction provides centripetal force 
+4. Mathematical Derivation (Part 1)
+5. Final Equations & State-Space
+6. Simulation & Energy Analysis
+Tools: Python 3.x + NumPy + SciPy + Matplotlib [+ PyBullet]
+ODE Solver: scipy.integrate.solve_ivp (RK45/BDF)
+Parameters: dt=..., T_total=..., ICs=[...]
+
+[INSERT: Key code snippet — ODE function]
+[INSERT: Time response plot (states vs time)]
+[INSERT: Energy vs time plot — CO5 validation]
+
+Energy Check (CO5):
+  Total energy E(t) = T(t) + V(t) = [conserved / decays due to damping]
+  Power dissipated P = c*(dx/dt)^2 = [value] W
+
+7. Simulation Visualization
+[INSERT simulation output plots]REQUIRED (minimum):- Time response: all states vs time (labels, units, legend)- Energy vs time: T(t), V(t), E(t) on same plot (CO5 validation)- Parameter variation: effect of changing key parameter[OPTIONAL but valuable]:- Phase portrait: velocity vs position- PyBullet 3D animation screenshot- Power dissipation vs time (CO5)- Bode/frequency response (Cat E projects)
+8. Validation & Analysis
+9. Conclusions & Reflections
+Conclusion:
+Skidding depends on speed, friction, and radius 
+Higher friction → safer motion 
+Lower friction → higher risk 
+Applications:
+Road design 
+Speed limit planning 
+Tire manufacturing 
+Accident prevention
+
+10. References & AI Disclosure
+Slide 11: References & AI Disclosure
+References:
+NCERT Physics 
+Circular motion resources 
+Internet sources 
+AI Usage(Claude, GPT):
+Used for formatting & explanation 
+Not used for derivations
+
+Thank You — Questions?
+Team: [Name 1], [Name 2], [Name 3], [Name 4]
+Project: [Project Title]
+Category: [A/B/C/D/E]
+COs: [CO1-CO5]
+
+[ALL members prepared for Q&A — evaluators may direct to specific members]

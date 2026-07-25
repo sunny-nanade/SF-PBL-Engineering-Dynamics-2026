@@ -1,0 +1,55 @@
+System Identification Report
+Topic: Dynamic Modelling of a Sensor Integrated
+Remotely Operated Underwater Vehicle for
+Environment Modelling and Mapping of Seabed
+Aerial/Underwater Dynamics (ROV System)
+1. System Selection and Approval
+The selected system is a 6-DOF Aerial/Underwater Dynamic System (ROV)
+under Category B. This system has been approved by the course instructor
+for modeling and simulation.
+2. Real-World Application
+The system represents underwater vehicles such as ROVs and AUVs used in
+ocean exploration, underwater inspection, and autonomous navigation. The
+dynamics are governed by thrust, drag, buoyancy, and gravity.
+3. System Definition
+3.1 Inputs
+u = [surge, sway, heave, roll, pitch, yaw]
+These inputs are converted into forces and torques using a thruster-based
+control allocation system.
+3.2 Outputs
+Position (x, y, z)
+Orientation (roll, pitch, yaw)
+Linear velocities (u, v, w)
+Angular velocities (p, q, r)
+Energy (kinetic, potential, total)
+Sensor outputs (sonar distances)
+3.3 State Variables
+X = [x, y, z, φ, θ, ψ, u, v, w, p, q, r]
+The first six represent position and orientation, while the remaining six
+represent linear and angular velocities.
+3.4 Key Parameters
+Mass = 73.89 kg
+Fluid density ≈ 1000 kg/m^3
+Drag coefficient
+Buoyancy factor
+Forces: buoyancy, drag, angular drag
+3. Degrees of Freedom (DOF)
+DOF = 6
+Translational: Surge, Sway, Heave
+Rotational: Roll, Pitch, Yaw
+Justification:
+The ROV operates in a three-dimensional fluid environment requiring full
+spatial motion. All six axes of motion are independently controlled using a
+multi-thruster configuration, enabling complete maneuverability in
+translation and rotation.
+5. Key Assumptions
+In-compressible fluid – Water density is constant
+Rigid body – No deformation occurs
+Quadratic drag – Drag ∝ velocity²
+Constant mass and inertia – No variation during motion
+Fixed center of buoyancy – Acts at a constant point
+Ideal thrusters – Instant response
+No external disturbances – No currents or waves
+Simplified hydrodynamics – Added mass ignored
+Controlled environment – Motion within bounded region
+FBD HAND DRAWN:

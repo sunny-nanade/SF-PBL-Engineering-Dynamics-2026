@@ -1,0 +1,117 @@
+Automated EOT Crane System
+Team: Palash Shah, Rohan Shah, Krrish Jain, Manav Alimchandani
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: D | Complexity: Medium 
+COs Exercised: CO1, CO2, CO3, CO4, CO5 | Date: 19/04/2026
+What is the system?
+ An Electric Overhead Traveling (EOT) Crane, consisting of a translating bridge, a traversing trolley, and a hoisting cable with a heavy payload.
+
+Why does it matter? 
+In industrial warehouses, moving heavy payloads quickly causes dangerous pendulum swing. Understanding the dynamics is critical for designing anti-sway motor controllers.
+
+Problem Statement:
+How do the accelerations of the bridge and the hoisting speed of the cable couple together to induce or amplify payload swing?
+1. System Introduction & Motivation
+2. Problem Formulation & Assumptions
+Inputs: 
+Fx (Bridge motor force), 
+Fz (Hoist force)
+Outputs: 
+Xp (Absolute payload position),
+ θx (Swing angle)
+State Variables: 
+x, ẋ, θx, θ̇x (Positions and Velocities)
+Parameters: 
+Mb (Bridge mass), 
+mp (Payload mass), 
+L (Cable length), 
+g (Gravity)
+Degrees of Freedom:
+ 5 DOF (Bridge X, Trolley Y, Hoist Z, Swing θx, Swing θy) —
+Key Assumptions :
+Rigid Body Dynamics: The steel bridge girders do not deform at operating speeds.
+Particle Kinetics: Cable length is much larger than the payload, allowing it to be treated as a point mass.
+Small Angle Approximation: Swing angles rarely exceed 15 degrees; therefore, sin(θ) ≈ θ.
+
+3. Free Body Diagram / System Schematic
+4. Mathematical Derivation (Part 1)
+Method: Newton's Second Law of Motion 
+
+Why this method? 
+Newton's laws were chosen over Lagrange's equations because they explicitly expose the internal constraint force (cable tension, T). Knowing real-time tension is critical for industrial cable sizing and safety factors.
+
+Step 1 (Kinematics): Define absolute payload acceleration using the product rule:
+
+Apx = ẍ + (L̈ * θx) + (2 * L̇ * θ̇x) + (L * θ̈x)
+
+Step 2 (Z-Axis Kinetics): Sum forces vertically for payload mass (mp):
+
+ mp * Apz = mp * g - T —> T = mp * (g - L̈)
+
+Step 3 (X-Axis Kinetics): Sum forces horizontally for payload mass: 
+
+mp * Apx = -T * θx
+5. Final Equations & State-Space
+Final Equations of Motion:
+
+EOM 1 (Payload Swing): 
+
+L * θ̈x + 2 * L̇ * θ̇x + g * θx = -ẍ
+
+EOM 2 (Bridge Translation): 
+
+Mb * ẍ = Fx - cx * ẋ + mp * (g - L̈) * θx
+
+State Space Representation
+Stae Vector:[x dx y dy z dz]
+State equations:dx/dt = vxd2x/dt2 = (F_b - C_b*vx)/M_bd2y/dt2 = (F_t - C_t*vy)/M_td2z/dt2 = (F_h - C_h*vz - Mg)/M_l
+
+
+7. Simulation Visualization
+8. Validation & Analysis
+Validation 1 (Energy Check): 
+Total energy perfectly conserved (red line flat), proving the derived equations respect physical laws.
+
+Validation 2 (Analytical Comparison): 
+The simulated time period for a 10m cable was 6.34 seconds. This perfectly matches the textbook natural frequency calculation: ω_n = √(g/L) = √(9.81/10) = 0.99 rad/s.
+
+Sensitivity Analysis:
+Varied parameter: Hoist Cable Length (L).
+Effect: Shortening the cable to 5m increased the oscillation frequency. Lengthening it to 15m slowed the swing. Hoisting upwards makes the system more highly oscillatory.
+
+Limitations: 
+The small angle assumption (sin(θ) ≈ θ) will fail and underestimate restoring forces if sudden braking causes a swing greater than 15-20 degrees.
+9. Conclusions & Reflections
+Key Finding: 
+Pendulum swing in cranes isn't just an isolated pendulum; it is actively driven by bridge acceleration and modified by Coriolis forces during hoisting.
+
+What we learned (Beyond the Textbook): 
+Textbooks teach static natural frequencies. This project taught us how active length changes (L̇) dynamically shift the system's behavior in real-time.
+
+Most Challenging CO: 
+CO4. Coupling the bridge kinetics with the payload kinetics via cable tension required extremely careful sign conventions.
+
+CO Self-Assessment: 
+CO1(Kinematics), CO2(FBD),CO3(Forces),CO4(Laws),CO5(Energy)
+10. References & AI Disclosure
+Textbook References:
+Ginsberg, G. H. (2007). Advanced Dynamics, 2nd Edition, Cambridge University Press.
+
+Online Resources:
+SciPy documentation for solve_ivp Runge-Kutta numerical integration
+
+AI Tools (Mandatory Disclosure):
+Tool: ChatGPT, Gemini, GitHub Copilot, Codex, Anti-Gravity
+
+Purpose: 
+Formatting mathematical derivation steps into plain text, and translating final state-space EOMs into Python syntax for the SciPy solver and Matplotlib validation plots. Python syntax debugging, Classifying content according to rubrics, Formatting presentation and word documents.
+
+NOT used for: Drawing Free Body Diagrams or finalizing the engineering assumptions.
+
+Thank You — Questions?
+Team: Palash Shah, Rohan Shah, Krrish Jain, Manav Alimchandani
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: D | Complexity: Medium 
+COs Exercised: CO1, CO2, CO3, CO4, CO5 | Date: 19/04/2026

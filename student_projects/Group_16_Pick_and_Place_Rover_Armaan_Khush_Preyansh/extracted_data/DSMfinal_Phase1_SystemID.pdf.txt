@@ -1,0 +1,62 @@
+PHASE 1 — SYSTEM IDENTIFICATION REPORT
+Mobile Manipulation Robot · DSMfinal.py · PyBullet Simulation
+1 SYSTEM DESCRIPTION 2 ASSUMPTIONS
+The system is a ground mobile manipulation robot simulated in PyBullet A1. Flat, rigid ground plane (plane.urdf); no terrain variation.
+at 240 Hz. A Clearpath Husky UGV (4-wheel differential drive, 38 kg)
+carries a KUKA iiwa 7-DOF arm rigidly mounted at 0.25 m above the
+chassis. The robot executes a full pick-and-place mission: plan a
+collision-free route with A*, navigate to an automatically chosen dock beside
+the sample cube, grasp the block via a fixed constraint, transit to the goal,
+and deposit the block on the green pad.
+A2. Physics fidelity fixed at Dt = 1/240 s; real-time playback in GUI mode.
+Navigation uses an A* grid planner (0.35 m cells, 0.76 m total clearance) A3. Arm base is kinematically locked to rover chassis (JOINT_FIXED).
+with greedy path simplification, segment densification, and a pure-pursuit
+heading controller (IIR-smoothed, rate-limited). A 24-candidate dock ring
+selects the approach point that minimises path length while orienting the
+rover toward the goal direction.
+A4. Grasp is ideal: JOINT_FIXED constraint at the end-effector, F_max = 500
+N.
+A5. Sample block mass = 0.16 kg; all obstacle bodies are static (mass = 0).
+A6. Arena bounds are [-7.2, 7.2] m in x and y; planner rejects out-of-bounds
+cells.
+A7. Obstacle geometry (positions, radii) is fully known at planning time.
+A8. Mission timeout = 200 s wall-clock time.
+3 SYSTEM INPUTS AND OUTPUTS
+Cat. Signal / Parameter Type Value / Range Description
+IN Obstacle geometry Static config 4 boxes + 2 cylinders Known at startup; used to build A* cost map
+IN Sample block pose Sim state poll getBasePositionAndOrientation World-frame position + quaternion, read each step
+IN Husky base pose Sim state poll pos (x,y,z), yaw (rad) Used by planner, heading controller, arm IK
+IN A* planned path Computed List of (x,y) world points astar_path() with 0.76 m clearance, then simplified
+IN Dock candidate ring Computed 24 pts at r = 1.10 m choose_sample_dock() selects best approach point
+IN Mission phase FSM state NAV_TO_SAMPLE/PICK/NAV_TO_GOAL/PCLoAnCtrEo/lDs OwNhiEch action executes each tick
+IN Control gains Config BASE_SPEED=6, TURN_GAIN=2, DRIVE_STMunOaOblTeH d=r0iv.e8 5and arm parameters
+OUT Wheel velocities Actuator omega in [-12, 12] rad/s x4 Velocity-control torque to joints 2,3,4,5
+OUT Arm joint angles Actuator 7 joints, position control KUKA iiwa targets via Cartesian IK + smoothstep
+OUT Grasp constraint Virtual JOINT_FIXED, F_max=500 N Created at PICK phase; removed at PLACE
+OUT Sample block pose Sim outcome Rigid-body with constraint Block follows end-effector while grasped
+OUT Mission completion Terminal state Phase.DONE then disconnect Immediate exit once block deposited at goal
+4 FREE BODY / SIGNAL-FLOW DIAGRAM
+A* Grid Planner MOBILE MANIPULATION SYSTEM Wheel Velocities
+path omega_L/R
+0.35 m cells DSMfinal.py | PyBullet Simulation vel ctrl x4
+Drive Controller: Pure Pursuit + IIR Smoother
+PyBullet Physics Arm Joint Cmds
+Dt, forces Dock Selector IK / Smoothstep theta_1..7
+Dt=1/240 s pos ctrl x7
+24-cand ring Cartesian traj
+Sample Block pose/id A* Nav Phase FSM F_c Grasp Constraint
+0.16 kg, yellow path+simplify 5 states JOINT_FIXED
+Obstacle Map geom Husky UGV KUKA iiwa place Sample at Goal
+4 cubes + 2 cyls 4-WD, 38 kg 7-DOF arm block placed
+Figure 1 — Free Body / Signal-Flow Diagram
+Navigation Parameter Value Arm / Sim Parameter Value
+Start position (-6.0, -6.0, 0.1) m Arm DOF 7 (KUKA iiwa)
+Goal position (+6.0, +6.0, 0.0) m Arm mount height 0.25 m above chassis
+Grid resolution 0.35 m / cell IK iterations 180 max, eps=1e-4
+Robot clearance 0.48 + 0.28 = 0.76 m Pos gain / Vel gain 0.25 / 0.65
+Dock ring radius 1.10 m from sample Max joint velocity 1.2 rad/s
+Dock candidates 24 (15° spacing) Max joint force 160 N
+Path reach threshold 0.65 m Grasp constraint force 500 N
+Cruise wheel speed 6.0 rad/s Sim time-step 1/240 s, 2 sub-steps
+Mission timeout 200 s Solver iterations 200
+Phase 1 Deliverable · DSMfinal.py · System Identification Report · PyBullet Simulation

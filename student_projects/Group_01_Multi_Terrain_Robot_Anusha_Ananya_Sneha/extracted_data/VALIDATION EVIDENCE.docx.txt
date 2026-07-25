@@ -1,0 +1,32 @@
+VALIDATION EVIDENCE
+
+1. Energy Conservation Check 
+Equation:
+
+Where:
+(translational) 
+(rotational)
+(The total energy is not conserved because  an external yaw moment continuously inputs energy into the system.)
+
+The computed energy variation confirms that the system is non-conservative due to external input torque.
+
+2. Comparison with Expected / Analytical Behavior
+The system exhibits stable behavior with both slip angle and yaw rate converging over time. This matches expected vehicle dynamics theory, where lateral motion stabilizes under constant input.
+
+The steady-state value indicates bounded response, confirming physical correctness.
+
+
+
+3. Sensitivity Analysis 
+The system response was analyzed by varying the cornering stiffness . It was observed that increasing stiffness reduces oscillations and improves stability. Lower stiffness results in slower damping and larger deviations. In the sensitivity analysis plot, different values of cornering stiffness were simulated.
+
+4. Stability Validation
+The eigenvalues of the system matrix have negative real parts, confirming that the system is dynamically stable.
+
+5. Limitations of the Model
+Linear tire model assumed (valid only for small slip angles) 
+Constant forward velocity assumption 
+No suspension or terrain interaction considered 
+Aerodynamic forces neglected 
+
+The model has been validated through energy analysis, steady-state behavior, and sensitivity analysis. The results are physically consistent and align with expected theoretical behavior.

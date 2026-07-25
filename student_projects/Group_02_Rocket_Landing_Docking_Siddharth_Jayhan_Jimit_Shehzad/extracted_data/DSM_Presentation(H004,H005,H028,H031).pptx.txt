@@ -1,0 +1,59 @@
+Rocket Vertical Takeoff and Precision Landing
+Team: [Siddharth Bathija], [Jayhan Bhagvati], [Jimit Kacha], [Shehzad Khan]
+Course: Dynamic System Modeling (702MH0C023)
+B.Tech Mechatronics, Sem IV | NMIMS MPSTME Mumbai
+Category: [B(Aerial Systems)] | Complexity: [Very High]
+COs Exercised: [CO1, CO2, CO3, CO4, CO5] | Date: [19/04/2026]
+1. System Introduction & Motivation
+System: Vertical Takeoff and Landing (VTOL) 
+Rocket Application: Reusable launch systems (SpaceX Falcon 9, ISRO RLV)
+Objective: To model and control a rocket that performs stable ascent, hover, and lands back at the same position under disturbances.
+Problem Statement: Design a dynamic model and control strategy to achieve stable flight and precise landing of a rocket subject to gravity, drag, and external disturbances.
+
+2. Problem Formulation & Assumptions
+3. Free Body Diagram / System Schematic
+4. Mathematical Derivation (Part 1)
+5. Final Equations & State-Space
+6. Simulation & Energy Analysis
+7. Simulation Visualization
+8. Validation & Analysis
+9. Conclusions & Reflections
+Key Finding:A PID-controlled thrust vectoring system can achieve stable hover and precise vertical landing under disturbances such as wind and drag.
+
+What we learned that a textbook couldn’t teach:
+Correct sign conventions and force directions in FBD and Lagrange formulation required multiple iterations 
+Real systems need controller tuning (Kp, Kd) — theory alone is not sufficient 
+Coupling between rotation and translation significantly affects stability (CO4 most challenging) 
+
+What we would do differently:
+Implement real-time data logging for accurate plots instead of approximations 
+Include variable mass model (fuel consumption) 
+Add advanced controller (PID + feedforward / LQR) for better stability 
+
+Course units most critical:
+Kinematics of rigid bodies (CO1) 
+Free Body Diagrams and force analysis (CO2, CO3) 
+Lagrange/Newton modeling (CO4) 
+Energy methods and validation (CO5) 
+10. References & AI Disclosure
+Textbook References:
+[1] Ginsberg, J. H. (2008). Engineering Dynamics. Cambridge University Press[2] Ogata, K. (2010). Modern Control Engineering. Prentice Hall
+
+Online Resources:
+[3] PyBullet Documentation — https://pybullet.org[4] SciPy Documentation — https://docs.scipy.org[5] NumPy Documentation — https://numpy.org[6] Matplotlib Documentation — https://matplotlib.org
+
+AI Tools (MANDATORY Disclosure):
+Tool: ChatGPT 
+Purpose: 
+Python code structuring and debugging 
+Assistance in organizing presentation content 
+Clarification of concepts (control systems, dynamics) 
+NOT used for: 
+Final derivation of equations (done manually) 
+Core conceptual understanding and modeling decisions
+Thank You — Questions?
+Team: : [Siddharth Bathija], [Jayhan Bhagvati], [Jimit Kacha], [Shehzad Khan]
+Project: [Rocket Vertical Takeoff and Precision Landing]
+Category: [B]
+COs: [CO1-CO5]
+

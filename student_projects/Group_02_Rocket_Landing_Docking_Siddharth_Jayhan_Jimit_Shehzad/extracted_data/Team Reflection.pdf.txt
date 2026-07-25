@@ -1,0 +1,45 @@
+Team Reflection
+Title :- Rocket Landing And Docking
+By:-
+Siddharth Bathija H004
+Jayhan Bhagwati H005
+Jimit Kacha H028
+Shehzad Khan H031
+Category: B
+Date: 17/04/2026
+Q1: What was the single hardest technical challenge you faced in deriving the
+mathematical model? How did you resolve it?
+The hardest challenge was deriving an accurate dynamic model for the drone that included
+rotational motion (pitch, roll, yaw) and motor thrust relationships. Initially, our equations were too
+simplified and did not account for coupling between axes, which caused inconsistencies in
+simulation results. We resolved this by revisiting Newton-Euler equations and breaking the system
+into smaller parts (forces, torques, inertia). We also cross-checked our derivation with reference
+models and validated each step through simulation.
+Q2: Which Course Outcome (CO1-CO5) was most challenging for your team?
+Why?
+CO3 (applying mathematical techniques to real-world systems) was the most challenging. While we
+understood the theory, applying it to a practical system required assumptions, approximations, and
+interpretation of physical meaning. Translating equations into a working model exposed gaps in our
+conceptual clarity.
+Q3: What would you do differently if you started the project over?
+We would begin with a clearer plan for modeling and validation instead of directly jumping into
+derivations. Creating a block diagram early on and identifying all assumptions beforehand would have
+saved time. We would also start simulations earlier to catch errors sooner.
+Q4: What did you learn from this project that a regular textbook problem
+could NOT teach you?
+This project taught us how messy real-world modeling is compared to textbook problems. In
+textbooks, all variables are defined and equations are clean, but in reality, we had to decide what to
+include, what to ignore, and how to validate results. We also learned how small errors in
+assumptions can significantly affect the final outcome.
+Q5: How did you divide work among team members? Did everyone
+understand the full derivation?
+We divided the work based on strengths: two members handled derivations, another two worked on
+simulations, and another focused on documentation. However, we conducted regular discussions to
+ensure everyone understood the complete model. By the end, all members had a basic understanding
+of the full derivation, though some were more confident in specific parts.
+Q6: What AI tools did you use? For what specific purpose? What did you NOT
+use AI for?
+We used AI tools like ChatGPT to clarify concepts, verify intermediate steps in derivations, and
+improve the clarity of our report. We also used it to debug equations and understand theoretical
+gaps. However, we did not rely on AI to generate the full solution or derivation; all key steps were
+done and verified by our team to ensure correctness and understanding.

@@ -1,0 +1,24 @@
+Project #: 3
+Project Title: Quadruped Leg
+Category: A 
+Team Members: 3
+Date: 25/04/26
+Q1: What was the single hardest technical challenge you faced in deriving the mathematical model? How did you resolve it?
+The most difficult challenge was deriving the inverse kinematics equations for the quadruped leg, especially handling multiple joints and ensuring accurate position of the end-effector (foot). It was complex to relate joint angles with the desired trajectory. We resolved this by breaking the system into smaller segments, applying basic trigonometry step-by-step, and verifying results through simulation and iterative corrections.
+
+Q2: Which Course Outcome (CO1-CO5) was most challenging for your team? Why?
+CO3 (application of mathematical modeling and analysis) was the most challenging because it required deep understanding of both theory and practical implementation. Converting theoretical equations into a working model and validating them with real constraints was difficult.
+
+Q3: What would you do differently if you started the project over?
+If we started again, we would first build a stronger conceptual foundation in kinematics and simulation tools before beginning derivation. We would also plan the workflow better and start earlier to allow more time for testing and debugging.
+
+Q4: What did you learn from this project that a regular textbook problem could NOT teach you?
+This project taught us how to deal with real-world complexities like assumptions, approximation errors, and implementation challenges. Unlike textbook problems, we learned teamwork, debugging, and how theoretical concepts behave in practical scenarios.
+
+Q5: How did you divide work among team members? Did everyone understand the full derivation?
+Work was divided based on strengths: one member focused on mathematical derivation, another on simulation/modeling, and the third on documentation and validation. However, we regularly discussed progress so that all members understood the complete derivation and overall concept.
+Q6: What AI tools did you use? For what specific purpose? What did you NOT use AI for?
+We used AI tools such as ChatGPT, Claude, and Gemini. These tools helped us in understanding kinematics concepts, verifying intermediate steps in derivations, generating explanations for complex equations, and improving the clarity of our documentation.
+However, we did not use AI to directly generate the complete mathematical model or final derivation. The core calculations, model development, and problem-solving were done by our team to ensure proper understanding and originality.
+
+

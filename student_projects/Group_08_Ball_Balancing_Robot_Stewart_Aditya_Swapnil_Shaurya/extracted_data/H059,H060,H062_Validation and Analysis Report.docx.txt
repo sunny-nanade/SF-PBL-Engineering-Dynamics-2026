@@ -1,0 +1,35 @@
+Simulation Validation and Analysis
+Introduction
+This section presents the validation of the Stewart platform ball balancing simulation developed using PyBullet. The objective is to ensure that the system behavior aligns with theoretical expectations and physical laws. The validation includes textbook comparison, energy consistency checks, and sensitivity analysis.
+Textbook Comparison
+The system dynamics follow Newton’s laws of motion for a body on an inclined plane. The acceleration of the ball is directly influenced by the tilt of the platform and gravity.
+For small tilt angles:
+d²x/dt² = gα
+d²y/dt² = gβ
+These equations are consistent with standard dynamics models, confirming that the simulation correctly represents physical behavior. The direction of motion always aligns with the tilt, validating correctness.
+Energy Validation (CO5)
+Kinetic Energy:
+KE = ½ m (vx² + vy² + vz²)
+Potential Energy:
+PE = mgh
+Total Energy:
+E = KE + PE
+Energy analysis shows that total mechanical energy decreases over time due to frictional losses, which is expected in real systems.
+The relationship:
+Input Energy ≈ Stored Energy + Energy Loss
+confirms that the simulation is physically consistent and numerically stable.
+
+Sensitivity Analysis
+Sensitivity analysis was conducted to observe how changes in system parameters affect behavior:
+Increasing tilt angle increases ball acceleration 
+Increasing friction reduces oscillations and improves stability 
+Increasing PID gains (Kp, Kd) speeds up response but may cause overshoot 
+These results demonstrate that the system responds realistically to parameter variations.
+
+Discussion
+The simulation successfully captures the essential behavior of a ball balancing system. The use of PID control enables stabilization, while the physics engine ensures realistic motion. However, simplifications such as ideal actuators and simplified contact modeling limit real-world accuracy.
+
+Conclusion
+The Stewart platform ball balancing system has been successfully modeled and validated. The simulation aligns with theoretical dynamics, satisfies energy principles, and responds appropriately to parameter changes.
+Thus, the system provides a reliable representation of real-world control systems and can be used for educational and experimental purposes.
+

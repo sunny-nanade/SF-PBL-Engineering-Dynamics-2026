@@ -1,0 +1,38 @@
+System Identification Report
+The selected system is a Stewart Platform Ball Balancing System, which is a closed-loop control system used to stabilize a ball on a tilting platform. The platform orientation is adjusted dynamically using a control algorithm to maintain the ball at a desired position, typically the centre.
+Real-World Application
+This system represents practical applications in robotics, motion control, and stabilization systems, such as self-balancing robots, precision positioning platforms, and flight simulators. It demonstrates fundamental concepts of feedback control and dynamic system response.
+System Definition
+Inputs
+u = [α, β]
+where α and β are the tilt angles of the platform along two perpendicular axes, controlled using a PID controller.
+Outputs
+Ball position (x, y, z) 
+Ball velocity (vx, vy, vz) 
+Platform orientation (roll, pitch) 
+Error (distance from desired position) 
+State Variables
+X = [x, y, vx, vy, α, β, ∫e, de/dt]
+where x and y represent ball position, vx and vy represent velocities, and the remaining terms correspond to control states.
+Key Parameters
+Ball mass ≈ 0.0027 kg 
+Gravitational acceleration = 9.81 m/s² 
+Friction coefficient 
+Platform height 
+PID gains (Kp, Ki, Kd) 
+Degrees of Freedom (DOF)
+DOF = 4
+Translational: Ball motion in x and y directions 
+Rotational: Platform tilt about two axes 
+Justification:
+The ball moves freely on a 2D surface, while the platform tilts along two axes to control its motion. This combination results in four effective degrees of freedom.
+Key Assumptions
+The platform behaves as a rigid body 
+Small-angle approximation is valid for tilt angles 
+The ball rolls with limited slipping (friction modeled) 
+Actuators are ideal with no delay 
+Air resistance is negligible 
+The system operates in a controlled environment
+
+Free Body Diagram
+

@@ -1,0 +1,32 @@
+Project: DSM MINI PROJECT 2026
+Project Title: Dynamic Modelling of a Sensor Integrated Remotely Operated Underwater Vehicle for Environment Modelling and Mapping of Seabed _____________________________________________
+Category:  B 
+Team Members: Om Kulkarni, Veer Mehta, Arnav Nair, Chinmay Pai 
+Date: 19/04/2026
+Q1: What was the single hardest technical challenge you faced in deriving the mathematical model? How did you resolve it?
+One of the most challenging issues we encountered involved optimizing the codes on our individual desktops in such a way that they would run effectively. We had to make internal changes to the codes so they would correspond with the hardware specifications of our systems. Additionally, debugging using AI takes considerably longer than it would normally take because certain versions of files must be installed to be able to utilize the software.
+
+Q2: Which Course Outcome (CO1-CO5) was most challenging for your team? Why?
+Although you are knowledgeable about the equations, testing them in the ocean on a six-degree-of-freedom body would require several trials because of the additional forces such as thrust, drag, buoyancy, and restoring forces acting on the system when it was subjected to various conditions. Hence CO3 was the most challenging course outcome for our team. 
+Q3: What would you do differently if you started the project over?
+In our modelling process we start with a model that has one degree of freedom. We validate it before moving on to build a model with six degrees of freedom. This approach makes it easier to debug issues.
+
+We also make our assumptions clear, at the beginning of the modelling process.
+Q4: What did you learn from this project that a regular textbook problem could NOT teach you?
+This study showed that systems in life are not perfect. They have things like drag force that does not work in a line, energy that gets lost and tiny mistakes in the way we model them can make a big difference, in what happens. Unlike the problems you find in textbooks we had to check our model by trying it out with real things.
+
+
+Q5: How did you divide work among team members? Did everyone understand the full derivation?
+Derivation & Modelling: Om
+Simulation & Coding: Chinmay
+Validation & Analysis: Veer, Arnav
+Presentation & Documentation: Om, Veer, Arnav 
+At the start each team member had to do the task that was given to them. They worked on it by themselves without talking to the other team members. When they were done the whole team got together. Talked about what they had done. Each team member explained what they did, shared their work. This way we learned about every part of our project. Now we can do the experiment without any issues because each team member knows everything, about the project.
+
+Q6: What AI tools did you use? For what specific purpose? What did you NOT use AI for?
+AI tools (ChatGPT) were used for:
+Structuring derivations 
+Debugging Python code 
+Formatting reports 
+AI was not used for core derivation logic and everything done on paper which was done manually based on course concepts.
+

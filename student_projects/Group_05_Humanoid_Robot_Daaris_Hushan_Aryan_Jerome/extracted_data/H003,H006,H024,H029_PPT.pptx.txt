@@ -1,0 +1,340 @@
+
+
+
+Dynamic Analysis of
+a 12-DOF Humanoid Biped Robot Using Euler-Lagrange Mechanics
+
+By:
+Daaris Ahmed H003
+Hushan Bhimani H006
+Aryan Hiware H024
+Jerome Jose H029
+
+Project Snapshot
+• Robot model: 12 actuated joints
+• Per leg: hip yaw, hip roll, hip pitch, knee pitch, ankle pitch, ankle roll
+• Total mass from URDF: 5.956 kg
+• Simulation step: 1/240 s
+• Modeling basis: Euler-Lagrange, not Newtonian force balance
+
+
+SECTION 01
+02 / 13
+
+
+1. System Introduction & Motivation
+The project studies the lower-body dynamics of a simulated humanoid biped and focuses on analysis-ready outputs rather than animation alone.
+
+
+
+
+
+
+System
+A PyBullet humanoid lower body is modeled from URDF link masses, inertias, and joint limits. Each leg carries six actuated joints, while the analysis groups behavior into Hip, Knee, and Ankle levels.
+
+
+
+
+
+
+Motivation
+Dynamic systems analysis needs measurable signals such as GRF, joint stress proxies, angles, torques, and energies. The project turns the simulator into a repeatable validation environment for those signals.
+
+
+
+
+
+
+Outcome
+Instead of only watching the robot move, we collect and save plots for walk, squat, jump without twist, and jump with twist. Those plots are then used to validate trends against the Euler-Lagrange model.
+
+
+SECTION 02
+03 / 13
+
+
+2. Problem Formulation & Assumptions
+The model combines a detailed URDF robot with grouped validation channels so that the simulation remains interpretable at the report level.
+
+
+Formulation
+• Generalized coordinates are taken from the biped joint coordinates, with one leg often represented by q = [q1 ... q6]^T for derivation.
+• Dynamic behavior is analyzed through total ground reaction force, joint stress proxy, joint angle, joint torque, kinetic energy, potential energy, and total energy.
+• Validation plots are saved after simulation closure so every action produces a stable analysis folder output.
+
+
+12
+Actuated joints
+6 per leg
+
+
+5.96 kg
+Total robot mass
+from URDF inertial data
+
+
+240 Hz
+Simulation rate
+dt = 1/240 s
+
+
+Assumptions
+• Euler-Lagrange mechanics are used for derivation; Newtonian joint-force balance is not the primary framework.
+• Hip, Knee, and Ankle are grouped for validation plots, even though the full simulation has more detailed joint coordinates.
+• Stress is represented by a PyBullet reaction-force magnitude proxy because material stress data are not available in the URDF.
+
+
+SECTION 03
+04 / 13
+
+
+3. Free Body Diagram / System Schematic
+The project uses a Lagrangian-style free body diagram to define generalized coordinates, grouped masses, and external contact effects.
+
+
+
+Generalized Coordinates
+• q1: hip yaw
+• q2: hip roll
+• q3: hip pitch
+• q4: knee pitch
+• q5: ankle pitch
+• q6: ankle roll
+
+
+Physical Meaning
+• Weight acts at each link center of mass.
+• Ground reaction force acts at the foot-ground contact.
+• Generalized torques are associated with the actuated coordinates.
+• The validation stage later collapses detailed joint channels into Hip, Knee, and Ankle groups.
+• The same FBD also anchors the grouped energy interpretation used in the analysis reports.
+
+
+SECTION 04
+05 / 13
+
+
+4. Mathematical Derivation (Euler-Lagrange)
+The main derivation slides use equation snapshots taken from the project EOM document instead of typed equation blocks.
+
+
+
+
+How It Maps to the Project
+• The handwritten derivation follows the same 6-coordinate leg description used in the simulator.
+• URDF masses, centers of mass, and inertias provide the physical data used in the energy terms.
+• These expressions support the grouped energy plots used later in validation.
+
+
+Interpretation
+• Forward kinematics links the joint coordinates to the foot pose and link-center positions.
+• Energy terms define the Lagrangian and motivate the later manipulator equation.
+• The derivation is presented in Euler-Lagrange form throughout this project.
+
+
+SECTION 05
+06 / 13
+
+
+5. Final Equations & State-Space
+The final motion equations are shown using cropped equation photos from the submitted EOM PDF.
+
+General Euler-Lagrange equation from the EOM sheet.
+
+Generalized force relation with actuator and contact contribution.
+
+Manipulator-form dynamics relation from the EOM sheet.
+
+
+Physical Meaning
+• The first relation gives the coordinate-wise Euler-Lagrange form.
+• The generalized-force expression adds actuator, damping, friction, and contact terms.
+• The manipulator form summarizes the full multibody dynamics compactly.
+
+
+Contact and Constraints
+• Ground contact enters the equations through the Jacobian-transpose force mapping.
+• This matches the ground-reaction interpretation used in the simulation analysis.
+• The same framework is compatible with walk, squat, and jump cases.
+
+Contact-force mapping from the EOM sheet.
+n = 12 DOF
+4 validation actions
+
+
+SECTION 06
+07 / 13
+
+
+6. Simulation & Energy Analysis
+The analysis pipeline records grouped Hip, Knee, and Ankle energies together with total GRF and grouped joint signals for every action.
+
+
+2420.1 N
+Peak total GRF in walk
+from saved analysis CSV
+
+
+2.89 J
+Peak hip total energy
+grouped Hip channel
+
+
+0.59 J
+Peak knee total energy
+grouped Knee channel
+
+
+0.47 J
+Peak ankle total energy
+grouped Ankle channel
+
+
+Recorded Plot Families
+• Total ground reaction force versus time
+• Grouped stress proxy for Hip, Knee, and Ankle
+• Grouped angle for Hip, Knee, and Ankle
+• Grouped torque for Hip, Knee, and Ankle
+• Grouped kinetic, potential, and total energy
+
+
+Interpretation
+• Hip energy dominates because the upper links carry more mass and larger coordinated motion.
+• Knee and ankle energy channels remain smaller but still show clear event-driven changes.
+• The energy view complements GRF and torque plots, which is why the Euler-Lagrange framing is useful.
+
+
+SECTION 07
+08 / 13
+
+
+7. Simulation Scenario Photos
+This slide shows actual PyBullet scene captures for walk, squat, jump without twist, and jump with twist.
+
+Walk scenario
+
+Squat scenario
+
+Jump without twist scenario
+
+Jump with twist scenario
+
+
+SECTION 08
+09 / 13
+
+
+8. Simulation Visualization
+Saved dashboards make it easy to compare action signatures after closing the simulation window.
+
+Walk dashboard
+
+Squat dashboard
+
+Jump without twist dashboard
+
+Jump with twist dashboard
+
+
+SECTION 09
+10 / 13
+
+
+9. Validation & Analysis
+The saved plots are used to compare action duration, force peaks, and grouped energy behavior across motions.
+
+
+7.47 s
+Walk duration
+saved run length
+
+
+5.22 s
+Squat duration
+saved run length
+
+
+3.52 s
+Jump w/o twist
+saved run length
+
+
+6.07 s
+Jump with twist
+saved run length
+
+
+Validation Observations
+• Walking produces sustained periodic GRF and energy variation over the longest duration.
+• Squat stays mostly symmetric and is useful for checking vertical energy exchange.
+• Jump actions compress the time horizon and highlight large event-driven torque and GRF changes.
+
+
+Limitations
+• The project uses parameter extraction from URDF rather than experimental parameter estimation, so it is a model-based system description more than classical system identification.
+• Stress is a reaction-force proxy, not a material stress computation.
+• Grouped Hip, Knee, and Ankle channels trade detail for interpretability at report scale.
+
+
+SECTION 10
+11 / 13
+
+
+10. Conclusions & Reflections
+The project now behaves like a dynamic analysis platform: it simulates motion, extracts interpretable signals, and saves post-run evidence for reporting.
+
+
+
+
+
+
+What Worked
+Euler-Lagrange mechanics provide a consistent analytical frame for masses, energies, and generalized torques. The saved analysis folder closes the loop between simulation and reporting.
+
+
+
+
+
+
+Current Limits
+The simulator still relies on PyBullet for detailed contact dynamics, and the grouped validation plots intentionally simplify the full 12-joint behavior into Hip, Knee, and Ankle trends.
+
+
+
+
+
+
+Next Steps
+Future work could add experimental identification, symbolic derivation of full M-C-G terms, or controller comparisons under the same saved validation pipeline.
+
+
+SECTION 11
+12 / 13
+
+
+11. References
+External references used for the simulation framework, robot dynamics background, and walking-control context.
+
+
+Simulation and Dynamics
+• Coumans, E., Bai, Y. PyBullet Quickstart Guide. Bullet Physics / GitHub.
+• Tedrake, R. Underactuated Robotics: Multi-Body Dynamics. MIT.
+• Lynch, K. M., Park, F. C. Modern Robotics, Chapter 8: Dynamics of Open Chains.
+• Kajita, S. et al. Biped walking pattern generation by using preview control of zero-moment point. IEEE/RSJ IROS 2003.
+• Project equations and parameter values were adapted to the local biped model and its URDF data.
+
+
+
+AI Disclosure
+AI tools (ChatGPT and Claude) were used for: 
+• Structuring derivations 
+• Debugging Python code 
+• Extracting physical and mathematical data from the urdf file 
+
+AI was not used for core derivation logic and writing and formatting of the report everything done on paper which was done manually based on course concepts.
+
+
+
+Thank You
+Questions?

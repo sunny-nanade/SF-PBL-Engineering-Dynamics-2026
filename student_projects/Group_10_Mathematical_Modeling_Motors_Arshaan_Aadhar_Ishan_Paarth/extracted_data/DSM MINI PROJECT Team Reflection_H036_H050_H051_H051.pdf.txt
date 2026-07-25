@@ -1,0 +1,58 @@
+Team Reflection
+Project : 10
+Project Title: Motor Modelling
+Category: E
+Team Members: Arshaan Lakhani(H036), Aadhar Patel(H050), Ishan Patel(H051), Paarth
+Patel(H051)
+Date: 19/04/2026
+Q1: What was the single hardest technical challenge you faced in deriving the
+mathematical model? How did you resolve it?
+The project demanded time and efforts where we explored a lot of new things. First, we started
+by understanding the working of all the motors. We analyzed the electrical and mechanical
+working behind DC, Stepper and Servo motor which helped us understand the mathematical
+model and simulation. The most challenging part of our project was handling the difference in
+modeling approach in all 3 motors withing single framework. While the DC motors follow
+linear relationship between current, torque and speed. The stepper introduces non-linear due to
+its stepping and precise mechanism, while servo have feedback-based control and hence have
+different mechanical relation with respect to it’s gears.
+Q2: Which Course Outcome (CO1-CO5) was most challenging for your team? Why?
+The most challenging outcome for our team was CO4: applying constitutive laws to analyse
+dynamic systems. CO4 was tough because it required us to effectively link electrical and
+mechanical relationships within each motor. We needed to use laws like torque-current
+relations and back EMF-speed dependence. Then, we had to integrate these into differential
+equations that represent system behaviour. This got more complicated when we dealt with
+different motor types, particularly the nonlinear features of the stepper motor and the feedback-
+driven nature of the servo motor.
+Q3: What would you do differently if you started the project over?
+There were many things which we realized while doing the project which could get better.
+Firstly we explored different motors and simulated it on the same system. However, the purpose
+of each motor is different and different simulation would help us relate better. We would also
+manage to better explore real life implementation by studying existing simulation which would
+help us understand and implement the system in a better way.
+Q4: What did you learn from this project that a regular textbook problem could NOT
+teach you?
+This project gave us a practical knowledge of dynamic systems and models which we learn in
+classroom. The textbook problem defines the aspects of predefined solution while we
+approached open-ended engineering problem which helped us understand the impact of both
+electrical and mechanical system in a model. We also dealt with real world approximations and
+interpretation which is critical for understanding the implication of engineering in real world
+to be able to innovate and contribute in future.
+Q5: How did you divide work among team members? Did everyone understand the full
+derivation?
+We divided the work equally assigning each member a motor type to study and research. We
+then would use the respective classroom hours to exchange the information we gathered which
+would make everyone responsible for their work and also ignite collaborative learning and
+team work. All team members understood the complete modelling and simulation as the
+discussions often carried new ideas of implementation.
+Q6: What AI tools did you use? For what specific purpose? What did you NOT use AI
+for?
+We used AI tools such as
+ChatGPT for:
+• Clarifying theoretical concepts
+Claude for:
+• Debugging Python code
+• Verifying intermediate steps in equations
+Google Gemini:
+• Pictorial representation of models and implementation of simulation
+We did not rely on AI for FBD and final derivations. We deduced the forces by ourselves and
+used AI to correct us and see if we are on the right path.
