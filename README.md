@@ -26,6 +26,7 @@ Python scripts required to reproduce the statistical findings presented in the m
 - `compute_irr.py`: Computes composite reliability (Cronbach's alpha) and rank concordance (Kendall's W) across the six-judge expert panel.
 - `deep_audit.py`: Computes paired t-tests, Cohen's d (pooled SD), and Hake's normalized gain.
 - `recompute_rubric.py`: Aggregates the external judge evaluation rubric scores and verifies judge consistency.
+- `verify_all_paper_stats.py`: Automated verification script cross-checking all reported numbers against raw datasets.
 - `final_review.py`: A holistic validation script ensuring alignment between datasets.
 
 ### `/instruments_and_rubrics`
@@ -36,11 +37,9 @@ Original pedagogical documents and assessment tools utilized during the 15-week 
 - `DSM_Presentation_Template.pptx`: The standardized presentation structure used by student teams during the exhibition.
 
 ### `/latex_manuscript`
-The complete LaTeX source code and compiled PDFs for the manuscript, formatted according to Frontiers guidelines.
-- `DSM_Frontiers_Manuscript.tex`: Clean revised manuscript source.
-- `DSM_Frontiers_Manuscript.pdf`: Clean revised compiled PDF.
-- `DSM_Frontiers_Manuscript_Highlighted.tex`: Tracked changes manuscript source (revisions highlighted in blue).
-- `DSM_Frontiers_Manuscript_Highlighted.pdf`: Tracked changes compiled PDF.
+The complete LaTeX source code and compiled manuscript PDF, formatted according to Frontiers guidelines.
+- `DSM_Frontiers_Manuscript.tex`: Main manuscript LaTeX source file.
+- `DSM_Frontiers_Manuscript.pdf`: Compiled manuscript PDF.
 - `DSM_references.bib`: Complete bibliography database.
 - `fig1_sfpbl_pipeline.jpg` through `fig4_qualitative_themes.jpg`: High-resolution figures.
 
