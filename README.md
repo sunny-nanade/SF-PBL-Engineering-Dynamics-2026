@@ -1,12 +1,12 @@
 # A Computationally-Integrated SF-PBL Framework for Engineering Dynamics
 
-**Status:** Supplementary Data and Code Repository for Frontiers in Education Submission
+**Status:** Revised Supplementary Data, Code, and Manuscript Repository (*Frontiers in Education*)
 
-This repository contains the empirical datasets, analysis scripts, pedagogical instruments, and LaTeX source files supporting the research article: 
+This repository contains the empirical datasets, analysis scripts, pedagogical instruments, and LaTeX source files supporting the revised research article: 
 *"A Computationally-Integrated Simulation-Focused Problem-Based Learning Framework for Engineering Dynamics: Design, Implementation, and Mixed-Methods Evaluation in an OBE-Aligned Undergraduate Course"*
 
-**Authors:** Sunny Nanade, Debasis Dash, Sudipto Sarkar, Koteswararao Anne
-**Affiliation:** Mukesh Patel School of Technology Management & Engineering, SVKM's NMIMS, Mumbai, India
+**Authors:** Sunny Nanade, Debasis Dash, Sudipto Sarkar, Koteswararao Anne  
+**Affiliation:** Mukesh Patel School of Technology Management & Engineering, SVKM's NMIMS, Mumbai, India  
 
 ---
 
@@ -23,6 +23,7 @@ Contains the anonymized survey and evaluation data for the 53 participating stud
 
 ### `/scripts`
 Python scripts required to reproduce the statistical findings presented in the manuscript.
+- `compute_irr.py`: Computes composite reliability (Cronbach's alpha) and rank concordance (Kendall's W) across the six-judge expert panel.
 - `deep_audit.py`: Computes paired t-tests, Cohen's d (pooled SD), and Hake's normalized gain.
 - `recompute_rubric.py`: Aggregates the external judge evaluation rubric scores and verifies judge consistency.
 - `final_review.py`: A holistic validation script ensuring alignment between datasets.
@@ -35,9 +36,12 @@ Original pedagogical documents and assessment tools utilized during the 15-week 
 - `DSM_Presentation_Template.pptx`: The standardized presentation structure used by student teams during the exhibition.
 
 ### `/latex_manuscript`
-The complete LaTeX source code for the manuscript, formatted according to the Frontiers journal guidelines.
-- `DSM_Frontiers_Manuscript.tex`: The main manuscript file.
-- `DSM_references.bib`: The bibliography database.
+The complete LaTeX source code and compiled PDFs for the manuscript, formatted according to Frontiers guidelines.
+- `DSM_Frontiers_Manuscript.tex`: Clean revised manuscript source.
+- `DSM_Frontiers_Manuscript.pdf`: Clean revised compiled PDF.
+- `DSM_Frontiers_Manuscript_Highlighted.tex`: Tracked changes manuscript source (revisions highlighted in blue).
+- `DSM_Frontiers_Manuscript_Highlighted.pdf`: Tracked changes compiled PDF.
+- `DSM_references.bib`: Complete bibliography database.
 - `fig1_sfpbl_pipeline.jpg` through `fig4_qualitative_themes.jpg`: High-resolution figures.
 
 ### `/student_projects`

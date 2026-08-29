@@ -11,6 +11,7 @@
 
 \usepackage{url,hyperref,lineno,microtype,subcaption}
 \usepackage[onehalfspacing]{setspace}
+\usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{multirow}
@@ -60,14 +61,14 @@
 Engineering dynamics courses demand simultaneous development of mathematical
 modelling, computational implementation, and communication competencies, yet
 conventional instruction rarely provides authentic contexts for their
-integration. The primary objective of this study was to design, implement,
+integration. {\color{blue} The primary objective of this study was to design, implement,
 and empirically evaluate a Simulation-Focused Problem-Based Learning
 (SF-PBL) framework that integrates first-principles Newtonian and
 Lagrangian mechanics with Python-based numerical simulation within an
 Outcome-Based Education (OBE)-aligned curriculum. The framework was
 embedded within a 15-week undergraduate Dynamic System
 Modeling (DSM) course ($N$\,=\,53, B.Tech Mechatronics Engineering, Semester
-IV, January--April 2026) at a single NBA-accredited institution in India. It
+IV, January--April 2026) at a single NBA-accredited institution in India. It}
 operationalises a four-phase computational pipeline---System
 Identification, Mathematical Modelling, Computational Simulation,
 Validation \& Communication---scaffolded through an Explain-Try-Challenge
@@ -84,10 +85,10 @@ satisfaction was high ($M$\,=\,3.74, $SD$\,=\,0.30). Eighty-five percent
 of students used AI tools, primarily for computational coding, while
 mathematical derivation remained predominantly human-led. Qualitative
 themes identified simulation validation, PID tuning, and linking derivation
-to computation as commonly reported breakthrough moments. Exhibition rubric scores
+to computation {\color{blue} as commonly reported breakthrough moments.} Exhibition rubric scores
 from 17 student projects evaluated by the six-judge panel ($M$\,=\,82.62/100,
 $SD$\,=\,9.98) confirmed strong authentic performance. The SF-PBL framework
-offers a replicable, empirically-evaluated model for computationally-integrated
+{\color{blue} offers a replicable, empirically-evaluated model for computationally-integrated}
 dynamics pedagogy in OBE-aligned STEM programmes.
 
 \tiny
@@ -161,7 +162,7 @@ NBA (India) and ABET (USA), explicit and auditable traceability from
 Course Outcomes through Bloom's taxonomy levels to rubric dimensions
 is rarely demonstrated empirically.
 
-These gaps distinguish the present work from three established pedagogical
+{\color{blue} These gaps distinguish the present work from three established pedagogical
 models. Classical PBL, as originally operationalised in medical education
 \citep{hmelo2004problem}, centres on open-ended clinical reasoning with no
 structured computational pipeline; the primary learning artefact is a
@@ -177,7 +178,7 @@ derivation, computational simulation, and authentic public defence form an
 interdependent sequence. Recent work on cross-disciplinary team formation in
 computationally-intensive XR engineering courses at the same institution
 \citep{nanade2026cross} further underscores the pedagogical value of
-structured active-learning interventions in engineering curricula.
+structured active-learning interventions in engineering curricula.}
 
 \subsection{Research Questions}
 
@@ -203,8 +204,8 @@ literature: (1)~a documented, replicable four-phase SF-PBL computational
 algorithm with full CO$\rightarrow$Bloom's$\rightarrow$NBA Programme
 Outcome traceability; (2)~an authentic assessment model using a
 six-domain external expert panel; (3)~empirical evidence of large-to-very-large
-pre-to-post learning gains ($d$\,$>$\,1.0) from a mixed-methods study
-within a single cohort ($N$\,=\,53); and (4)~a characterisation of emergent human--AI
+{\color{blue} pre-to-post learning gains ($d$\,$>$\,1.0) from a mixed-methods study
+within a single cohort ($N$\,=\,53);} and (4)~a characterisation of emergent human--AI
 complementarity within a structured PBL framework.
 
 %%% ═══════════════════════════════════════════════════════════════════════
@@ -255,8 +256,8 @@ Conceptualisation $\rightarrow$ Active Experimentation---maps directly onto
 the four SF-PBL phases, providing a further theoretical grounding for the
 sequential pipeline design.
 
-Table~\ref{tab:synthesis} summarises the alignment between these theoretical
-foundations, the SF-PBL phases, and the assessment instruments employed.
+{\color{blue} Table~\ref{tab:synthesis} summarises the alignment between these theoretical
+foundations, the SF-PBL phases, and the assessment instruments employed.}
 
 \begin{table}[h]
 \caption{\textbf{Theoretical--Pedagogical Synthesis:} Mapping of theoretical
@@ -300,7 +301,7 @@ CO5 & Implement ODE solvers in Python and validate simulations  & Create (L6)   
 \end{tabular}
 \end{table}
 
-In the NBA/OBE framework, Programme Outcome (PO) attainment is evidenced
+{\color{blue} In the NBA/OBE framework, Programme Outcome (PO) attainment is evidenced
 through Course Outcome performance. COs 1--4 map jointly to PO1 (Engineering
 Knowledge) and PO2 (Problem Analysis), assessed through the mathematical
 derivation and simulation phases of SF-PBL. CO5 additionally maps to PO5
@@ -310,7 +311,7 @@ dimension providing evidence for one or more POs: the Mathematics judge
 (NG) assesses CO1--CO4 directly, while the Industry~4.0 judge (MK) assesses
 CO5 through evaluation of computational implementation quality. Course
 Outcome attainment is analysed in Section~4.6 using both direct (MCQ) and
-indirect (self-efficacy) assessment evidence.
+indirect (self-efficacy) assessment evidence.}
 
 \subsection{The Explain-Try-Challenge (E-T-C) Instructional Model}
 \label{sec:etc}
@@ -379,9 +380,9 @@ Participation in the research survey was voluntary and anonymised; course
 grades were not affected by survey participation. Informed consent was
 obtained from all 53 participants prior to pre-survey administration. The two
 registered students who declined consent are excluded from all analyses;
-$N$\,=\,53 applies throughout this paper. As this is a single-cohort,
+$N$\,=\,53 applies throughout this paper. {\color{blue} As this is a single-cohort,
 single-institution study, findings should be interpreted within this
-specific institutional and cultural context.
+specific institutional and cultural context.}
 
 \subsection{The SF-PBL Four-Phase Computational Pipeline}
 
@@ -568,7 +569,7 @@ identified inductively, and each response was coded to its primary theme by
 frequency of occurrence across the cohort. Theme counts were verified by
 cross-checking coded responses.
 
-Because each of the six judges evaluated a distinct professional dimension
+{\color{blue} Because each of the six judges evaluated a distinct professional dimension
 (e.g., manufacturing, patent, mathematics, communication), classical pairwise
 agreement metrics such as Cohen's $\kappa$ are not directly applicable---the
 judges were not rating the same construct. Instead, inter-rater consistency
@@ -577,7 +578,7 @@ computed over the six judges' standardised percentage scores, measuring
 composite reliability of the panel as a whole; and (b)~Kendall's coefficient
 of concordance ($W$), which tests whether the six judges' rank-orderings of
 student performance are statistically concordant. These were computed using
-SciPy~1.11 and are reported in Section~4.5.
+SciPy~1.11 and are reported in Section~4.5.}
 
 %%% ═══════════════════════════════════════════════════════════════════════
 \section{Results}
@@ -806,16 +807,16 @@ Debasis Dash            & Behavioural Science         & HR Consultancy         &
 \end{tabular}
 \end{table}
 
-Inter-rater consistency across the six expert domains was assessed using
+{\color{blue} Inter-rater consistency across the six expert domains was assessed using
 two complementary metrics. Cronbach's $\alpha$, computed over the
 standardised percentage scores of the six judges, yielded
 $\alpha$\,=\,0.829, indicating high composite reliability. Kendall's
 coefficient of concordance was $W$\,=\,0.448,
 $\chi^2$(52)\,=\,139.63, $p$\,$<$\,.0001, confirming statistically
 significant agreement in the judges' rank-ordering of student performance
-across all six professional domains.
+across all six professional domains.}
 
-\subsection{Course Outcome Attainment (OBE)}
+{\color{blue} \subsection{Course Outcome Attainment (OBE)}
 \label{sec:coattainment}
 
 Table~\ref{tab:coattain} presents Course Outcome attainment evidence from
@@ -862,7 +863,7 @@ hands-on experience, while the MCQ items for kinematics (PK1) and FBD
 construction (PK2) assessed deeper conceptual discrimination that the
 intervention did not fully address within the 15-week timeframe. This
 finding identifies CO1 and CO2 as targets for additional scaffolding in
-future implementations.
+future implementations.}
 
 \subsection{AI Tool Usage (RQ3)}
 
@@ -937,7 +938,7 @@ frequency counts verified by independent re-coding.}
 \section{Discussion}
 %%% ═══════════════════════════════════════════════════════════════════════
 
-All findings reported below are interpreted within the constraints of a
+{\color{blue} All findings reported below are interpreted within the constraints of a
 single-group pretest-posttest design
 \citep{campbell1963experimental}. In the absence of a concurrent control
 group, observed pre-to-post gains cannot be exclusively attributed to the
@@ -945,7 +946,7 @@ SF-PBL intervention; maturation effects, assessment familiarity, and
 general course exposure represent plausible alternative explanations.
 The following discussion therefore interprets the data as evidence
 consistent with, though not proof of, the framework's pedagogical
-effectiveness.
+effectiveness.}
 
 \subsection{Self-Efficacy Gains: Magnitude, Pattern, and Interpretation}
 
@@ -954,7 +955,7 @@ exceeds those reported in comparable engineering education PBL studies.
 \citet{freeman2014active} found a mean $d$\,$\approx$\,0.47 across 225
 active-learning comparisons; \citet{dochy2003effects} reported
 $d$\,$\approx$\,0.65 for knowledge outcomes in PBL-versus-conventional
-meta-analyses. Three factors contextualise the magnitude of the present
+meta-analyses. {\color{blue} Three factors contextualise the magnitude of the present
 finding and warrant careful interpretation. First, the narrow pre-survey
 SD ($SD$\,=\,0.21 on a 5-point scale) reflects baseline range
 restriction where students uniformly reported low-to-moderate confidence
@@ -973,14 +974,14 @@ it represents a reliable, cohort-wide shift from approximately ``Neutral''
 to ``Agree'' on domain-specific competency statements, a meaningful
 pedagogical outcome regardless of the standardised metric employed.
 Readers should therefore interpret the effect size magnitude with awareness
-of the baseline variance characteristics of this specific cohort.
+of the baseline variance characteristics of this specific cohort.}
 
 Second, the differential gain pattern across items is theoretically
 noteworthy. The two largest-gain items---SE8 (PID Tuning, $d$\,=\,2.22)
 and SE3 (Newton's EOM, $d$\,=\,2.14)---correspond precisely to the most
 active and generative phases of the SF-PBL pipeline (Phases 2 and 3).
-This pattern is consistent with the interpretation that the computational
-integration mechanism activated the intended outcomes through Bandura's
+{\color{blue} This pattern is consistent with the interpretation that the computational
+integration mechanism activated the intended outcomes} through Bandura's
 \citeyearpar{bandura1997self} mastery experience pathway, rather than
 producing undifferentiated, uniform gains.
 The smallest-gain item (SE5: State-Space, $d$\,=\,1.46) reflects the
@@ -1047,14 +1048,14 @@ and (5)~the \textit{criteria} were domain-expert standards from industry,
 academia, and practice.
 
 The combined panel mean of 82.62/100 ($SD$\,=\,9.98, range\,=\,53--96)
-indicates meaningful score discrimination: the 43-point range separates
+{\color{blue} indicates meaningful score discrimination}: the 43-point range separates
 the lowest-performing team (53/100) from the highest (96/100), reflecting
 genuine project quality differences. The IP/Patent judge awarded the lowest
 relative mean (78.3\%), appropriately reflecting rigorous novelty
 evaluation. The Industry~4.0 judge (Siemens: 85.5\%) awarded the highest,
 affirming professional-standard digital engineering communication.
 
-\subsection{The Breakthrough Theme: A Widely Observed Learning Landmark}
+{\color{blue} \subsection{The Breakthrough Theme: A Widely Observed Learning Landmark}}
 
 The dominant OE3 breakthrough theme---\textit{linking mathematical
 derivation to simulation output} ($n$\,=\,20, 37.7\%)---directly validates
@@ -1062,7 +1063,7 @@ SF-PBL's theoretical core: that computation serves as the
 \textit{verification bridge} between abstract mathematical formalism and
 physical intuition. Three features of this finding deserve emphasis.
 First, it appeared independently of AI tool usage, project domain, and team
-size, suggesting it may represent a \textbf{common learning landmark} in
+size, {\color{blue} suggesting it may represent a \textbf{common learning landmark}} in
 computationally-integrated dynamics education. Second, the specific phrasing
 of student responses---\textit{``I understood what the equations meant
 physically''}---reflects Bandura's \citeyearpar{bandura1997self} mastery
@@ -1077,11 +1078,11 @@ $d$\,=\,2.22), triangulating the quantitative and qualitative data.
 The SF-PBL framework offers three directly replicable pedagogical
 contributions. First, the \textbf{four-phase pipeline} (System ID
 $\rightarrow$ EOMs $\rightarrow$ Simulation $\rightarrow$ Validation) is
-designed to be domain-adaptable; its transferability to related subjects such
+{\color{blue} designed to be domain-adaptable; its transferability to related subjects such
 as thermodynamics, fluid mechanics, structural analysis, and control systems
 warrants empirical investigation, as the core pedagogical logic of ``derive
 first, simulate second, validate third'' is broadly applicable in computational
-engineering education. Second, the \textbf{E-T-C lecture model} provides
+engineering education.} Second, the \textbf{E-T-C lecture model} provides
 active-learning scaffolding within existing contact hours without requiring
 timetable restructuring, making adoption feasible for institutions with rigid
 curricula. Third, the \textbf{six-judge external rubric with CO$\rightarrow$PO
@@ -1099,17 +1100,17 @@ or assessment familiarity effects. \textit{External validity}: the sample
 ($N$\,=\,53) is from a single institution, programme, and cohort in the
 Indian engineering education context, limiting generalisability. 
 \textit{Measurement}: AI usage data is self-reported and subject to social
-desirability bias; while inter-rater composite reliability and rank
+desirability bias; {\color{blue} while inter-rater composite reliability and rank
 concordance were high (Cronbach's $\alpha$\,=\,0.829, Kendall's $W$\,=\,0.448,
 $p$\,$<$\,.0001), the multi-domain architecture means judges evaluated distinct
 professional constructs rather than identical criteria, precluding classical
 pairwise consensus metrics ($\kappa$); and the narrow pre-survey SE standard
-deviation reflects baseline range restriction. \textit{Timeframe}: the study
+deviation reflects baseline range restriction.} \textit{Timeframe}: the study
 captures outcomes at one post-point immediately following the exhibition;
 longitudinal follow-up at six and twelve months would assess retention
 and transfer.
 
-Future research should: (1)~replicate the SF-PBL framework across multiple
+Future research should: {\color{blue} (1)~replicate the SF-PBL framework across multiple
 institutions and engineering disciplines using a quasi-experimental or
 controlled comparison design---a companion study at the same institution
 \citep{nanade2026cross} demonstrates the methodological feasibility of such
@@ -1118,7 +1119,7 @@ comparative evaluations in computationally-intensive engineering education;
 correlation coefficients (ICC) across fine-grained sub-rubric criteria;
 (3)~conduct longitudinal follow-up at six and twelve months to assess whether
 self-efficacy and conceptual gains persist into subsequent core courses and
-capstone projects; (4)~investigate the ``derivation-to-simulation
+capstone projects;} (4)~investigate the ``derivation-to-simulation
 breakthrough'' as a targetable threshold concept through think-aloud
 protocols and process tracing; and (5)~develop and validate an AI use
 reflection instrument that characterises productive human--AI
@@ -1128,11 +1129,11 @@ complementarity in PBL contexts.
 \section{Conclusion}
 %%% ═══════════════════════════════════════════════════════════════════════
 
-This study fulfilled its primary objective---to design, implement, and
+{\color{blue} This study fulfilled its primary objective---to design, implement, and
 empirically evaluate the Simulation-Focused Problem-Based Learning (SF-PBL)
 framework---through a mixed-methods evaluation in an undergraduate
 engineering dynamics course ($N$\,=\,53) at a single NBA-accredited
-institution within a single-cohort context. The framework operationalised
+institution within a single-cohort context.} The framework operationalised
 a four-phase computational pipeline---System Identification, Mathematical
 Modelling, Python-based ODE Simulation, and Validation \&
 Communication---within a 15-week OBE-aligned course, assessed by a six-judge
@@ -1157,9 +1158,9 @@ analytical EOM derivation to simulation output (37.7\%)---triangulates
 with the largest-gain SE items, providing cross-strand validation of
 the framework's core mechanism.
 
-The SF-PBL framework offers a replicable, empirically-evaluated, and
+{\color{blue} The SF-PBL framework offers a replicable, empirically-evaluated, and
 OBE-compliant pedagogical model whose broader applicability warrants
-controlled replication across diverse institutional contexts.
+controlled replication across diverse institutional contexts.}
 
 %%% ─── BACK MATTER ───────────────────────────────────────────────────────
 
